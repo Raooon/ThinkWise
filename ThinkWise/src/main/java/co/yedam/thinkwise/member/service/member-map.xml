@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.thinkwise.member.service.MemberMapper">
+	<select id="selectMember" resultType="co.yedam.thinkwise.member.service.MemberVO">
+	
+	</select>
+	
+	<insert id="insertMember" parameterType="co.yedam.thinkwise.member.service.MemberVO">
+	
+	</insert>
+	
+	<delete id="deleteMember" parameterType="co.yedam.thinkwise.member.service.MemberVO">
+	
+	</delete>
+	
+	<update id="updateMember" parameterType="co.yedam.thinkwise.member.service.MemberVO">
+	
+	</update>
+</mapper>

@@ -13,7 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.thinkwise.comm.Command;
 import co.yedam.thinkwise.command.HomeCommand;
+
 import co.yedam.thinkwise.notice.NoticeList;
+
+import co.yedam.thinkwise.command.MemberInputForm;
+
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -27,6 +31,7 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 
 		map.put("/home.do", new HomeCommand()); // 첫페이지 호출
+		map.put("/memberInputForm.do", new MemberInputForm());	//회원가입 폼으로 이동
 
 		map.put("/noticeList.do", new NoticeList()); // 첫페이지 호출
 	}
