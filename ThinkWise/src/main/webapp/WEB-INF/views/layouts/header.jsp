@@ -59,7 +59,7 @@
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact Us</a>
+                  <a class="nav-link" href="memberInputForm.do">Contact Us</a>
                 </li>
 
               </ul>
