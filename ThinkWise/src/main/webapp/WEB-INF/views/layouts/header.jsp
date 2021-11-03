@@ -30,7 +30,7 @@
 <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="home.do">
             <span>
               Fanadesh
             </span>
@@ -64,6 +64,10 @@
                 
                 <li class="nav-item">
                   <a class="nav-link" href="carlendar.do">calendar</a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="memberList.do">MemberList</a>
                 </li>
 
               </ul>
