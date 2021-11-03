@@ -18,45 +18,44 @@ import co.yedam.thinkwise.command.HomeCommand;
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private HashMap<String, Command> map = new HashMap<String, Command>();
-	
-    public FrontController() {
-        super();
-    }
 
-	public void init(ServletConfig config) throws ServletException {
-		
-		map.put("/home.do", new HomeCommand());	//첫페이지 호출
-		
-		
+	public FrontController() {
+		super();
 	}
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public void init(ServletConfig config) throws ServletException {
+
+		map.put("/home.do", new HomeCommand()); // 첫페이지 호출
+
+	}
+
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		request.setCharacterEncoding("UTF-8");
-		
-		String uri = request.getRequestURI();
-		String contextPath = request.getContextPath();
-		String page = uri.substring(contextPath.length());
-		
-		Command command = map.get(page);
-		String viewPage = command.run(request, response);
-		
-		/*
-		 * if(viewPage != null && !viewPage.endsWith(".do")) {
-		 * if(viewPage.startsWith("ajax:")) {
-		 * response.setContentType("text/plain; charset=utf-8");
-		 * response.getWriter().append(viewPage.substring(5)); return; }
-		 * 
-		 * if(viewPage.endsWith(".jsp")) viewPage ="WEB-INF/views/" + viewPage; else
-		 * viewPage = viewPage + ".tiles"; }
-		 */
-		
-		if(!viewPage.endsWith(".do")) {
-			viewPage = "WEB-INF/views/" + viewPage + ".jsp";
-		}
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
-		dispatcher.forward(request, response);
+	      String uri = request.getRequestURI();
+	      String contextPath = request.getContextPath();
+	      String page = uri.substring(contextPath.length());
+	      
+	      Command command = map.get(page);
+	      String viewPage = command.run(request, response);
+	      
+	      if(viewPage != null && !viewPage.endsWith(".do")) {
+	         if(viewPage.startsWith("ajax:")) { //ajax리턴
+	            response.setContentType("text/plain; charset=UTF-8");
+	            response.getWriter().append(viewPage.substring(5));
+	            return;
+	         }
+	         
+	         if(viewPage.endsWith(".jsp")) { //tiles 적용 안 할 때
+	            viewPage = "WEB-INF/views/" + viewPage;
+	         }else { //tiles 적용
+	            viewPage = viewPage + ".tiles";
+	         }
+	      }
+	      
+	      RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
+	      dispatcher.forward(request, response);
 	}
 
 }

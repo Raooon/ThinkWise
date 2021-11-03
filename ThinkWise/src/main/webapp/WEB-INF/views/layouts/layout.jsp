@@ -1,12 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!-- Mobile Metas -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+<title><tiles:getAsString name="title" /></title>
+
 <!-- bootstrap core css -->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="template/css/bootstrap.css" />
 <!-- progress barstle -->
 <link rel="stylesheet" href="template/css/css-circular-prog-bar.css">
 <!-- fonts style -->
@@ -26,18 +34,16 @@
 
 </head>
 <body>
-<section class="hero_section ">
-      <div class="hero-container container">
-        <div class="hero_detail-box">
-        </div>
-        <div class="hero_img-container">
-          <div>
-            <img src="template/images/hero.png" alt="" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </section>
-    <script type="text/javascript" src="template/js/jquery-3.4.1.min.js"></script>
+	<div class="top_container">
+			<tiles:insertAttribute name="header" />
+		<div>
+			<tiles:insertAttribute name="body" />
+		</div>
+	</div>
+		<div>
+			<tiles:insertAttribute name="footer" />
+		</div>
+		<script type="text/javascript" src="template/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="template/js/bootstrap.js"></script>
 </body>
 </html>
