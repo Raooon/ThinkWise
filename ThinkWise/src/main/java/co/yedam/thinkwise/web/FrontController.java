@@ -24,11 +24,16 @@ public class FrontController extends HttpServlet {
     }
 
 	public void init(ServletConfig config) throws ServletException {
+		
 		map.put("/home.do", new HomeCommand());	//첫페이지 호출
+		
+		
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.setCharacterEncoding("UTF-8");
+		
 		String uri = request.getRequestURI();
 		String contextPath = request.getContextPath();
 		String page = uri.substring(contextPath.length());
