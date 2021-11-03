@@ -30,7 +30,7 @@
 <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="home.do">
             <span>
               Fanadesh
             </span>
@@ -44,7 +44,7 @@
             <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav  ">
                 <li class="nav-item active">
-                  <a class="nav-link" href="index.html"> Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="home.do"> Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ">
                   <a class="nav-link" href="noticeList.do"> Notice </a>
@@ -75,5 +75,6 @@
     
 <script type="text/javascript" src="template/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="template/js/bootstrap.js"></script>
+
 </body>
 </html>
