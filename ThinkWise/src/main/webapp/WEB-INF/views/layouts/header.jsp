@@ -61,6 +61,10 @@
                 <li class="nav-item">
                   <a class="nav-link" href="memberInputForm.do">Contact Us</a>
                 </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="carlendar.do">calendar</a>
+                </li>
 
               </ul>
             </div>
