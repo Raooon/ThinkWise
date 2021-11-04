@@ -17,7 +17,9 @@ import co.yedam.thinkwise.command.HomeCommand;
 
 import co.yedam.thinkwise.command.MemberInput;
 import co.yedam.thinkwise.command.MemberInputForm;
-import co.yedam.thinkwise.command.MemberList;
+
+import co.yedam.thinkwise.command.SelectMemberList;
+
 
 import co.yedam.thinkwise.notice.NoticeList;
 
@@ -41,7 +43,7 @@ public class FrontController extends HttpServlet {
 		
 
 		
-		map.put("/memberList.do", new MemberList()); //멤버목록(어드민)
+		map.put("/selectMemberList.do", new SelectMemberList()); //멤버목록(어드민)
 
 		map.put("/carlendar.do", new Carlendar()); //캘린더
 	}
