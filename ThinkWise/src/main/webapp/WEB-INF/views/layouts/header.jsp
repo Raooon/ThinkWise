@@ -7,9 +7,11 @@
 <title>Insert title here</title>
 
 <!-- bootstrap core css -->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="template/css/bootstrap.css" />
 <!-- progress barstle -->
+<!-- 
 <link rel="stylesheet" href="template/css/css-circular-prog-bar.css">
+ -->
 <!-- fonts style -->
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,600&display=swap"
@@ -21,8 +23,6 @@
 <link href="template/css/style.css" rel="stylesheet" />
 <!-- responsive style -->
 <link href="template/css/responsive.css" rel="stylesheet" />
-
-<link rel="stylesheet" href="template/css/css-circular-prog-bar.css">
 
 
 </head>

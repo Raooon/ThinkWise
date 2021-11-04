@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<!-- 
 <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
 
@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="yswtemp/css/flaticon.css">
 <link rel="stylesheet" href="yswtemp/css/icomoon.css">
 <link rel="stylesheet" href="yswtemp/css/style.css">
-
+ -->
 </head>
 <body>
 	<section class="ftco-section bg-light">
@@ -33,7 +33,7 @@
 			<div class="row justify-content-center mb-5 pb-2">
 				<div class="col-md-8 text-center heading-section ftco-animate">
 					<h2 class="mb-4">
-						<span>Recent</span> Blog
+						<span>Recent</span> Blog666
 					</h2>
 					<p>Separated they live in. A small river named Duden flows by
 						their place and supplies it with the necessary regelialia. It is a
@@ -54,7 +54,7 @@
 			
 		</div>
 	</section>
-
+<!-- 
 	<script src="yswtemp/js/jquery.min.js"></script>
 	
 	<script src="yswtemp/js/jquery-migrate-3.0.1.min.js"></script>
@@ -73,16 +73,19 @@
 	<script src="yswtemp/js/google-map.js"></script>
 	
 	<script src="yswtemp/js/main.js"></script>
-
+ -->
 <script>
 
-//	$(document).ready(function(){
-//	});
-		
 			console.log('111');
-			makeDiv();
+			//makeDiv();
 			console.log('222');
+	/*	
+	
+	$(document).ready(function(){
 		
+	});
+		
+	*/	
 
 function makeDiv() {
 	
