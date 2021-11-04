@@ -15,7 +15,7 @@ public class SelectMyInfo implements Command {
 		MemberService memberDao = new MemberServiceImpl();
 		MemberMyInfoVO vo = new MemberMyInfoVO();
 		vo.setEmail("");
-		memberDao.selectMyInfo(null);
+		//memberDao.selectMyInfo(null);
 		
 		return "member/selectMyInfo";
 	}

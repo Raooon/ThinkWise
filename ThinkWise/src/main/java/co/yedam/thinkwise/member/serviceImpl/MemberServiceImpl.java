@@ -39,6 +39,6 @@ public class MemberServiceImpl implements MemberService {
 		return map.updateMember(vo);
 	}
 
-	}
+
 
 }
