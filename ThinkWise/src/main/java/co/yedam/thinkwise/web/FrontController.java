@@ -15,11 +15,21 @@ import co.yedam.thinkwise.comm.Command;
 import co.yedam.thinkwise.command.Carlendar;
 import co.yedam.thinkwise.command.HomeCommand;
 
+import co.yedam.thinkwise.command.Location;
+
 import co.yedam.thinkwise.command.MemberInput;
 import co.yedam.thinkwise.command.MemberInputForm;
 
 import co.yedam.thinkwise.command.SelectMemberList;
 import co.yedam.thinkwise.command.MemberCheck;
+
+import co.yedam.thinkwise.command.MemberList;
+import co.yedam.thinkwise.notice.NoticeInsert;
+import co.yedam.thinkwise.notice.NoticeInsertForm;
+
+import co.yedam.thinkwise.command.SelectMemberList;
+import co.yedam.thinkwise.command.SelectMyInfo;
+
 import co.yedam.thinkwise.notice.NoticeList;
 
 
@@ -38,13 +48,24 @@ public class FrontController extends HttpServlet {
 		map.put("/memberCheck.do", new MemberCheck());	//중복체크
 		map.put("/memberInput.do", new MemberInput());	//회원가입
 
+
+		map.put("/memberList.do", new MemberList()); //멤버목록(어드민)
+
 		map.put("/noticeList.do", new NoticeList()); // 첫페이지 호출
 		
-
-		
 		map.put("/selectMemberList.do", new SelectMemberList()); //멤버목록(어드민)
+		map.put("/selectMyInfo.do", new SelectMyInfo()); //내정보
+
 
 		map.put("/carlendar.do", new Carlendar()); //캘린더
+		map.put("/location.do", new Location()); //찾아오는 길
+
+		//board, notice
+		map.put("/noticeList.do", new NoticeList()); // 공지사항 조회
+		
+		map.put("/noticeInsertForm.do", new NoticeInsertForm()); // 공지사항 등록 폼
+		map.put("/noticeInsert.do", new NoticeInsert()); // 공지사항 등록
+		
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
