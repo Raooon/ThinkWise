@@ -36,7 +36,7 @@
 		background-color: #E8BF12;
 		display: block;
 	}
-	*/
+*/	
 </style>
 
 </head>
@@ -46,7 +46,7 @@
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="home.do">
             <span>
-              Fanadesh
+              ThinkWise
             </span>
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

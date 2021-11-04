@@ -5,16 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.thinkwise.comm.Command;
 
-public class NoticeList implements Command {
+public class NoticeInsertForm implements Command {
 
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
 		
-		NoticeService noticeDao = new NoticeServiceImpl();
-		
-		request.setAttribute("notices", noticeDao.noticeList());
-		
-		return "board/notice";
+		return "board/noticeInsertForm";
 	}
 
 }

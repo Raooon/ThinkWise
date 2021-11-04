@@ -17,6 +17,6 @@
 	    </environments>
 	    
  		<mappers>
-        	<mapper resource=""/>
+        	<mapper resource="co/yedam/thinkwise/notice/notice-map.xml"/>
     	</mappers>
 </configuration>
