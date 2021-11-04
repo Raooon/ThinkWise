@@ -78,6 +78,10 @@
                 <li class="nav-item">
                   <a class="nav-link" href="memberList.do">MemberList</a>
                 </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="location.do">location</a>
+                </li>
 
               </ul>
             </div>
