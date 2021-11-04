@@ -33,9 +33,7 @@ public class FrontController extends HttpServlet {
 		map.put("/home.do", new HomeCommand()); // 첫페이지 호출
 		map.put("/memberInputForm.do", new MemberInputForm());	//회원가입 폼으로 이동
 
-		map.put("/noticeList.do", new NoticeList()); // 첫페이지 호출
-		
-
+		map.put("/noticeList.do", new NoticeList()); // 공지사항
 		
 		map.put("/memberList.do", new MemberList()); //멤버목록(어드민)
 
