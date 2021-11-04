@@ -15,26 +15,45 @@ public class MemberInput implements Command {
 		// 회원가입
 		MemberService memberDao = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
-		
 		String viewPage = null;
+		
 		vo.setEmail(request.getParameter("email"));
+		System.out.println(request.getParameter("email"));
 		
-		vo = memberDao.selectMember(vo);
+		vo.setPassword(request.getParameter("password"));
+		System.out.println(request.getParameter("email"));
 		
-		if (vo != null) {
-			request.setAttribute("message", "이미 존재하는 아이디 입니다.");
-			viewPage = "member/memberinput";
+		vo.setName(request.getParameter("name"));
+		System.out.println(request.getParameter("email"));
+		
+		vo.setGender(request.getParameter("gender"));
+		System.out.println(request.getParameter("email"));
+		
+		vo.setBirth(request.getParameter("birth").replaceAll("-", ""));
+		System.out.println(request.getParameter("birth").replaceAll("-", ""));
+		
+		vo.setTel(request.getParameter("tel"));
+		System.out.println(request.getParameter("email"));
+		
+		vo.setAddress(request.getParameter("address"));
+		System.out.println(request.getParameter("email"));
+		
+		vo.setDivision(request.getParameter("division"));
+		System.out.println(request.getParameter("email"));
+		
+		vo.setParent(request.getParameter("parent"));
+		System.out.println(request.getParameter("email"));
+		
+		int n = memberDao.insertMember(vo);
+		if( n != 0) {
+			request.setAttribute("message", "회원가입을 완료하였습니다.");
+			viewPage = "member/login";
 		} else {
-			MemberVO vo1 = new MemberVO();
-			vo1.setEmail(request.getParameter("email"));
-			vo1.setPassword(request.getParameter("password"));
-			vo1.setName(request.getParameter("name"));
-			vo1.setGender(request.getParameter("gender"));
-			vo1.setBirth(request.getParameter("birth"));
-			
+			request.setAttribute("message", "회원가입을 실패하였습니다.");
+			viewPage = "member/memberInput";
 		}
-		vo = memberDao.selectMember(vo);
-		return "member/login";
-	}
+		
+		return viewPage;
+}
 
 }

@@ -38,4 +38,9 @@ public class MemberServiceImpl implements MemberService {
 		return map.updateMember(vo);
 	}
 
+	@Override
+	public int selectEmail(MemberVO vo) {
+		return map.selectEmail(vo);
+	}
+
 }
