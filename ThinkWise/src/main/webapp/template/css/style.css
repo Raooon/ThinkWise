@@ -118,7 +118,7 @@ a:focus {
   background-color: #fdd31d;
   background-image: none;
 }
-
+/*
 .top_container::after {
   content: "";
   position: absolute;
@@ -129,10 +129,10 @@ a:focus {
   background-color: #fdd31d;
 }
 
-
 .sub_page .top_container::after {
   display: none;
 }
+*/
 
 
 .navbar-brand img {

@@ -15,8 +15,11 @@
 
 <!-- bootstrap core css -->
 <link rel="stylesheet" type="text/css" href="template/css/bootstrap.css" />
+
 <!-- progress barstle -->
+<!-- 
 <link rel="stylesheet" href="template/css/css-circular-prog-bar.css">
+ -->
 <!-- fonts style -->
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,600&display=swap"
@@ -29,21 +32,24 @@
 <!-- responsive style -->
 <link href="template/css/responsive.css" rel="stylesheet" />
 
-<link rel="stylesheet" href="template/css/css-circular-prog-bar.css">
-
-
 </head>
 <body>
+ 
 	<div class="top_container">
+	
+		<div>
 			<tiles:insertAttribute name="header" />
+		</div>
+		
 		<div>
 			<tiles:insertAttribute name="body" />
 		</div>
+		
 	</div>
 	
-		<div>
-			<tiles:insertAttribute name="footer" />
-		</div>
+	<div>
+		<tiles:insertAttribute name="footer" />
+	</div>
 		
 <script type="text/javascript" src="template/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="template/js/bootstrap.js"></script>

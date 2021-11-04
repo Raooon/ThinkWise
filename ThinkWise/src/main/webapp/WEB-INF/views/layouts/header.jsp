@@ -7,9 +7,11 @@
 <title>Insert title here</title>
 
 <!-- bootstrap core css -->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="template/css/bootstrap.css" />
 <!-- progress barstle -->
+<!-- 
 <link rel="stylesheet" href="template/css/css-circular-prog-bar.css">
+ -->
 <!-- fonts style -->
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,600&display=swap"
@@ -22,8 +24,6 @@
 <!-- responsive style -->
 <link href="template/css/responsive.css" rel="stylesheet" />
 
-<link rel="stylesheet" href="template/css/css-circular-prog-bar.css">
-
 <style>
 	header{
 		position: fixed;
@@ -33,7 +33,6 @@
 		background-color: #E8BF12;
 	}
 </style>
-
 
 </head>
 <body>
@@ -54,7 +53,7 @@
             <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav  ">
                 <li class="nav-item active">
-                  <a class="nav-link" href="index.html"> Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="home.do"> Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ">
                   <a class="nav-link" href="noticeList.do"> Notice </a>
@@ -89,5 +88,6 @@
     
 <script type="text/javascript" src="template/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="template/js/bootstrap.js"></script>
+
 </body>
 </html>
