@@ -78,6 +78,10 @@
                 <li class="nav-item">
                   <a class="nav-link" href="selectMemberList.do">MemberList</a>
                 </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="selectMyInfo.do">MyProfile</a>
+                </li>
 
               </ul>
             </div>

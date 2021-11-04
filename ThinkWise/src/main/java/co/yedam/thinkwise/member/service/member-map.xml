@@ -8,6 +8,10 @@
 		</if>
 	</select>
 	
+	<select id="selectMyInfo" resultType="co.yedam.thinkwise.member.service.MemberMyInfoVO">
+		select * from vw_member_info where email = #{email}
+	</select>
+	
 	<insert id="insertMember" parameterType="co.yedam.thinkwise.member.service.MemberVO">
 		insert into member values(member_seq.nextval, #{password}, #{name}, #{gender}, #{birth}, #{tel}, #{email}, #{address}, #{division}, #{parent})
 	</insert>
