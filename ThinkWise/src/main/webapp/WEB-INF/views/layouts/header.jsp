@@ -24,6 +24,16 @@
 
 <link rel="stylesheet" href="template/css/css-circular-prog-bar.css">
 
+<style>
+	header{
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background-color: #E8BF12;
+	}
+</style>
+
 
 </head>
 <body>

@@ -35,9 +35,11 @@ public class FrontController extends HttpServlet {
 
 		map.put("/noticeList.do", new NoticeList()); // 첫페이지 호출
 		
-		map.put("carlendar.do", new Carlendar()); //캘린더
+
 		
 		map.put("/memberList.do", new MemberList()); //멤버목록(어드민)
+
+		map.put("/carlendar.do", new Carlendar()); //캘린더
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
