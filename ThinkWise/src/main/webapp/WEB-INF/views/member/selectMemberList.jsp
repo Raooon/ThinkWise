@@ -13,6 +13,12 @@
 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
 <link href="mltemp/css/styles.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+<style>
+   #layoutSidenav{
+      margin: 70px;
+      padding-top: 30px;
+   }
+</style>
 </head>
 <body>
 	<div id="layoutSidenav">
@@ -29,13 +35,13 @@
 								<thead>
 									<tr>
 										<th>Id</th>
+										<th>Email</th>
 										<th>Password</th>
 										<th>Name</th>
-										<th>Gender</th>
 										<th>Birth</th>
 										<th>Telephone</th>
-										<th>Email</th>
 										<th>Address</th>
+										<th>Gender</th>
 										<th>Division</th>
 										<th>Parent</th>
 									</tr>
@@ -44,13 +50,13 @@
 									<c:forEach items="${members }" var="member">
 										<tr>
 											<td>${member.id }</td>
+											<td>${member.email }</td>
 											<td>${member.password }</td>
 											<td>${member.name }</td>
-											<td>${member.gender }</td>
 											<td>${member.birth }</td>
 											<td>${member.tel }</td>
-											<td>${member.email }</td>
 											<td>${member.address }</td>
+											<td>${member.gender }</td>
 											<td>${member.division }</td>
 											<td>${member.parent }</td>
 										</tr>
