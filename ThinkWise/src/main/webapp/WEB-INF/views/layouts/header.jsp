@@ -76,7 +76,7 @@
                 </li>
                 
                 <li class="nav-item">
-                  <a class="nav-link" href="memberList.do">MemberList</a>
+                  <a class="nav-link" href="selectMemberList.do">MemberList</a>
                 </li>
 
               </ul>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,33 +28,33 @@
 							<table id="datatablesSimple">
 								<thead>
 									<tr>
+										<th>Id</th>
+										<th>Password</th>
 										<th>Name</th>
-										<th>Position</th>
-										<th>Office</th>
-										<th>Age</th>
-										<th>Start date</th>
-										<th>Salary</th>
+										<th>Gender</th>
+										<th>Birth</th>
+										<th>Telephone</th>
+										<th>Email</th>
+										<th>Address</th>
+										<th>Division</th>
+										<th>Parent</th>
 									</tr>
 								</thead>
-								<tfoot>
-									<tr>
-										<th>Name</th>
-										<th>Position</th>
-										<th>Office</th>
-										<th>Age</th>
-										<th>Start date</th>
-										<th>Salary</th>
-									</tr>
-								</tfoot>
 								<tbody>
-									<tr>
-										<td>Tiger Nixon</td>
-										<td>System Architect</td>
-										<td>Edinburgh</td>
-										<td>61</td>
-										<td>2011/04/25</td>
-										<td>$320,800</td>
-									</tr>
+									<c:forEach items="${members }" var="member">
+										<tr>
+											<td>${member.id }</td>
+											<td>${member.password }</td>
+											<td>${member.name }</td>
+											<td>${member.gender }</td>
+											<td>${member.birth }</td>
+											<td>${member.tel }</td>
+											<td>${member.email }</td>
+											<td>${member.address }</td>
+											<td>${member.division }</td>
+											<td>${member.parent }</td>
+										</tr>
+									</c:forEach>
 									<tr>
 										<td>Garrett Winters</td>
 										<td>Accountant</td>
