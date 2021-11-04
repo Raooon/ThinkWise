@@ -10,6 +10,10 @@ public class NoticeList implements Command {
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
 		
+		NoticeService noticeDao = new NoticeServiceImpl();
+		
+		request.setAttribute("notices", noticeDao.noticeList());
+		
 		return "board/notice";
 	}
 

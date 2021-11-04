@@ -1,17 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<!-- 
-<link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+<title></title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Fredericka+the+Great"
+	rel="stylesheet">
 
 <link rel="stylesheet" href="yswtemp/css/open-iconic-bootstrap.min.css">
 <link rel="stylesheet" href="yswtemp/css/animate.css">
-
 
 <link rel="stylesheet" href="yswtemp/css/owl.carousel.min.css">
 <link rel="stylesheet" href="yswtemp/css/owl.theme.default.min.css">
@@ -24,39 +30,83 @@
 <link rel="stylesheet" href="yswtemp/css/flaticon.css">
 <link rel="stylesheet" href="yswtemp/css/icomoon.css">
 <link rel="stylesheet" href="yswtemp/css/style.css">
- -->
 </head>
 <body>
+
+
 	<section class="ftco-section bg-light">
 		<div class="container">
-		
 			<div class="row justify-content-center mb-5 pb-2">
 				<div class="col-md-8 text-center heading-section ftco-animate">
 					<h2 class="mb-4">
-						<span>Recent</span> Blog666
+						<span>공지</span> 사항
 					</h2>
-					<p>Separated they live in. A small river named Duden flows by
-						their place and supplies it with the necessary regelialia. It is a
-						paradisematic country</p>
+					<p>여기는 공지사항의 간단 설명이 들어가는 곳</p>
 				</div>
 			</div>
-			
-			<!-- 게시글 시작 -->
-			
-			<div class="row" id="noticeRow">
-			
-				<!-- 게시글 들어가는 곳 - 3개 -->
+			<div align="right">
+							<!-- Read More -->
+				<!-- 리스트로 넘기는 곳 -->
+				<div class="hero_btn-continer">
+					<a href="" class="call_to-btn btn_white-border"> Read More </a>
+				</div>
+				<!-- Read More -->
 				
+				<!-- 글 쓰기 버튼 -->
+				<!-- 권한에 따라 안보이게 -->
+				<div class="hero_btn-continer">
+					<a href="noticeInsertForm.do" class="call_to-btn btn_white-border"> 공지사항 등록 </a>
+				</div>
+				<!-- 글 쓰기 버튼 -->
+			</div>	
+			<div class="row">
+
+				<!-- 게시글 ForEach 시작 -->
+				<c:forEach items="${notices }" var="notice">
+					<div class="col-md-6 col-lg-4 ftco-animate">
+						<div class="blog-entry">
+							<!-- 이미지 들어가는 곳 -->
+							<!-- 공지사항은 고정이미지 -->
+							<a href="blog-single.html"
+								class="block-20 d-flex align-items-end"
+								style="background-image: url('yswtemp/images/image_1.jpg');">
+
+								<!-- 날짜 들어가는 곳 -->
+								<div class="meta-date text-center p-2">
+									<span class="day">${notice.enrollDt }</span> 
+									<span class="mos">${notice.id }</span> 
+									<span class="yr">${notice.hit }</span>
+								</div>
+
+							</a>
+							<div class="text bg-white p-4">
+								<h3 class="heading">
+									<!-- 제목들어가는 곳 -->
+									<a href="#">${notice.title }</a>
+								</h3>
+								<!-- 간략한 내용 들어가는 곳 -->
+								<p>등록일 : ${notice.enrollDt }<br>
+								내용: ${notice.contents }</p>
+								<div class="d-flex align-items-center mt-4">
+
+									<p class="ml-auto mb-0">
+										<a href="#" class="mr-2">Admin</a> <a href="#"
+											class="meta-chat"><span class="icon-chat"></span> 3</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
+				<!-- 게시글 ForEach End -->
+
+
+
 			</div>
-			
-			<!-- 게시글 end -->	
-			
-			
 		</div>
 	</section>
-<!-- 
+
 	<script src="yswtemp/js/jquery.min.js"></script>
-	
 	<script src="yswtemp/js/jquery-migrate-3.0.1.min.js"></script>
 	<script src="yswtemp/js/popper.min.js"></script>
 	<script src="yswtemp/js/bootstrap.min.js"></script>
@@ -68,97 +118,10 @@
 	<script src="yswtemp/js/aos.js"></script>
 	<script src="yswtemp/js/jquery.animateNumber.min.js"></script>
 	<script src="yswtemp/js/scrollax.min.js"></script>
-	
-	<script	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="yswtemp/js/google-map.js"></script>
-	
 	<script src="yswtemp/js/main.js"></script>
- -->
-<script>
-
-			console.log('111');
-			//makeDiv();
-			console.log('222');
-	/*	
-	
-	$(document).ready(function(){
-		
-	});
-		
-	*/	
-
-function makeDiv() {
-	
-var outDiv = $('<div />').addClass('col-md-6 col-lg-4 ftco-animate');
-	var entryDiv = $('<div />').addClass('blog-entry');
-		//style="background-image: url('images/image_3.jpg');">
-		var firstA = $('<a />').addClass('block-20 d-flex align-items-end').attr('href','#');
-		
-			var thirdDiv = $('<div />').addClass('meta-date text-center p-2');
-				//span 안에 값 넣어주기.
-				var daySpan = $('<span />').addClass('day');
-				var mosSpan = $('<span />').addClass('mos');
-				var yrSpan = $('<span />').addClass('yr');
-				
-		var bgDiv = $('<div />').addClass('text bg-white p-4');
-		
-			var titleH = $('<h3 />').addClass('heading');
-				var secondA = $('<a />').attr('href','#').text('여기에 제목을'); //게시글 링크, 제목 넣어주기.
-				
-			var summaryP = $('<p />').text('여기에 요약을'); //요약 넣어주기
-			
-			var lastDiv = $('<div />').addClass('d-flex align-items-center mt-4');
-			
-				var moreP = $('<p />').addClass('mb-0');
-					var thirdA = $('<a />').addClass('btn btn-secondary').attr('href','#').html('Read More 
-							<span class="ion-ios-arrow-round-forward"></span>');
-					
-				var authorP = $('<p />').addClass('ml-auto mb-0');
-					var fourthA = $('<a />').addClass('mr-2').attr('href','#').text('Admin');
-					var fifthA = $('<a />').addClass('meta-chat').attr('href','#').html('<span class="icon-chat"></span> '+'조회수');//조회수 넣어주기.
-					
-	$(outDiv).append(
-		$(entryDiv).append(
-				$(firstA).append(
-						$(thirdDiv).append(
-							daySpan,
-							mosSpan,
-							yrSpan
-						)
-				),
-				$(bgDiv).append(
-						$(titleH).append(
-								secondA
-						),
-						summaryP,
-						$(lastDiv).append(
-								$(moreP).append(
-										thirdA
-								),
-								$(authorP).append(
-										fourthA,
-										fifthA
-								)
-						)
-				)
-		)	
-	);
-	
-	$('#noticeRow').append(outDiv);
-		
-//return outDiv;	
-//return entryDiv;	
-				
-}
-
-/* function postNotice(mkR) {
-	
-	for( let i=0 ; i<3 ; i++) {
-		$('#noticeRow').append(mkR);
-	}
-	
-} */
-</script>
 
 </body>
 </html>

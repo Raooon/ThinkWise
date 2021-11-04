@@ -10,7 +10,7 @@
 <section class="info_section layout_padding-top">
         <div class="info_logo-box">
           <h2>
-              Fanadesh
+              ThinkWise
           </h2>
         </div>
           <div class="container layout_padding2">
