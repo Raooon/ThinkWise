@@ -20,6 +20,9 @@ import co.yedam.thinkwise.command.Location;
 import co.yedam.thinkwise.command.MemberInput;
 import co.yedam.thinkwise.command.MemberInputForm;
 
+import co.yedam.thinkwise.command.SelectMemberList;
+import co.yedam.thinkwise.command.MemberCheck;
+
 import co.yedam.thinkwise.command.MemberList;
 import co.yedam.thinkwise.notice.NoticeInsert;
 import co.yedam.thinkwise.notice.NoticeInsertForm;
@@ -40,10 +43,10 @@ public class FrontController extends HttpServlet {
 	}
 
 	public void init(ServletConfig config) throws ServletException {
-
 		map.put("/home.do", new HomeCommand()); // 첫페이지 호출
 		map.put("/memberInputForm.do", new MemberInputForm());	//회원가입 폼으로 이동
-		map.put("/memberInput.do", new MemberInput());
+		map.put("/memberCheck.do", new MemberCheck());	//중복체크
+		map.put("/memberInput.do", new MemberInput());	//회원가입
 
 
 		map.put("/memberList.do", new MemberList()); //멤버목록(어드민)
