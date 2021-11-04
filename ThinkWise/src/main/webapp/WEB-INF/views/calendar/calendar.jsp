@@ -30,6 +30,8 @@
     	#calendar{
     		margin: 70px;
     		padding-top: 30px;
+    		padding-left:10%;
+    		padding-right:10%;
     	}
     </style>
   </head>

@@ -14,6 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import co.yedam.thinkwise.comm.Command;
 import co.yedam.thinkwise.command.Carlendar;
 import co.yedam.thinkwise.command.HomeCommand;
+
+import co.yedam.thinkwise.command.Location;
+
 import co.yedam.thinkwise.command.MemberInput;
 import co.yedam.thinkwise.command.MemberInputForm;
 
@@ -52,7 +55,8 @@ public class FrontController extends HttpServlet {
 
 
 		map.put("/carlendar.do", new Carlendar()); //캘린더
-		
+		map.put("/location.do", new Location()); //찾아오는 길
+
 		//board, notice
 		map.put("/noticeList.do", new NoticeList()); // 공지사항 조회
 		

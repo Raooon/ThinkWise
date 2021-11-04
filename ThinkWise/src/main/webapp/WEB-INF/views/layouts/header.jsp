@@ -87,6 +87,10 @@
                 <li class="nav-item">
                   <a class="nav-link" href="selectMyInfo.do">MyProfile</a>
                 </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="location.do">location</a>
+                </li>
 
               </ul>
             </div>
