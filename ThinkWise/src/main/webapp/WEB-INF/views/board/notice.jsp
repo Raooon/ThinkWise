@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +31,18 @@
 <link rel="stylesheet" href="yswtemp/css/flaticon.css">
 <link rel="stylesheet" href="yswtemp/css/icomoon.css">
 <link rel="stylesheet" href="yswtemp/css/style.css">
+
+<script>
+		function noticeSelect(num) {
+			console.log(frm);
+			console.log(frm.nid);
+			
+			frm.nid.value = num;
+			frm.submit();
+			
+		}
+	</script>
+	
 </head>
 <body>
 
@@ -65,17 +78,18 @@
 				<c:forEach items="${notices }" var="notice">
 					<div class="col-md-6 col-lg-4 ftco-animate">
 						<div class="blog-entry">
+						
+							
 							<!-- 이미지 들어가는 곳 -->
 							<!-- 공지사항은 고정이미지 -->
-							<a href="blog-single.html"
-								class="block-20 d-flex align-items-end"
-								style="background-image: url('yswtemp/images/image_1.jpg');">
+							<a onclick="noticeSelect('${notice.noticeNo }')" class="block-20 d-flex align-items-end" style="background-image: url('yswtemp/images/image_1.jpg');">
 
 								<!-- 날짜 들어가는 곳 -->
 								<div class="meta-date text-center p-2">
-									<span class="day">${notice.enrollDt }</span> 
-									<span class="mos">${notice.id }</span> 
-									<span class="yr">${notice.hit }</span>
+							<c:set var="date" value="${notice.enrollDt }" />
+									<span class="yr">${fn:substring(date,0,4) }</span>
+									<span class="mos">${fn:substring(date,5,7) }</span> 
+									<span class="day">${fn:substring(date,8,10) }</span> 
 								</div>
 
 							</a>
@@ -85,8 +99,9 @@
 									<a href="#">${notice.title }</a>
 								</h3>
 								<!-- 간략한 내용 들어가는 곳 -->
-								<p>등록일 : ${notice.enrollDt }<br>
-								내용: ${notice.contents }</p>
+								<c:set var="summary" value="${notice.contents }" />
+								${fn:substring(summary,0,20) }
+								
 								<div class="d-flex align-items-center mt-4">
 
 									<p class="ml-auto mb-0">
@@ -98,6 +113,9 @@
 						</div>
 					</div>
 				</c:forEach>
+							<form action="noticeSelect.do" id="frm" method="post">
+								<input type="hidden" id="nid" name="nid">
+							</form>
 				<!-- 게시글 ForEach End -->
 
 
@@ -122,6 +140,7 @@
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="yswtemp/js/google-map.js"></script>
 	<script src="yswtemp/js/main.js"></script>
-
+	
+	
 </body>
 </html>
