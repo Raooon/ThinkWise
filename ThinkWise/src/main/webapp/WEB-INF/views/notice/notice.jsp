@@ -101,12 +101,14 @@
 								<!-- 간략한 내용 들어가는 곳 -->
 								<c:set var="summary" value="${notice.contents }" />
 								${fn:substring(summary,0,20) }
-								
+								<c:if test="${fn:length(summary) gt 20 }">
+								...
+								</c:if>
 								<div class="d-flex align-items-center mt-4">
 
 									<p class="ml-auto mb-0">
 										<a href="#" class="mr-2">Admin</a> <a href="#"
-											class="meta-chat"><span class="icon-chat"></span> 3</a>
+											class="meta-chat"><span class="icon-chat"></span> ${notice.hit }</a>
 									</p>
 								</div>
 							</div>

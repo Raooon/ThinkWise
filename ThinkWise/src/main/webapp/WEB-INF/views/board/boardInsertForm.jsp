@@ -30,7 +30,14 @@
   <link href="css/responsive.css" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/css-circular-prog-bar.css">
-
+<script type="text/javascript">
+	function UploadPlus(num) {
+		
+		if ( num = 1) {
+			
+		}
+	}
+</script>
 </head>
 
 <body class="sub_page">
@@ -45,7 +52,7 @@
         <div class="col-md-6">
           <div class="d-flex justify-content-center d-md-block">
             <h2>
-              공지사항 등록
+              보고서 등록
             </h2>
           </div>
           
@@ -53,14 +60,28 @@
             <div class="contact_form-container">
               
                 <div>
-                  <input type="text" id="title" name="title" placeholder="Title">
+                  <input type="text" id="title" name="title" width="120" placeholder="Title">
                 </div>
                 
                 <div>
-                  <textarea rows="10" cols="90" id="contents" name="contents"></textarea>
+                  <textarea rows="10" cols="70" id="contents" name="contents"></textarea>
                 </div>
                 
-                <div class="mt-5">
+                <div>
+                  <input type="file" id="image" name="image">
+                  <button type="button" onclick="UploadPlus(1)"> + </button>
+                </div>
+                
+                <div style="display: 'none'" id="UploadSecond">
+                  <input type="file" id="image" name="image">
+                  <button type="button" onclick="UploadPlus(2)"> + </button>
+                </div>
+                
+                <div style="display: 'none'" id="Uploadthird">
+                  <input type="file" id="image" name="image">
+                </div>
+                
+                <div class="mt-5" align="center">
                   <button type="submit">
                     등록
                   </button>
@@ -72,9 +93,10 @@
         </div>
         <div class="col-md-6">
           <div class="contact_img-box">
-            <img src="images/students.jpg" alt="">
+            <img src="template/images/students.jpg" alt="">
           </div>
         </div>
+        
       </div>
     </div>
   </section>
