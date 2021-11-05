@@ -47,7 +47,6 @@ public class MemberServiceImpl implements MemberService {
   @Override
 	public MemberMyInfoVO selectMyInfo(MemberMyInfoVO vo) {
 		return map.selectMyInfo(vo);
-
 	}
 
 	@Override
@@ -55,6 +54,18 @@ public class MemberServiceImpl implements MemberService {
 		return map.insertMemberParent(vo);
 	}
 
-	
+  @Override
+	public int updateMemberPw(MemberVO vo) {
+		return map.updateMemberPw(vo);
+	}
 
+	@Override
+	public MemberVO memberCurPwCheck(MemberVO vo) {
+		return map.memberCurPwCheck(vo);
+	}
+
+	@Override
+	public int updateMemberInfo(MemberVO vo) {
+		return map.updateMemberInfo(vo);
+	}
 }

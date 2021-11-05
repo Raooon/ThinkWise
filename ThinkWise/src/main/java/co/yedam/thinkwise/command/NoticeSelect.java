@@ -1,11 +1,14 @@
-package co.yedam.thinkwise.notice;
+package co.yedam.thinkwise.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.thinkwise.comm.Command;
+import co.yedam.thinkwise.notice.service.NoticeService;
+import co.yedam.thinkwise.notice.service.NoticeVO;
+import co.yedam.thinkwise.notice.serviceImpl.NoticeServiceImpl;
 
-public class noticeSelect implements Command {
+public class NoticeSelect implements Command {
 
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
@@ -15,10 +18,12 @@ public class noticeSelect implements Command {
 		
 		vo.setNoticeNo(Integer.parseInt(request.getParameter("nid")));
 		
+		noticeDao.hitUpdate(vo);
+		
 		vo = noticeDao.noticeSelect(vo);
 		request.setAttribute("notice", vo);
 		
-		return "board/noticeSelect";
+		return "notice/noticeSelect";
 	}
 
 }

@@ -1,4 +1,4 @@
-package co.yedam.thinkwise.notice;
+package co.yedam.thinkwise.notice.service;
 
 import java.sql.Date;
 

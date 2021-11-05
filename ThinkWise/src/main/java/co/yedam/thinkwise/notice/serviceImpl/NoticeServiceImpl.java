@@ -1,10 +1,13 @@
-package co.yedam.thinkwise.notice;
+package co.yedam.thinkwise.notice.serviceImpl;
 
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
 import co.yedam.thinkwise.comm.DataSource;
+import co.yedam.thinkwise.notice.service.NoticeMapper;
+import co.yedam.thinkwise.notice.service.NoticeService;
+import co.yedam.thinkwise.notice.service.NoticeVO;
 
 public class NoticeServiceImpl implements NoticeService {
 	
@@ -33,7 +36,7 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Override
 	public int noticeDelete(NoticeVO vo) {
-		return noticeDelete(vo);
+		return map.noticeDelete(vo);
 	}
 
 	@Override

@@ -34,6 +34,27 @@
 
 </head>
 
+<script>
+
+	function noticeEdit(p) {
+		
+		frm.nid.value=${notice.noticeNo};
+			
+		if ( p == 'D') {
+			frm.action="noticeDelete.do";
+		} else {
+			
+			//frm.tu.value=${notice.title }
+			//frm.cu.value=${notice.contents };
+			frm.action="noticeUpdateForm.do";
+		}
+			frm.submit();
+			
+	}
+	
+
+</script>
+
 <body class="sub_page">
 
   <!-- contact section -->
@@ -54,71 +75,81 @@
             <div class="contact_form-container">
               <table>
               	<tr>
-              		<td>
-              			<textarea rows="1" cols="50" id="contents" name="contents" style="resize: none;">${notice.title }</textarea>
+              		<td colspan="2">
+              			<textarea rows="1" cols="70" id="contents" name="contents" style="resize: none;" readonly="readonly">${notice.title }</textarea>
               		</td>
               	</tr>
               	
               	<tr>
+              	
               		<td>
+	                <!-- 
 	              		<c:set var="modifiedDate" value="${notice.modifyDt }" />
-	                
 	                	<c:if test="${not empty modifiedDate}">
-	                		${notice.modifyDt }
+	                		수정일 ${notice.modifyDt }
 	                	</c:if>
 	                	
 	               		<c:if test="${empty modifiedDate}">
-	                		${notice.enrollDt }
 	                	</c:if>
+	                -->
+	                		등록일 ${notice.enrollDt }
 	                	
               		</td>
               		
               		<td>
-              			${notice.hit }
+	              		<div align="right">
+	              			조회수 ${notice.hit }
+	              		</div>
+              		</td>
+              		
+              	</tr>
+              	
+              	<tr>
+              		<td colspan="2">
+              			<textarea rows="10" cols="70" id="contents" name="contents" style="resize: none;" readonly="readonly">${notice.contents }</textarea>
               		</td>
               	</tr>
               	
               	<tr>
-              		<td>
-              			<textarea rows="10" cols="50" id="contents" name="contents" style="resize: none;">${notice.contents }</textarea>
+              		<!-- 버튼 3종 -->
+              		<td colspan="2">
+              			<div class="mt-5">
+              				&nbsp; &nbsp; &nbsp;
+                  			<button type="button" onclick="noticeEdit('U')">
+                    			수정하기
+                  			</button>
+                  			&nbsp; &nbsp; &nbsp;
+                  			<button type="button" onclick="location.href='noticeList.do'">
+                    			뒤로가기
+                  			</button>
+                  			&nbsp; &nbsp; &nbsp;
+                  			<button type="button" onclick="noticeEdit('D')">
+                    			삭제하기
+                  			</button>
+                		</div>
               		</td>
               	</tr>
               	
-              	
-              	
               </table>
-              
-               
-                
-                
-                
-                <!-- 버튼 -->
-                <div class="mt-5">
-                  <button type="button" onclick="noticeList.do">
-                    뒤로가기
-                  </button>
-                </div>
-                <!-- 관리자만 할 수 있게 -->
-                <div class="mt-5">
-                  <button type="button" onclick="noticeList.do">
-                    수정하기
-                  </button>
-                </div>
-                <div class="mt-5">
-                  <button type="button" onclick="noticeList.do">
-                    삭제하기
-                  </button>
-                </div>
-                
+              <div>
+              	<form id="frm" method="post" action="">
+              		<input type="hidden" id="nid" name="nid">
+              		<!-- 
+              		<input type="hidden" id="tu" name="tu">
+              		<input type="hidden" id="cu" name="cu">
+              		 -->
+              	</form>
+              </div>
             </div>
           
-          
         </div>
+        <!-- 오른쪽 이미지 -->
         <div class="col-md-6">
           <div class="contact_img-box">
             <img src="template/images/students.jpg" alt="">
           </div>
         </div>
+        
       </div>
     </div>
   </section>

@@ -67,18 +67,16 @@
                 <li class="nav-item active">
                   <a class="nav-link" href="home.do"> Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="noticeList.do"> Notice </a>
-                </li>
-
-                <li class="nav-item ">
-                  <a class="nav-link" href="admission.html"> Admission </a>
-                </li>
-
-                <li class="nav-item">
-                  <a class="nav-link" href="why.html"> Why Us </a>
-                </li>
-
+                
+                	<!-- Ul로 묶어야할 곳 -->
+	                <li class="nav-item ">
+	                  <a class="nav-link" href="noticeList.do"> Notice </a>
+	                </li>
+	                <li class="nav-item ">
+	                  <a class="nav-link" href="boardList.do"> Board </a>
+	                </li>
+					<!-- Ul로 묶어야할 곳 -->
+					
                 <li class="nav-item">
                   <a class="nav-link" href="memberInputForm.do">Contact Us</a>
                 </li>
