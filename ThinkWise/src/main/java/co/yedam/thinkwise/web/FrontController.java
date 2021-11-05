@@ -24,6 +24,7 @@ import co.yedam.thinkwise.command.SelectParent;
 import co.yedam.thinkwise.notice.NoticeInsert;
 import co.yedam.thinkwise.notice.NoticeInsertForm;
 import co.yedam.thinkwise.notice.NoticeList;
+import co.yedam.thinkwise.notice.noticeSelect;
 
 
 @WebServlet("*.do")
@@ -56,6 +57,7 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/noticeInsertForm.do", new NoticeInsertForm()); // 공지사항 등록 폼
 		map.put("/noticeInsert.do", new NoticeInsert()); // 공지사항 등록
+		map.put("/noticeSelect.do", new noticeSelect()); // 공지사항 한 글 보기
 		
 	}
 

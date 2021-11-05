@@ -3,11 +3,11 @@
 <mapper namespace="co.yedam.thinkwise.notice.NoticeMapper">
 
 	<select id="noticeList" resultType="co.yedam.thinkwise.notice.NoticeVO">
-		SELECT * FROM notice
+		SELECT notice_no as noticeNo, id, enroll_dt as enrollDt, modify_dt as modifyDt, title, contents, hit FROM notice ORDER BY notice_no desc
 	</select>
 	
 	<select id="noticeSelect" resultType="co.yedam.thinkwise.notice.NoticeVO">
-		SELECT * FROM notice WHERE notice_no = #{noticeNo}
+		SELECT notice_no as noticeNo, id, enroll_dt as enrollDt, modify_dt as modifyDt, title, contents, hit FROM notice WHERE notice_no = #{noticeNo}
 	</select>
 	 
 	<insert id="noticeInsert" parameterType="co.yedam.thinkwise.notice.NoticeVO">

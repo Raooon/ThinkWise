@@ -41,6 +41,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberVO selectParent(MemberVO vo) {
 		return map.selectParent(vo);
+
+  @Override
+	public MemberMyInfoVO selectMyInfo(MemberMyInfoVO vo) {
+		return map.selectMyInfo(vo);
+
 	}
 
 

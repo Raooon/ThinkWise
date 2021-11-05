@@ -14,8 +14,8 @@ public class SelectMyInfo implements Command {
 	public String run(HttpServletRequest request, HttpServletResponse response) {
 		MemberService memberDao = new MemberServiceImpl();
 		MemberMyInfoVO vo = new MemberMyInfoVO();
-		vo.setEmail("");
-		//memberDao.selectMyInfo(null);
+		vo.setEmail("luda@abc.com");
+		request.setAttribute("member", memberDao.selectMyInfo(vo));
 		
 		return "member/selectMyInfo";
 	}
