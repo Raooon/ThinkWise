@@ -20,6 +20,7 @@ import co.yedam.thinkwise.command.BoardSelect;
 import co.yedam.thinkwise.command.BoardUpdateForm;
 import co.yedam.thinkwise.command.Carlendar;
 import co.yedam.thinkwise.command.HomeCommand;
+import co.yedam.thinkwise.command.KakaoChat;
 import co.yedam.thinkwise.command.Location;
 import co.yedam.thinkwise.command.MemberCheck;
 import co.yedam.thinkwise.command.MemberInfoEdit;
@@ -79,6 +80,7 @@ public class FrontController extends HttpServlet {
 
 		map.put("/carlendar.do", new Carlendar()); //캘린더
 		map.put("/location.do", new Location()); //찾아오는 길
+		map.put("/kakaoChat.do", new KakaoChat()); //카카오톡 연동??
 
 		//notice
 		map.put("/noticeList.do", new NoticeList()); // 공지사항 조회

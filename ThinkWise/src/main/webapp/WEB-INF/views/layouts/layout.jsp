@@ -32,17 +32,14 @@
 <link rel="stylesheet" href="template/css/css-circular-prog-bar.css">
 
 <style>
-.btnKakao{
+button.kakao{
+	border-color: transparent;
+	background-color: transparent;
 	z-index: 1000;
 	position:fixed;
 	right: 3%;
 	bottom: 5%;
 	overflow:hidden;
-	
-}
-button{
-	border-color: transparent;
-	background-color: transparent;
 }
 img.imgKakao{
 	width: 71px;
@@ -57,22 +54,32 @@ img.imgKakao{
 		
 		<div>
 			<tiles:insertAttribute name="body" />
-			<div class="btnKakao"><button class="kakao"><img class="imgKakao" src="template/images/kakao.png"/></button></div>
+			<button class="kakao"><img class="imgKakao" src="template/images/kakao.png"/></button>
 		</div>
 	</div>
 	<div>
 		<tiles:insertAttribute name="footer" />
 	</div>
-		
+	
 <script type="text/javascript" src="template/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="template/js/bootstrap.js"></script>
 
-$(widnow).scroll(function() {
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
-})
+<script>
+$(document).on('click', 'button.kakao', function(event) { 
+	// SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('c87cae6cde08866fda69ce70f14b0780');
 
-$(document).on('click', '.kakao', function(event) {
-	console.log("aa");
+    // SDK 초기화 여부를 판단합니다.
+    console.log(Kakao.isInitialized());
+    
+    window.open('kakaoChat.do', 'popup', 'width=300, height=200. right=30');
+    
+    
+    
+    
 })
+</script>
 </body>
 </html>
