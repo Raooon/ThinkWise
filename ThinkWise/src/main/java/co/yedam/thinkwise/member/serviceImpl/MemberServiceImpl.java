@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import co.yedam.thinkwise.comm.DataSource;
 import co.yedam.thinkwise.member.service.MemberMapper;
+import co.yedam.thinkwise.member.service.MemberMyInfoVO;
 import co.yedam.thinkwise.member.service.MemberService;
 import co.yedam.thinkwise.member.service.MemberVO;
 
@@ -41,6 +42,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberVO selectParent(MemberVO vo) {
 		return map.selectParent(vo);
+	}
 
   @Override
 	public MemberMyInfoVO selectMyInfo(MemberMyInfoVO vo) {
@@ -48,6 +50,6 @@ public class MemberServiceImpl implements MemberService {
 
 	}
 
-
+	
 
 }
