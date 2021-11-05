@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +43,6 @@
     </h1>
   </div>
 </section>
-
   <section class="section main-section">
     <div class="grid grid-cols-1 gap-6 lg:grid-cols-2 mb-6">
       <div class="card">
@@ -54,7 +54,7 @@
               <div class="field-body">
                 <div class="field">
                   <div class="control">
-                    <input type="text" autocomplete="on" name="name" value="John Doe" class="input" required>
+                    <input type="text" autocomplete="on" id="name" name="name" value="${member.name }" class="input" required>
                   </div>
                   <p class="help">Required. Your name</p>
                 </div>
@@ -65,9 +65,31 @@
               <div class="field-body">
                 <div class="field">
                   <div class="control">
-                    <input type="email" autocomplete="on" name="email" value="user@example.com" class="input" required>
+                    <input type="email" autocomplete="on" id="email" name="email" value="${member.email }" class="input" required>
                   </div>
                   <p class="help">Required. Your e-mail</p>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Telephone</label>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input type="text" autocomplete="on" id="tel" name="tel" value="${member.tel }" class="input" required>
+                  </div>
+                  <p class="help">Required. Your telephone</p>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Address</label>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input type="text" autocomplete="on" id="address" name="address" value="${member.address }" class="input" required>
+                  </div>
+                  <p class="help">Required. Your address</p>
                 </div>
               </div>
             </div>
@@ -88,14 +110,28 @@
           <div class="field">
             <label class="label">Name</label>
             <div class="control">
-              <input type="text" readonly value="John Doe" class="input is-static">
+              <input type="text" readonly value="${member.name }" class="input is-static">
             </div>
           </div>
           <hr>
           <div class="field">
             <label class="label">E-mail</label>
             <div class="control">
-              <input type="text" readonly value="user@example.com" class="input is-static">
+              <input type="text" readonly value="${member.email }" class="input is-static">
+            </div>
+          </div>
+          <hr>
+          <div class="field">
+            <label class="label">Telephone</label>
+            <div class="control">
+              <input type="text" readonly value="${member.tel }" class="input is-static">
+            </div>
+          </div>
+          <hr>
+          <div class="field">
+            <label class="label">Address</label>
+            <div class="control">
+              <input type="text" readonly value="${member.address }" class="input is-static">
             </div>
           </div>
         </div>
@@ -107,7 +143,7 @@
           <div class="field">
             <label class="label">Current password</label>
             <div class="control">
-              <input type="password" name="password_current" autocomplete="current-password" class="input" required>
+              <input type="password" id="password_current" name="password_current" autocomplete="current-password" class="input" required>
             </div>
             <p class="help">Required. Your current password</p>
           </div>
@@ -115,14 +151,14 @@
           <div class="field">
             <label class="label">New password</label>
             <div class="control">
-              <input type="password" autocomplete="new-password" name="password" class="input" required>
+              <input type="password" autocomplete="new-password" id="password" name="password" class="input" required>
             </div>
             <p class="help">Required. New password</p>
           </div>
           <div class="field">
             <label class="label">Confirm password</label>
             <div class="control">
-              <input type="password" autocomplete="new-password" name="password_confirmation" class="input" required>
+              <input type="password" autocomplete="new-password" id="password_confirmation" name="password_confirmation" class="input" required>
             </div>
             <p class="help">Required. New password one more time</p>
           </div>
