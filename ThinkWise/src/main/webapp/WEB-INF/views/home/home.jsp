@@ -38,6 +38,6 @@
       </div>
     </section>
     <script type="text/javascript" src="template/js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="template/js/bootstrap.js"></script>
+	<script type="text/javascript" src="template/js/bootstrap.js"></script>
 </body>
 </html>

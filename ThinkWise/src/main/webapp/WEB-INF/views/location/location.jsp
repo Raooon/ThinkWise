@@ -13,17 +13,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
-	
-	<meta name="description" content="" />
-	<meta name="keywords" content="">
-	<meta name="author" content="Phoenixcoded" />
-	<!-- Favicon icon -->
-	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-
-	<!-- vendor css -->
-	<link rel="stylesheet" href="template/css/style1.css">
-  
 <style>
 	#mapcontainer{
 		margin: 70px;
@@ -31,7 +20,15 @@
 		padding-bottom: 100px;
 		display: inline-block;
 	}
+
+	div.col-sm-5,
+	div.col-sm-4{
+		padding-left: 0px;
+	}
 </style>
+
+<link rel="stylesheet" href="template/css/style1.css">
+
 </head>
 
 <body>
@@ -45,8 +42,6 @@
 						<jsp:include page="kakaoMap.jsp" />
 					</div>
 				</div>
-				
-				
 				
 			</div>
 			<div class="col-sm-4">
