@@ -33,7 +33,7 @@
 <link rel="stylesheet" href="yswtemp/css/style.css">
 
 <script>
-		function noticeSelect(num) {
+		function boardSelect(num) {
 			
 			frm.nid.value = num;
 			frm.submit();
@@ -43,7 +43,6 @@
 	
 </head>
 <body>
-
 
 	<section class="ftco-section bg-light">
 		<div class="container">
@@ -80,11 +79,15 @@
 							
 							<!-- 이미지 들어가는 곳 -->
 							<!-- 첫번째 이미지를 섬네일로 사용. -->
-							<!-- 
-							<c:set var="thumb" value="${board.image }" />
-							 -->
-							<a onclick="noticeSelect('${board.boardNo }')" class="block-20 d-flex align-items-end" style="background-image: url('yswtemp/images/image_1.jpg');">
-
+							<c:if test="${empty board.image }"> 
+								<a onclick="boardSelect('${board.boardNo }')" class="block-20 d-flex align-items-end" style="background-image: url('yswtemp/images/image_1.jpg');">
+							</c:if>
+							
+							<c:if test="${not empty board.image }"> 
+							<c:set var="imageName" value="${board.image }" />
+							<c:set var="thumb" value="${fn:indexOf(imageName,'/') }" />
+								<a onclick="boardSelect('${board.boardNo }')" class="block-20 d-flex align-items-end" style="background-image: url('upload/"+${fn:substring(imageName,0,thumb) }+"');">
+							</c:if>
 								<!-- 날짜 들어가는 곳 -->
 								<div class="meta-date text-center p-2">
 							<c:set var="date" value="${board.enrollDt }" />
@@ -116,7 +119,7 @@
 						</div>
 					</div>
 				</c:forEach>
-							<form action="#" id="frm" method="post">
+							<form action="boardSelect.do" id="frm" method="post">
 								<input type="hidden" id="nid" name="nid">
 							</form>
 				<!-- 게시글 ForEach End -->

@@ -1,8 +1,13 @@
 package co.yedam.thinkwise.command;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import co.yedam.thinkwise.board.service.BoardService;
 import co.yedam.thinkwise.board.service.BoardVO;
@@ -18,11 +23,34 @@ public class BoardInsert implements Command {
 		
 		BoardService boardDao = new BoardServiceImpl();
 		BoardVO vo = new BoardVO();
-		//세션에서 아이디값 받아서 넣기
-		//vo.setId((int) session.getAttribute("id"));
 		
-		vo.setTitle(request.getParameter("title"));
-		vo.setContents(request.getParameter("contents"));
+		
+				
+		String saveFolder = "c:\\thinkwise";
+		String image = "";
+		String firstImage = "";
+		String secondImage = "";
+		String thirdImage = "";
+		
+		try {
+			MultipartRequest multipartRequest = new MultipartRequest(request, saveFolder, 30*1024*1024, "UTF-8", new DefaultFileRenamePolicy());
+			
+			firstImage = multipartRequest.getFilesystemName("firstImage");
+			secondImage = multipartRequest.getFilesystemName("secondImage");
+			thirdImage = multipartRequest.getFilesystemName("thirdImage");
+			
+			image = firstImage+"/"+secondImage+"/"+thirdImage;
+			
+			//로그인 기능 구현되면 바꾸기
+			//vo.setId((int) session.getAttribute("id"));
+			vo.setId(1);
+			vo.setTitle(multipartRequest.getParameter("title"));
+			vo.setContents(multipartRequest.getParameter("contents"));
+			vo.setImage(image);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		int n = boardDao.boardInsert(vo);
 		

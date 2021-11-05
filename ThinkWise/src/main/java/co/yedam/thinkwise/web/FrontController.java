@@ -12,9 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.thinkwise.comm.Command;
+import co.yedam.thinkwise.command.BoardDelete;
 import co.yedam.thinkwise.command.BoardInsert;
 import co.yedam.thinkwise.command.BoardInsertForm;
 import co.yedam.thinkwise.command.BoardList;
+import co.yedam.thinkwise.command.BoardSelect;
+import co.yedam.thinkwise.command.BoardUpdateForm;
 import co.yedam.thinkwise.command.Carlendar;
 import co.yedam.thinkwise.command.HomeCommand;
 import co.yedam.thinkwise.command.Location;
@@ -64,7 +67,7 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeInsertForm.do", new NoticeInsertForm()); // 공지사항 등록 폼
 		map.put("/noticeInsert.do", new NoticeInsert()); // 공지사항 등록
 		
-		map.put("/noticeSelect.do", new NoticeSelect()); // 공지사항 한 글 보기
+		map.put("/noticeSelect.do", new NoticeSelect()); // 공지사항 1건 조회
 		map.put("/noticeDelete.do", new NoticeDelete()); // 공지사항 삭제
 		map.put("/noticeUpdateForm.do", new NoticeUpdateForm()); // 공지사항 수정 폼
 		map.put("/noticeUpdate.do", new NoticeUpdate()); // 공지사항 수정
@@ -72,7 +75,11 @@ public class FrontController extends HttpServlet {
 		//board
 		map.put("/boardList.do", new BoardList()); //보고서 조회 (리스트)
 		map.put("/boardInsertForm.do", new BoardInsertForm()); //보고서 등록 폼
-		map.put("/boardInsert.do", new BoardInsert()); //보고서 등록 폼
+		map.put("/boardInsert.do", new BoardInsert()); //보고서 등록
+		
+		map.put("/boardSelect.do", new BoardSelect()); //보고서 1건 조회
+		map.put("/boardDelete.do", new BoardDelete()); //보고서 1건 삭제
+		//map.put("/boardUpdateForm.do", new BoardUpdateForm()); //보고서 수정 폼
 		
 	}
 

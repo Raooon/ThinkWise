@@ -30,14 +30,24 @@
   <link href="css/responsive.css" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/css-circular-prog-bar.css">
+  
 <script type="text/javascript">
 	function UploadPlus(num) {
 		
-		if ( num = 1) {
+		if ( num == '1') {
+			$('#UploadSecond').show();
+			$('#firstBtn').hide();
+			
+		} else if ( num == '2') {
+			
+			$('#Uploadthird').show();
+			$('#secondBtn').hide();
 			
 		}
+		
 	}
 </script>
+
 </head>
 
 <body class="sub_page">
@@ -56,7 +66,7 @@
             </h2>
           </div>
           
-          <form action="noticeInsert.do" method="post">
+          <form action="boardInsert.do" method="post" id="frm" enctype="multipart/form-data">
             <div class="contact_form-container">
               
                 <div>
@@ -68,17 +78,17 @@
                 </div>
                 
                 <div>
-                  <input type="file" id="image" name="image">
-                  <button type="button" onclick="UploadPlus(1)"> + </button>
+                  <input type="file" id="firstImage" name="firstImage">
+                  <button type="button" onclick="UploadPlus(1)" id="firstBtn"> + </button>
                 </div>
                 
-                <div style="display: 'none'" id="UploadSecond">
-                  <input type="file" id="image" name="image">
-                  <button type="button" onclick="UploadPlus(2)"> + </button>
+                <div style="display: none" id="UploadSecond">
+                  <input type="file" id="secondImage" name="secondImage">
+                  <button type="button" onclick="UploadPlus(2)" id="secondBtn"> + </button>
                 </div>
                 
-                <div style="display: 'none'" id="Uploadthird">
-                  <input type="file" id="image" name="image">
+                <div style="display: none" id="Uploadthird">
+                  <input type="file" id="thirdImage" name="thirdImage">
                 </div>
                 
                 <div class="mt-5" align="center">
