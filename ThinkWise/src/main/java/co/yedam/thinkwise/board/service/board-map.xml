@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.thinkwise.board.service.BoardMapper">
+
+	<select id="boardList" resultType="co.yedam.thinkwise.board.service.BoardVO">
+		SELECT board_no AS boardNo, id, enroll_dt AS enrollDt, modify_dt As modifyDt, title, contents, image, hit, likes 
+		FROM board
+	</select>
+	
+	<select id="boardSelect" resultType="co.yedam.thinkwise.board.service.BoardVO">
+		SELECT id, enroll_dt AS enrollDt, modify_dt As modifyDt, title, contents, image, hit, likes 
+		FROM board 
+		WHERE board_no=#{boardNo}
+	</select>
+	
+	<insert id="boardInsert" parameterType="co.yedam.thinkwise.board.service.BoardVO">
+		INSERT INTO board 
+		VALUES(board_seq.nextval,#{id},sysdate,null,#{title},#{contents},#{image},0,0)
+	</insert>
+	
+	<update id="boardUpdate" parameterType="co.yedam.thinkwise.board.service.BoardVO">
+		UPDATE board SET title=#{title}, contents=#{contents}, modify_dt=sysdate, image=#{image}
+		WHERE board_no = #{boardNo}
+	</update>
+	
+	<delete id="boardDelete" parameterType="co.yedam.thinkwise.board.service.BoardVO">
+		DELETE FROM board WHERE board_no = #{boardNo}
+	</delete>
+	
+	<update id="boardHitUpdate" parameterType="co.yedam.thinkwise.board.service.BoardVO">
+		UPDATE board SET hit = hit + 1 WHERE board_no = #{boardNo}
+	</update>
+	
+	<update id="boardLikesUpdate" parameterType="co.yedam.thinkwise.board.service.BoardVO">
+		UPDATE board SET likes = likes + 1 WHERE board_no = #{boardNo}
+	</update>
+	
+</mapper>
