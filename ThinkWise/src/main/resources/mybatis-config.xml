@@ -18,7 +18,8 @@
 	    
  		<mappers>
 
-        	<mapper resource="co/yedam/thinkwise/notice/notice-map.xml"/>
+        	<mapper resource="co/yedam/thinkwise/notice/service/notice-map.xml"/>
+        	<mapper resource="co/yedam/thinkwise/board/service/board-map.xml"/>
         	<mapper resource="co/yedam/thinkwise/member/service/member-map.xml"/>
 
     	</mappers>

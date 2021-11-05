@@ -1,4 +1,4 @@
-package co.yedam.thinkwise.notice;
+package co.yedam.thinkwise.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,7 +10,7 @@ public class NoticeInsertForm implements Command {
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
 		
-		return "board/noticeInsertForm";
+		return "notice/noticeInsertForm";
 	}
 
 }
