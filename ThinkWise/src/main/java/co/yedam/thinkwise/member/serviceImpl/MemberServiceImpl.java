@@ -39,6 +39,11 @@ public class MemberServiceImpl implements MemberService {
 		return map.updateMember(vo);
 	}
 
+	@Override
+	public MemberMyInfoVO selectMyInfo(MemberMyInfoVO vo) {
+		return map.selectMyInfo(vo);
+	}
+
 
 
 }
