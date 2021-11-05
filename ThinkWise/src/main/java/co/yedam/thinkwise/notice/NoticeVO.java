@@ -2,11 +2,6 @@ package co.yedam.thinkwise.notice;
 
 import java.sql.Date;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 public class NoticeVO {
 
 	int noticeNo;
@@ -16,5 +11,49 @@ public class NoticeVO {
 	String title;
 	String contents;
 	int hit;
+	public int getNoticeNo() {
+		return noticeNo;
+	}
+	public void setNoticeNo(int noticeNo) {
+		this.noticeNo = noticeNo;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public Date getEnrollDt() {
+		return enrollDt;
+	}
+	public void setEnrollDt(Date enrollDt) {
+		this.enrollDt = enrollDt;
+	}
+	public Date getModifyDt() {
+		return modifyDt;
+	}
+	public void setModifyDt(Date modifyDt) {
+		this.modifyDt = modifyDt;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getContents() {
+		return contents;
+	}
+	public void setContents(String contents) {
+		this.contents = contents;
+	}
+	public int getHit() {
+		return hit;
+	}
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
+	
+	
 	
 }
