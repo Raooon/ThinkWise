@@ -8,6 +8,10 @@
 		</if>
 	</select>
 	
+	<select id="memberCurPwCheck" resultType="co.yedam.thinkwise.member.service.MemberVO">
+		select * from member where id = #{id} and password = #{password}
+	</select>
+	
 	<select id="selectMyInfo" resultType="co.yedam.thinkwise.member.service.MemberMyInfoVO">
 		select * from vw_member_info where email = #{email}
 	</select>
@@ -24,7 +28,15 @@
 	</delete>
 	
 	<update id="updateMember" parameterType="co.yedam.thinkwise.member.service.MemberVO">
-		update member set password = #{password}, name = #{name}, gender = #{gender}, birth = #{birth}, tel = #{tel}, email = #{email}, address = #{address} where email = #{email}
+		update member set name = #{name}, tel = #{tel}, address = #{address} where id = #{id}
+	</update>
+	
+	<update id="updateMemberPw" parameterType="co.yedam.thinkwise.member.service.MemberVO">
+		update member set password = #{password} where id = #{id}
+	</update>
+	
+	<update id="updateMemberInfo" parameterType="co.yedam.thinkwise.member.service.MemberVO">
+		update member set name = #{name}, tel = #{tel}, address = #{address} where id = #{id}
 	</update>
 	
 </mapper>
