@@ -32,7 +32,7 @@
 <link rel="stylesheet" href="yswtemp/css/icomoon.css">
 <link rel="stylesheet" href="yswtemp/css/style.css">
 
-<script>
+	<script>
 		function boardSelect(num) {
 			
 			frm.nid.value = num;
@@ -86,7 +86,7 @@
 							<c:if test="${not empty board.image }"> 
 							<c:set var="imageName" value="${board.image }" />
 							<c:set var="thumb" value="${fn:indexOf(imageName,'/') }" />
-								<a onclick="boardSelect('${board.boardNo }')" class="block-20 d-flex align-items-end" style="background-image: url('upload/"+${fn:substring(imageName,0,thumb) }+"');">
+								<a onclick="boardSelect('${board.boardNo }')" class="block-20 d-flex align-items-end" style="background-image: url('upload/${fn:substring(imageName,0,thumb) }');">
 							</c:if>
 								<!-- 날짜 들어가는 곳 -->
 								<div class="meta-date text-center p-2">

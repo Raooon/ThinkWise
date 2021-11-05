@@ -131,7 +131,7 @@
             url:'memberCheck.do',
             type:'post', 
             data:{email:email},
-            datatype:'json',
+            dataType:'json',
             success:function(result){
             	console.log(result);      
             	alert(result);
