@@ -52,12 +52,12 @@
 	}
 	
 </script>
-    <style>
-    	#input{
-    		margin: 70px;
-    		padding-top: 30px;
-    	}
-    </style>
+<style>
+	#input{
+		margin: 70px;
+		padding-top: 30px;
+	}
+</style>
 </head>
 <body>
 	<div align="center" id="input">

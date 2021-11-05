@@ -18,14 +18,15 @@ import co.yedam.thinkwise.command.Location;
 import co.yedam.thinkwise.command.MemberCheck;
 import co.yedam.thinkwise.command.MemberInput;
 import co.yedam.thinkwise.command.MemberInputForm;
+import co.yedam.thinkwise.command.MemberLogin;
+import co.yedam.thinkwise.command.MemberLoginForm;
+import co.yedam.thinkwise.command.MemberSelectEmailForm;
 import co.yedam.thinkwise.command.SelectMemberList;
 import co.yedam.thinkwise.command.SelectMyInfo;
-import co.yedam.thinkwise.command.SelectParent;
 import co.yedam.thinkwise.notice.NoticeInsert;
 import co.yedam.thinkwise.notice.NoticeInsertForm;
 import co.yedam.thinkwise.notice.NoticeList;
 import co.yedam.thinkwise.notice.noticeSelect;
-
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -38,10 +39,13 @@ public class FrontController extends HttpServlet {
 
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/home.do", new HomeCommand()); // 첫페이지 호출
+		
 		map.put("/memberInputForm.do", new MemberInputForm());	//회원가입 폼으로 이동
 		map.put("/memberCheck.do", new MemberCheck());	//중복체크
 		map.put("/memberInput.do", new MemberInput());	//회원가입
-		map.put("/selectParent.do", new SelectParent());	// 부모 아이디 확인
+		map.put("/memberLoginForm.do", new MemberLoginForm());	//로그인페이지
+		map.put("/memberLogin.do", new MemberLogin());	//로그인
+		map.put("/memberSelectEmailForm.do", new MemberSelectEmailForm());	//아이디찾기
 
 		map.put("/noticeList.do", new NoticeList()); // 첫페이지 호출
 		

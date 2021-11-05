@@ -17,23 +17,79 @@ public class MemberInput implements Command {
 		MemberVO vo = new MemberVO();
 		String viewPage = null;
 		
-		vo.setEmail(request.getParameter("email"));
-		vo.setPassword(request.getParameter("password"));
-		vo.setName(request.getParameter("name"));
-		vo.setGender(request.getParameter("gender"));
-		vo.setBirth(request.getParameter("birth").replaceAll("-", ""));
-		vo.setTel(request.getParameter("tel"));
-		vo.setAddress(request.getParameter("address"));
-		vo.setDivision(request.getParameter("division"));
+		// 부모 이메일에서 부모 아이디 가져오기.
 		vo.setParent(request.getParameter("parent"));
+		System.out.println(request.getParameter("parent"));
+		MemberVO p = memberDao.selectParent(vo);
 		
-		int n = memberDao.insertMember(vo);
-		if( n != 0) {
-			request.setAttribute("message", "회원가입을 완료하였습니다.");
-			viewPage = "member/login";
+		MemberVO vo1 = new MemberVO();
+		if(p == null) {
+			if(request.getParameter("parent") == null) {
+				
+				vo1.setEmail(request.getParameter("email"));
+				vo1.setPassword(request.getParameter("password"));
+				vo1.setName(request.getParameter("name"));
+				vo1.setGender(request.getParameter("gender"));
+				vo1.setBirth(request.getParameter("birth").replaceAll("-", ""));
+				vo1.setTel(request.getParameter("tel"));
+				vo1.setAddress(request.getParameter("address"));
+				vo1.setDivision(request.getParameter("division"));
+				
+				int n = memberDao.insertMember(vo1);
+				
+				if( n != 0) {
+					request.setAttribute("message", "회원가입을 완료하였습니다.");
+					viewPage = "member/memberLogin";
+					System.out.println("회원가입 완료-부모값 없음");
+				} else {
+					request.setAttribute("message", "회원가입을 실패하였습니다.");
+					viewPage = "member/memberInput";
+					System.out.println("회원가입 실패-부모값 없음");
+				}
+			} else {
+				vo1.setEmail(request.getParameter("email"));
+				vo1.setPassword(request.getParameter("password"));
+				vo1.setName(request.getParameter("name"));
+				vo1.setGender(request.getParameter("gender"));
+				vo1.setBirth(request.getParameter("birth").replaceAll("-", ""));
+				vo1.setTel(request.getParameter("tel"));
+				vo1.setAddress(request.getParameter("address"));
+				vo1.setDivision(request.getParameter("division"));
+				
+				int n = memberDao.insertMember(vo1);
+				
+				if( n != 0) {
+					request.setAttribute("message", "회원가입을 완료하였습니다.");
+					viewPage = "member/memberLogin";
+					System.out.println("회원가입 완료-부모값 오류");
+				} else {
+					request.setAttribute("message", "회원가입을 실패하였습니다.");
+					viewPage = "member/memberInput";
+					System.out.println("회원가입 실패-부모값 오류");
+				}
+			}
 		} else {
-			request.setAttribute("message", "회원가입을 실패하였습니다.");
-			viewPage = "member/memberInput";
+			vo1.setEmail(request.getParameter("email"));
+			vo1.setPassword(request.getParameter("password"));
+			vo1.setName(request.getParameter("name"));
+			vo1.setGender(request.getParameter("gender"));
+			vo1.setBirth(request.getParameter("birth").replaceAll("-", ""));
+			vo1.setTel(request.getParameter("tel"));
+			vo1.setAddress(request.getParameter("address"));
+			vo1.setDivision(request.getParameter("division"));
+			vo1.setParent(request.getParameter("parent"));
+			
+			int m = memberDao.insertMemberParent(vo1);
+			
+			if( m != 0) {
+				request.setAttribute("message", "회원가입을 완료하였습니다.");
+				viewPage = "member/memberLogin";
+				System.out.println("회원가입 성공");
+			} else {
+				request.setAttribute("message", "회원가입을 실패하였습니다.");
+				viewPage = "member/memberInput";
+				System.out.println("회원가입 실패");
+			}
 		}
 		
 		return viewPage;

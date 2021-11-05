@@ -22,4 +22,5 @@
         	<mapper resource="co/yedam/thinkwise/member/service/member-map.xml"/>
 
     	</mappers>
+    	
 </configuration>

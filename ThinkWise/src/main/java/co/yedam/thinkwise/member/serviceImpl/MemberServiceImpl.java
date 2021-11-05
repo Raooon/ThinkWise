@@ -50,6 +50,11 @@ public class MemberServiceImpl implements MemberService {
 
 	}
 
+	@Override
+	public int insertMemberParent(MemberVO vo) {
+		return map.insertMemberParent(vo);
+	}
+
 	
 
 }
