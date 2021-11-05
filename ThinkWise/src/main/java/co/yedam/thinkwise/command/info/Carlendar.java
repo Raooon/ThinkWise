@@ -1,4 +1,4 @@
-package co.yedam.thinkwise.command;
+package co.yedam.thinkwise.command.info;
 
 import java.io.UnsupportedEncodingException;
 

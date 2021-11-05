@@ -1,4 +1,4 @@
-package co.yedam.thinkwise.command;
+package co.yedam.thinkwise.command.board;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,7 +8,7 @@ import co.yedam.thinkwise.notice.service.NoticeService;
 import co.yedam.thinkwise.notice.service.NoticeVO;
 import co.yedam.thinkwise.notice.serviceImpl.NoticeServiceImpl;
 
-public class NoticeSelect implements Command {
+public class NoticeDelete implements Command {
 
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
@@ -18,12 +18,15 @@ public class NoticeSelect implements Command {
 		
 		vo.setNoticeNo(Integer.parseInt(request.getParameter("nid")));
 		
-		noticeDao.hitUpdate(vo);
+		int n = noticeDao.noticeDelete(vo);
 		
-		vo = noticeDao.noticeSelect(vo);
-		request.setAttribute("notice", vo);
+		if ( n != 1) {
+			request.setAttribute("message", "삭제에 실패했습니다.");
+		} else {
+			request.setAttribute("message", n+"건 삭제에 성공했습니다.");
+		}
 		
-		return "notice/noticeSelect";
+		return "notice/noticeSuccess";
 	}
 
 }

@@ -1,16 +1,15 @@
-package co.yedam.thinkwise.command;
+package co.yedam.thinkwise.command.board;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.thinkwise.comm.Command;
 
-public class MemberInputForm implements Command {
+public class BoardInsertForm implements Command {
 
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
-		// 회원가입 폼으로 이동
-		return "member/memberInput";
+		return "board/boardInsertForm";
 	}
 
 }

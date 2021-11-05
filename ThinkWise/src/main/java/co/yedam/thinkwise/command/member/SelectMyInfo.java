@@ -1,4 +1,4 @@
-package co.yedam.thinkwise.command;
+package co.yedam.thinkwise.command.member;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -1,4 +1,4 @@
-package co.yedam.thinkwise.command;
+package co.yedam.thinkwise.command.board;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,22 +8,25 @@ import co.yedam.thinkwise.board.service.BoardVO;
 import co.yedam.thinkwise.board.serviceImpl.BoardServiceImpl;
 import co.yedam.thinkwise.comm.Command;
 
-public class BoardSelect implements Command {
+public class BoardDelete implements Command {
 
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
 		
-		BoardService boardDao = new BoardServiceImpl();
+		BoardService noticeDao = new BoardServiceImpl();
 		BoardVO vo = new BoardVO();
 		
 		vo.setBoardNo(Integer.parseInt(request.getParameter("nid")));
 		
-		boardDao.boardHitUpdate(vo);
+		int n = noticeDao.boardDelete(vo);
 		
-		vo = boardDao.boardSelect(vo);
-		request.setAttribute("board", vo);
+		if ( n != 1) {
+			request.setAttribute("message", "삭제에 실패했습니다.");
+		} else {
+			request.setAttribute("message", n+"건 삭제에 성공했습니다.");
+		}
 		
-		return "board/boardSelect";
+		return "board/boardSuccess";
 	}
 
 }

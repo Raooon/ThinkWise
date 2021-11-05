@@ -1,15 +1,16 @@
-package co.yedam.thinkwise.command;
+package co.yedam.thinkwise.command.member;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.thinkwise.comm.Command;
 
-public class KakaoChat implements Command {
+public class MemberInputForm implements Command {
 
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
-		return "home/kakaoChat.jsp";
+		// 회원가입 폼으로 이동
+		return "member/memberInput";
 	}
 
 }

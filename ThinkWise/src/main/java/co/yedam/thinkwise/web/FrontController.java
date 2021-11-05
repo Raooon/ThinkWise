@@ -12,44 +12,32 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.thinkwise.comm.Command;
-import co.yedam.thinkwise.command.BoardDelete;
-import co.yedam.thinkwise.command.BoardInsert;
-import co.yedam.thinkwise.command.BoardInsertForm;
-import co.yedam.thinkwise.command.BoardList;
-import co.yedam.thinkwise.command.BoardSelect;
-import co.yedam.thinkwise.command.BoardUpdateForm;
-import co.yedam.thinkwise.command.Carlendar;
-import co.yedam.thinkwise.command.HomeCommand;
-import co.yedam.thinkwise.command.KakaoChat;
-import co.yedam.thinkwise.command.Location;
-import co.yedam.thinkwise.command.MemberCheck;
-import co.yedam.thinkwise.command.MemberInfoEdit;
-import co.yedam.thinkwise.command.MemberInput;
-import co.yedam.thinkwise.command.MemberInputForm;
-
-import co.yedam.thinkwise.command.MemberLogin;
-import co.yedam.thinkwise.command.MemberLoginForm;
-import co.yedam.thinkwise.command.MemberSelectEmailForm;
-import co.yedam.thinkwise.command.SelectMemberList;
-import co.yedam.thinkwise.command.SelectMyInfo;
-import co.yedam.thinkwise.notice.NoticeInsert;
-import co.yedam.thinkwise.notice.NoticeInsertForm;
-import co.yedam.thinkwise.notice.NoticeList;
-import co.yedam.thinkwise.notice.noticeSelect;
-
-import co.yedam.thinkwise.command.MemberPwEdit;
-
-import co.yedam.thinkwise.command.NoticeDelete;
-import co.yedam.thinkwise.command.NoticeInsert;
-import co.yedam.thinkwise.command.NoticeInsertForm;
-import co.yedam.thinkwise.command.NoticeList;
-import co.yedam.thinkwise.command.NoticeSelect;
-import co.yedam.thinkwise.command.NoticeUpdate;
-import co.yedam.thinkwise.command.NoticeUpdateForm;
-
-import co.yedam.thinkwise.command.SelectMemberList;
-import co.yedam.thinkwise.command.SelectMyInfo;
-import co.yedam.thinkwise.command.SelectParent;
+import co.yedam.thinkwise.command.board.BoardDelete;
+import co.yedam.thinkwise.command.board.BoardInsert;
+import co.yedam.thinkwise.command.board.BoardInsertForm;
+import co.yedam.thinkwise.command.board.BoardList;
+import co.yedam.thinkwise.command.board.BoardSelect;
+import co.yedam.thinkwise.command.board.NoticeDelete;
+import co.yedam.thinkwise.command.board.NoticeInsert;
+import co.yedam.thinkwise.command.board.NoticeInsertForm;
+import co.yedam.thinkwise.command.board.NoticeList;
+import co.yedam.thinkwise.command.board.NoticeSelect;
+import co.yedam.thinkwise.command.board.NoticeUpdate;
+import co.yedam.thinkwise.command.board.NoticeUpdateForm;
+import co.yedam.thinkwise.command.info.Carlendar;
+import co.yedam.thinkwise.command.info.HomeCommand;
+import co.yedam.thinkwise.command.info.KakaoChat;
+import co.yedam.thinkwise.command.info.Location;
+import co.yedam.thinkwise.command.member.MemberCheck;
+import co.yedam.thinkwise.command.member.MemberInfoEdit;
+import co.yedam.thinkwise.command.member.MemberInput;
+import co.yedam.thinkwise.command.member.MemberInputForm;
+import co.yedam.thinkwise.command.member.MemberLogin;
+import co.yedam.thinkwise.command.member.MemberLoginForm;
+import co.yedam.thinkwise.command.member.MemberPwEdit;
+import co.yedam.thinkwise.command.member.MemberSelectEmailForm;
+import co.yedam.thinkwise.command.member.SelectMemberList;
+import co.yedam.thinkwise.command.member.SelectMyInfo;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
