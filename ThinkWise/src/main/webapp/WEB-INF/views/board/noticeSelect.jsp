@@ -52,19 +52,46 @@
           
           
             <div class="contact_form-container">
+              <table>
+              	<tr>
+              		<td>
+              			<textarea rows="1" cols="50" id="contents" name="contents" style="resize: none;">${notice.title }</textarea>
+              		</td>
+              	</tr>
+              	
+              	<tr>
+              		<td>
+	              		<c:set var="modifiedDate" value="${notice.modifyDt }" />
+	                
+	                	<c:if test="${not empty modifiedDate}">
+	                		${notice.modifyDt }
+	                	</c:if>
+	                	
+	               		<c:if test="${empty modifiedDate}">
+	                		${notice.enrollDt }
+	                	</c:if>
+	                	
+              		</td>
+              		
+              		<td>
+              			${notice.hit }
+              		</td>
+              	</tr>
+              	
+              	<tr>
+              		<td>
+              			<textarea rows="10" cols="50" id="contents" name="contents" style="resize: none;">${notice.contents }</textarea>
+              		</td>
+              	</tr>
+              	
+              	
+              	
+              </table>
               
-                <div>
-                  <input type="text" id="title" name="title" placeholder="Title">${notice.title }
-                </div>
+               
                 
-                <div>
-                  <textarea rows="10" cols="90" id="contents" name="contents">${notice.contents }</textarea>
-                </div>
-                ${notice.enrollDt }
                 
-                ${notice.modifyDt }
                 
-                ${notice.hit }
                 <!-- 버튼 -->
                 <div class="mt-5">
                   <button type="button" onclick="noticeList.do">
