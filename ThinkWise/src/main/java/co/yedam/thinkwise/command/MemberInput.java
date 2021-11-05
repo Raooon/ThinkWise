@@ -18,31 +18,14 @@ public class MemberInput implements Command {
 		String viewPage = null;
 		
 		vo.setEmail(request.getParameter("email"));
-		System.out.println(request.getParameter("email"));
-		
 		vo.setPassword(request.getParameter("password"));
-		System.out.println(request.getParameter("email"));
-		
 		vo.setName(request.getParameter("name"));
-		System.out.println(request.getParameter("email"));
-		
 		vo.setGender(request.getParameter("gender"));
-		System.out.println(request.getParameter("email"));
-		
 		vo.setBirth(request.getParameter("birth").replaceAll("-", ""));
-		System.out.println(request.getParameter("birth").replaceAll("-", ""));
-		
 		vo.setTel(request.getParameter("tel"));
-		System.out.println(request.getParameter("email"));
-		
 		vo.setAddress(request.getParameter("address"));
-		System.out.println(request.getParameter("email"));
-		
 		vo.setDivision(request.getParameter("division"));
-		System.out.println(request.getParameter("email"));
-		
 		vo.setParent(request.getParameter("parent"));
-		System.out.println(request.getParameter("email"));
 		
 		int n = memberDao.insertMember(vo);
 		if( n != 0) {

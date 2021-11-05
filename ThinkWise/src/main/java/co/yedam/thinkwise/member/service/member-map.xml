@@ -13,7 +13,10 @@
 	</select>
 	
 	<insert id="insertMember" parameterType="co.yedam.thinkwise.member.service.MemberVO">
-		insert into member values(member_seq.nextval, #{password}, #{name}, #{gender}, #{birth}, #{tel}, #{email}, #{address}, #{division}, #{parent})
+		<selectKey resultType="co.yedam.thinkwise.member.service.MemberVO" keyProperty="id" order="BEFORE">
+			select id from member where email=#{parent}	
+		</selectKey>
+		insert into member values(member_seq.nextval, #{password}, #{name}, #{gender}, #{birth}, #{tel}, #{email}, #{address}, #{division}, #{id})
 	</insert>
 	
 	<delete id="deleteMember" parameterType="co.yedam.thinkwise.member.service.MemberVO">
@@ -24,7 +27,4 @@
 		update member set password = #{password}, name = #{name}, gender = #{gender}, birth = #{birth}, tel = #{tel}, email = #{email}, address = #{address} where email = #{email}
 	</update>
 	
-	<select id="selectEmail" resultType="co.yedam.thinkwise.member.service.MemberVO">
-		select count(*) from member where email = #{email}
-	</select>
 </mapper>

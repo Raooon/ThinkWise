@@ -20,7 +20,6 @@
 			const newRow = table.insertRow();
 			const newCell1 = newRow.insertCell(0);
 			const newCell2 = newRow.insertCell(1);
-			newCell2.colSpan="2";
 
 			newCell1.innerHTML = '부모님';
 			newCell2.innerHTML = '<input type="text" id="parent" name="parent" placeholder="부모님 이메일을 적어주세요." >';

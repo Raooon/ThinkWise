@@ -14,20 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 import co.yedam.thinkwise.comm.Command;
 import co.yedam.thinkwise.command.Carlendar;
 import co.yedam.thinkwise.command.HomeCommand;
-
 import co.yedam.thinkwise.command.Location;
-
+import co.yedam.thinkwise.command.MemberCheck;
 import co.yedam.thinkwise.command.MemberInput;
 import co.yedam.thinkwise.command.MemberInputForm;
-
 import co.yedam.thinkwise.command.SelectMemberList;
-import co.yedam.thinkwise.command.MemberCheck;
-
+import co.yedam.thinkwise.command.SelectMyInfo;
+import co.yedam.thinkwise.command.SelectParent;
 import co.yedam.thinkwise.notice.NoticeInsert;
 import co.yedam.thinkwise.notice.NoticeInsertForm;
-
-import co.yedam.thinkwise.command.SelectMyInfo;
-
 import co.yedam.thinkwise.notice.NoticeList;
 import co.yedam.thinkwise.notice.noticeSelect;
 
@@ -46,6 +41,7 @@ public class FrontController extends HttpServlet {
 		map.put("/memberInputForm.do", new MemberInputForm());	//회원가입 폼으로 이동
 		map.put("/memberCheck.do", new MemberCheck());	//중복체크
 		map.put("/memberInput.do", new MemberInput());	//회원가입
+		map.put("/selectParent.do", new SelectParent());	// 부모 아이디 확인
 
 		map.put("/noticeList.do", new NoticeList()); // 첫페이지 호출
 		

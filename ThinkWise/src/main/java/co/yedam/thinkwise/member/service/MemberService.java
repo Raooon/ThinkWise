@@ -8,6 +8,8 @@ public interface MemberService {
 	int insertMember(MemberVO vo);
 	int deleteMember(MemberVO vo);
 	int updateMember(MemberVO vo);
+
+	MemberVO selectParent(MemberVO vo);
 	MemberMyInfoVO selectMyInfo(MemberMyInfoVO vo);
 
 }
