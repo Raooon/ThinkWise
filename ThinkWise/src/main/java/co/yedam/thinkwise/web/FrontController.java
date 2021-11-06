@@ -31,15 +31,20 @@ import co.yedam.thinkwise.command.info.Carlendar;
 import co.yedam.thinkwise.command.info.HomeCommand;
 import co.yedam.thinkwise.command.info.KakaoChat;
 import co.yedam.thinkwise.command.info.Location;
+import co.yedam.thinkwise.command.member.FindPw;
+import co.yedam.thinkwise.command.member.FindPwForm;
 import co.yedam.thinkwise.command.member.MemberCheck;
+
 import co.yedam.thinkwise.command.member.MemberDelete;
+
+import co.yedam.thinkwise.command.member.MemberCheck2;
+
 import co.yedam.thinkwise.command.member.MemberInfoEdit;
 import co.yedam.thinkwise.command.member.MemberInput;
 import co.yedam.thinkwise.command.member.MemberInputForm;
 import co.yedam.thinkwise.command.member.MemberLogin;
 import co.yedam.thinkwise.command.member.MemberLoginForm;
 import co.yedam.thinkwise.command.member.MemberPwEdit;
-import co.yedam.thinkwise.command.member.MemberSelectEmailForm;
 import co.yedam.thinkwise.command.member.SelectMemberList;
 import co.yedam.thinkwise.command.member.SelectMyInfo;
 
@@ -60,7 +65,9 @@ public class FrontController extends HttpServlet {
 		map.put("/memberInput.do", new MemberInput());	//회원가입
 		map.put("/memberLoginForm.do", new MemberLoginForm());	//로그인페이지
 		map.put("/memberLogin.do", new MemberLogin());	//로그인
-		map.put("/memberSelectEmailForm.do", new MemberSelectEmailForm());	//아이디찾기
+		map.put("/findPwForm.do", new FindPwForm());	//아이디찾기
+		map.put("/memberCheck2.do", new MemberCheck2());	//이메일 유무확인
+		map.put("/findPw.do", new FindPw());
 
 		map.put("/noticeList.do", new NoticeList()); // 첫페이지 호출
 		

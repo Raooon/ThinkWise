@@ -66,6 +66,11 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public List<MemberMyInfoVO> selectMyclass(MemberMyInfoVO vo) {
-		return map.selectMyclass(vo);
+		return map.selectMyclass(vo); 
+  }
+
+  @Override
+	public MemberVO selectPassword(MemberVO vo) {
+		return map.selectPassword(vo);
 	}
 }
