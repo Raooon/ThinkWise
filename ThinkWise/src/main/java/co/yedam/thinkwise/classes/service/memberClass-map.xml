@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.thinkwise.classes.service.MemberClassMapper">
+	
+	<select id="selectClassList" resultType="co.yedam.thinkwise.classes.service.MemberClassVO">
+		select * from class
+	</select>
+	
+	<select id="classSelect" resultType="co.yedam.thinkwise.classes.service.MemberClassVO">
+		select * from where class_cd = #{class_cd}
+	</select>
+	
+	<insert id="classInsert" parameterType="co.yedam.thinkwise.classes.service.MemberClassVO">
+		insert into class values(#{class_cd},#{subject_cd},#{class_day},#{class_time},#{fr_period},#{to_period},#{teacher_cd})
+	</insert>
+	
+	<update id="classUpdate" parameterType="co.yedam.thinkwise.classes.service.MemberClassVO">
+		update class set class_day = #{class_day},
+			   class_time = #{class_time}, fr_period = #{fr_period}, to_period = #{to_period},
+			   teacher_cd = #{teacher_cd} where class_cd = #{class_cd}
+	</update>
+	
+	<delete id="classDelete" parameterType="co.yedam.thinkwise.classes.service.MemberClassVO">
+		delete from class where class_cd = #{class_cd}
+	</delete>
+	
+</mapper>

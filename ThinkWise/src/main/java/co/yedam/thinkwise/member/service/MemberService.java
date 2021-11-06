@@ -16,6 +16,5 @@ public interface MemberService {
 	MemberVO selectParent(MemberVO vo);
 	int insertMemberParent (MemberVO vo);
 	
-	MemberMyInfoVO selectMyInfo(MemberMyInfoVO vo);
-
+	List<MemberMyInfoVO> selectMyclass(MemberMyInfoVO vo);
 }
