@@ -68,4 +68,9 @@ public class MemberServiceImpl implements MemberService {
 	public int updateMemberInfo(MemberVO vo) {
 		return map.updateMemberInfo(vo);
 	}
+
+	@Override
+	public MemberVO selectPassword(MemberVO vo) {
+		return map.selectPassword(vo);
+	}
 }
