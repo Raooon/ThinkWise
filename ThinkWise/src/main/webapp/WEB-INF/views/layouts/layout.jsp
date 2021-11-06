@@ -78,8 +78,6 @@ img.imgKakao{
 		
 		<div>
 			<tiles:insertAttribute name="body" />
-			<button class="kakao"><img class="imgKakao" src="template/images/kakao.png"/></button>
-			<!--  <a href="https://developers.kakao.com/logout">로그아웃</a>   로그아웃은 카카오세션에 저장된 값을 없애줘야 함-->
 		</div>
 	</div>
 	<div>
@@ -90,6 +88,7 @@ img.imgKakao{
 <script type="text/javascript" src="template/js/bootstrap.js"></script>
 
 <script>
+
 $(document).on('click', 'button.kakao', function(event) { 
     window.open('kakaoLogin.do', 'popup', 'width=500, height=600, right=30');
 })

@@ -13,7 +13,7 @@ public class Carlendar implements Command {
 	public String run(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			request.setCharacterEncoding("UTF-8");
-			response.setContentType("text/html; charset=UTR-8");
+			response.setContentType("text/html; charset=UTF-8");
 			
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();

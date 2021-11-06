@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.thinkwise.comments.service.CommentsMapper">
+
+	<select id="commentsList" resultType="co.yedam.thinkwise.comments.service.CommentsVO">
+		SELECT comment_no AS commentNo, board_no AS boardNo, dimention, comment_no2 AS commnetNo2, enroll_dt AS enrollDt, modify_dt AS modifyDt, contents, likes, id
+		FROM comments
+	</select>
+	<!-- commentsNo2랑 dimention 확인해보고 작업. -->
+	<!-- 
+	<select id="commentsSelect" resultType="co.yedam.thinkwise.comments.service.CommentsVO">
+		SELECT 
+		WHERE comment_no2=#{commnetNo2}
+	</select>
+	 -->
+	<insert id="commentsInsert" parameterType="co.yedam.thinkwise.comments.service.CommentsVO">
+		INSERT INTO comments
+		VALUES(comment_seq.nextval,#{boardNo},#{dimention},#{commnetNo2},sysdate,null,0,#{id})
+	</insert>
+	
+	<update id="commentsUpdate" parameterType="co.yedam.thinkwise.comments.service.CommentsVO">
+		UPDATE comments SET enroll_dt=sysdate, contents=#{contents}
+		WHERE comment_no=#{commentNo}
+	</update>
+	
+	<delete id="commentsDelete" parameterType="co.yedam.thinkwise.comments.service.CommentsVO">
+		DELETE FROM comments WHERE comment_no=#{commentNo}
+	</delete>
+	
+	<update id="commentsLikesUpdate" parameterType="co.yedam.thinkwise.comments.service.CommentsVO">
+		UPDATE comments SET likes = likes + 1 WHERE comment_no=#{commentNo}
+	</update>
+	
+</mapper>

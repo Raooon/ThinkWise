@@ -23,7 +23,6 @@
 
 <link rel="stylesheet" href="template/css/css-circular-prog-bar.css">
 
-
 </head>
 <body>
 <div class="top_container">

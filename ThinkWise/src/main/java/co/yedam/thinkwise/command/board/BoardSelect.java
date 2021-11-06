@@ -12,7 +12,7 @@ public class BoardSelect implements Command {
 
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
-		
+		//게시글 부분
 		BoardService boardDao = new BoardServiceImpl();
 		BoardVO vo = new BoardVO();
 		
@@ -22,6 +22,11 @@ public class BoardSelect implements Command {
 		
 		vo = boardDao.boardSelect(vo);
 		request.setAttribute("board", vo);
+		
+		//댓글 부분
+		
+		
+		
 		
 		return "board/boardSelect";
 	}

@@ -49,5 +49,5 @@ public class BoardServiceImpl implements BoardService {
 	public int boardLikesUpdate(BoardVO vo) {
 		return map.boardLikesUpdate(vo);
 	}
-
+	
 }

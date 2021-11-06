@@ -13,5 +13,4 @@ public interface BoardMapper {
 	
 	int boardHitUpdate(BoardVO vo);
 	int boardLikesUpdate(BoardVO vo);
-	
 }

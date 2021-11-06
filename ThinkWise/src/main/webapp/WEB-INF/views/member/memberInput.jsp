@@ -122,6 +122,7 @@
 		</section>
 	</div>
 	<script type="text/javascript">
+
 		$(document).ready(function() {
 			document.getElementById("parentDiv").style.display="none";
 			$("input:radio[id=division_s]").click(function() {
@@ -179,6 +180,7 @@
 				}
 			});
 		};
+
 	</script>
 </body>
 </html>

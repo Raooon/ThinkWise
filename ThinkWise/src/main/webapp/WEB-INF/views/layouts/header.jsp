@@ -26,6 +26,91 @@
 <!-- responsive style -->
 <link href="template/css/responsive.css" rel="stylesheet" />
 
+<div id="kakao-talk-channel-chat-button"></div>
+<div id="create-channel-add-button"></div>
+
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script type='text/javascript'>
+  //<![CDATA[
+    // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('2e138c521b47422d9e2557bb2abb8e71');
+    // 카카오톡 채널 1:1채팅 버튼을 생성합니다.
+    Kakao.Channel.createChatButton({
+      container: '#kakao-talk-channel-chat-button',
+      channelPublicId: '_jxfpEb' // 카카오톡 채널 홈 URL에 명시된 ID
+    });
+  //]]>
+</script>
+
+ 
+<style>
+/* pc 화면 */
+@media (min-width: 768px) {
+    #kakao-talk-channel-chat-button {
+    position: fixed;
+    z-index: 999;
+    right: 20px; /* 화면 오른쪽으로부터의 거리, 숫자만 변경 30이 기본값*/
+    bottom: 65px; /* 화면 아래쪽으로부터의 거리, 숫자만 변경 */
+    }
+}
+/* 모바일 화면 */
+@media (max-width:767px) {
+    #kakao-talk-channel-chat-button {
+    position: fixed;
+    z-index: 999;
+    right: 15px; /* 화면 오른쪽으로부터의 거리, 숫자만 변경 */
+    bottom: 30px; /* 화면 아래쪽으로부터의 거리, 숫자만 변경 */
+    }
+}
+/* PC 카카오톡 채널 버튼 위치 */
+.kakaoChatPc {
+    position: fixed;
+    z-index: 999;
+    right: 20px; /* 화면 오른쪽으로부터의 거리, 숫자만 입력 */
+    bottom: 65px; /* 화면 아래쪽으로부터의 거리, 숫자만 입력 */
+}
+/* 모바일 카카오톡 채널 버튼 위치 */
+.kakaoChatMob {
+    position: fixed;
+    z-index: 999;
+    right: 20px; /* 화면 오른쪽으로부터의 거리, 숫자만 입력 */
+    bottom: 20px; /* 화면 아래쪽으로부터의 거리, 숫자만 입력 */
+}
+#channel-add-button {
+    position: fixed;
+    z-index: 999;
+    right: 20px; /* 화면 오른쪽으로부터의 거리, 숫자만 입력 */
+    bottom: 10px; /* 화면 아래쪽으로부터의 거리, 숫자만 입력 */
+}
+</style>
+
+<!-- 채널 추가 버튼 -->
+<a id="channel-add-button" href="#" onclick="void addChannel();">
+	<img src="template/images/배너.png"/>
+</a>
+
+<!-- 카카오톡 채널 스크립트 -->
+<script type='text/javascript'>
+    Kakao.init('2e138c521b47422d9e2557bb2abb8e71'); // 사용할 앱의 JavaScript키를 입력해 주세요.
+    function kakaoChatStart() {
+        Kakao.Channel.chat({
+            channelPublicId: '_jxfpEb' // 카카오톡 채널 홈 URL에 명시된 ID를 입력합니다.
+        });
+
+        Kakao.Channel.createAddChannelButton({
+        	  container: '#kakao-add-channel-button',
+        	  channelPublicId: '_jxfpEb' // 카카오톡 채널 홈 URL에 명시된 id로 설정합니다.
+        });
+    }
+    
+    function addChannel() {
+    	  Kakao.Channel.addChannel({
+    	    channelPublicId: '_jxfpEb',
+    	  })
+    }
+    
+</script>
+
 <style>
 
 	header{
@@ -43,7 +128,6 @@
 		top: -72px; 
 	}
 
-	
 </style>
 
 </head>
@@ -111,7 +195,7 @@
         </nav>
       </div>
     </header>
-    
+
 <script type="text/javascript" src="template/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="template/js/bootstrap.js"></script>
 
