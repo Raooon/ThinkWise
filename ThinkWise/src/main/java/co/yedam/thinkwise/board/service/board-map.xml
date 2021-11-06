@@ -8,7 +8,7 @@
 	</select>
 	
 	<select id="boardSelect" resultType="co.yedam.thinkwise.board.service.BoardVO">
-		SELECT id, enroll_dt AS enrollDt, modify_dt As modifyDt, title, contents, image, hit, likes 
+		SELECT id, enroll_dt AS enrollDt, modify_dt As modifyDt, title, contents, image, hit, likes
 		FROM board 
 		WHERE board_no=#{boardNo}
 	</select>
@@ -34,5 +34,4 @@
 	<update id="boardLikesUpdate" parameterType="co.yedam.thinkwise.board.service.BoardVO">
 		UPDATE board SET likes = likes + 1 WHERE board_no = #{boardNo}
 	</update>
-	
 </mapper>

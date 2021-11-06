@@ -14,5 +14,4 @@ public interface BoardService {
 	
 	int boardHitUpdate(BoardVO vo);
 	int boardLikesUpdate(BoardVO vo);
-	
 }

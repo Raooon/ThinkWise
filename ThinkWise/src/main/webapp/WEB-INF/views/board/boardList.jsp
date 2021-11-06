@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,15 +32,15 @@
 <link rel="stylesheet" href="yswtemp/css/icomoon.css">
 <link rel="stylesheet" href="yswtemp/css/style.css">
 
-	<script>
-		function boardSelect(num) {
-			
-			frm.nid.value = num;
-			frm.submit();
-			
-		}
-	</script>
-	
+<script>
+	function boardSelect(num) {
+
+		frm.nid.value = num;
+		frm.submit();
+
+	}
+</script>
+
 </head>
 <body>
 
@@ -55,47 +55,63 @@
 				</div>
 			</div>
 			<div align="right">
-							<!-- Read More -->
+				<!-- Read More -->
 				<!-- 리스트로 넘기는 곳 -->
 				<div class="hero_btn-continer">
 					<a href="" class="call_to-btn btn_white-border"> Read More </a>
 				</div>
 				<!-- Read More -->
-				
+
 				<!-- 글 쓰기 버튼 -->
 				<!-- 권한에 따라 안보이게 -->
 				<div class="hero_btn-continer">
-					<a href="boardInsertForm.do" class="call_to-btn btn_white-border"> 보고서 등록 </a>
+					<a href="boardInsertForm.do" class="call_to-btn btn_white-border">
+						보고서 등록 </a>
 				</div>
 				<!-- 글 쓰기 버튼 -->
-			</div>	
+			</div>
 			<div class="row">
 
 				<!-- 게시글 ForEach 시작 -->
 				<c:forEach items="${boards }" var="board">
 					<div class="col-md-6 col-lg-4 ftco-animate">
 						<div class="blog-entry">
-						
-							
-							<!-- 이미지 들어가는 곳 -->
-							<!-- 첫번째 이미지를 섬네일로 사용. -->
-							<c:if test="${empty board.image }"> 
-								<a onclick="boardSelect('${board.boardNo }')" class="block-20 d-flex align-items-end" style="background-image: url('yswtemp/images/image_1.jpg');">
-							</c:if>
-							
-							<c:if test="${not empty board.image }"> 
-							<c:set var="imageName" value="${board.image }" />
-							<c:set var="thumb" value="${fn:indexOf(imageName,'/') }" />
-								<a onclick="boardSelect('${board.boardNo }')" class="block-20 d-flex align-items-end" style="background-image: url('upload/${fn:substring(imageName,0,thumb) }');">
-							</c:if>
-								<!-- 날짜 들어가는 곳 -->
-								<div class="meta-date text-center p-2">
-							<c:set var="date" value="${board.enrollDt }" />
-									<span class="yr">${fn:substring(date,0,4) }</span>
-									<span class="mos">${fn:substring(date,5,7) }</span> 
-									<span class="day">${fn:substring(date,8,10) }</span> 
-								</div>
 
+
+							<!-- 이미지 들어가는 곳 -->
+
+							<!-- 첫번째 이미지를 섬네일로 사용. -->
+							<c:if test="${empty board.image }">
+								<a onclick="boardSelect('${board.boardNo }')"
+									class="block-20 d-flex align-items-end"
+									style="background-image: url('yswtemp/images/image_1.jpg');">
+							</c:if>
+
+							<c:if test="${not empty board.image }">
+								<c:set var="imageName" value="${board.image }" />
+								<c:set var="firstImage" value="${fn:indexOf(imageName,'/') }" />
+								<c:set var="thumb" value="${fn:substring(imageName,0,firstImage) }" />
+							
+								<c:if test="${thumb ne 'null'}">
+									<a onclick="boardSelect('${board.boardNo }')"
+										class="block-20 d-flex align-items-end"
+										style="background-image: url('upload/${thumb}');">
+								</c:if>
+
+								<c:if test="${thumb eq 'null'}">
+									<a onclick="boardSelect('${board.boardNo }')"
+										class="block-20 d-flex align-items-end"
+										style="background-image: url('yswtemp/images/image_1.jpg');">
+								</c:if>
+
+							</c:if>
+
+							<!-- 날짜 들어가는 곳 -->
+							<div class="meta-date text-center p-2">
+								<c:set var="date" value="${board.enrollDt }" />
+								<span class="yr">${fn:substring(date,0,4) }</span> <span
+									class="mos">${fn:substring(date,5,7) }</span> <span class="day">${fn:substring(date,8,10) }</span>
+							</div>
 							</a>
 							<div class="text bg-white p-4">
 								<h3 class="heading">
@@ -104,7 +120,7 @@
 								</h3>
 								<!-- 간략한 내용 들어가는 곳 -->
 								<c:set var="summary" value="${board.contents }" />
-									${fn:substring(summary,0,20) }
+								${fn:substring(summary,0,20) }
 								<c:if test="${fn:length(summary) gt 20 }">
 								...
 								</c:if>
@@ -112,16 +128,17 @@
 
 									<p class="ml-auto mb-0">
 										<a href="#" class="mr-2">Admin</a> <a href="#"
-											class="meta-chat"><span class="icon-chat"></span> ${board.hit }</a>
+											class="meta-chat"><span class="icon-chat"></span>
+											${board.hit }</a>
 									</p>
 								</div>
 							</div>
 						</div>
 					</div>
 				</c:forEach>
-							<form action="boardSelect.do" id="frm" method="post">
-								<input type="hidden" id="nid" name="nid">
-							</form>
+				<form action="boardSelect.do" id="frm" method="post">
+					<input type="hidden" id="nid" name="nid">
+				</form>
 				<!-- 게시글 ForEach End -->
 
 
@@ -146,7 +163,7 @@
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="yswtemp/js/google-map.js"></script>
 	<script src="yswtemp/js/main.js"></script>
-	
-	
+
+
 </body>
 </html>

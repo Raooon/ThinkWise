@@ -12,9 +12,14 @@ public class BoardList implements Command {
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
 		
+		//게시글 부분
 		BoardService boardDao = new BoardServiceImpl();
 		
 		request.setAttribute("boards", boardDao.boardList());
+		
+		//댓글 부분
+		
+		
 		
 		return "board/boardList";
 		

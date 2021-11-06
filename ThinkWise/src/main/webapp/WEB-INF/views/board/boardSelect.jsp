@@ -76,27 +76,23 @@
 					<div class="contact_form-container">
 						<div align="center">
 							<table>
+							<c:if test="${not empty board.image }">
 								<tr>
 									<c:set var="imageName" value="${board.image }" />
 									<c:set var="thumb" value="${fn:split(imageName,'/') }" />
 									<c:forEach items="${thumb }" var="selectedImage">
-										
-										<!-- 
-										<c:choose>
-											<c:when test="">
-											
-											</c:when>
-										</c:choose>
-										 -->
+											<c:if test="${selectedImage ne 'null' }"> 
 									<td>
-										<div>
+										<div align="center">
 											<img alt="" src="upload/${selectedImage }" width="240px" height="180px">
 										</div>
 									</td>
+									
+											</c:if>
 									</c:forEach>
-								
+									
 								</tr>
-							
+							</c:if>
 								<tr>
 									<td colspan="3"><textarea rows="1" cols="100" id="contents"
 											name="contents" style="resize: none;" readonly="readonly">${board.title }</textarea>
@@ -118,11 +114,24 @@
 											id="contents" name="contents" style="resize: none;"
 											readonly="readonly">${board.contents }</textarea></td>
 								</tr>
-
+								<!-- 댓글 보여주기 -->
 								<tr>
-									<!-- 버튼 3종 -->
+									
+								</tr>
+								<!-- 댓글 등록 시작 -->
+								<tr>
 									<td colspan="3">
-										<div class="mt-5">
+										댓글
+										<textarea rows="1" cols="80" id="comment" name="comment" style="resize: none;"></textarea>
+										<button type="button" style="font-size: 10px">등록</button>	
+									</td>
+								</tr>
+								<!-- 댓글 등록 끝 -->
+								
+								<!-- 버튼 3종 -->
+								<tr>
+									<td colspan="3">
+										<div class="mt-5" align="center">
 											&nbsp; &nbsp; &nbsp;
 											<button type="button" onclick="boardEdit('U')">수정하기
 											</button>
@@ -135,7 +144,7 @@
 										</div>
 									</td>
 								</tr>
-
+								<!-- 버튼 끝 -->
 							</table>
 						</div>
 						<div>
