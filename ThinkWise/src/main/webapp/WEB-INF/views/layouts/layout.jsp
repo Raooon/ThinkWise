@@ -38,11 +38,11 @@
 
 <div class="top_container">
 	<tiles:insertAttribute name="header" />
-
+</div>	
 	<div>
 		<tiles:insertAttribute name="body" />
 	</div>
-</div>	
+
 	
 <div>
 	<tiles:insertAttribute name="footer" />
