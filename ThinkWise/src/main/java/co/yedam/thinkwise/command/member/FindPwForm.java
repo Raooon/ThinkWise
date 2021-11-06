@@ -5,13 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.thinkwise.comm.Command;
 
-public class MemberSelectEmailForm implements Command {
+public class FindPwForm implements Command {
 
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
-		// 아이디찾기 폼으로 이동
-		
-		return "member/memberSelectEmail";
+		// 비밀번호 찾기 폼으로 이동
+		return "member/findPwForm";
 	}
 
 }
