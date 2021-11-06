@@ -15,16 +15,11 @@ public class Carlendar implements Command {
 			request.setCharacterEncoding("UTF-8");
 			response.setContentType("text/html; charset=UTF-8");
 			
-			//String command = request.getParameter("command");
-			
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		
-		
-		return "calendar/calendar";
+		return "calendar/calendar"; //캘린더 호출
 	}
 
 }

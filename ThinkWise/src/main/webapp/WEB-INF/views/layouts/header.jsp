@@ -182,6 +182,10 @@
                 </li>
                 
                 <li class="nav-item">
+                  <a class="nav-link" href="memberClassList.do">Class Manage</a>
+                </li>
+                
+                <li class="nav-item">
                   <a class="nav-link" href="location.do">location</a>
                 </li>
 

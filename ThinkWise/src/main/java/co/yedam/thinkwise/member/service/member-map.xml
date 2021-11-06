@@ -13,7 +13,7 @@
 		select * from member where id = #{id} and password = #{password}
 	</select>
 	
-	<select id="selectMyInfo" resultType="co.yedam.thinkwise.member.service.MemberMyInfoVO">
+	<select id="selectMyclass" resultType="co.yedam.thinkwise.member.service.MemberMyInfoVO">
 		select * from vw_member_info where email = #{email}
 	</select>
 	
@@ -48,4 +48,7 @@
 		insert into member values(member_seq.nextval, #{password}, #{name}, #{gender}, #{birth}, #{tel}, #{email}, #{address}, #{division}, #{id})
 	</insert>
 	
+	<select id="selectPassword" resultType="co.yedam.thinkwise.member.service.MemberVO">
+		select * from member where (email = #{email} and name = #{name} and tel = #{tel})
+	</select>
 </mapper>

@@ -24,18 +24,28 @@ import co.yedam.thinkwise.command.board.NoticeList;
 import co.yedam.thinkwise.command.board.NoticeSelect;
 import co.yedam.thinkwise.command.board.NoticeUpdate;
 import co.yedam.thinkwise.command.board.NoticeUpdateForm;
+import co.yedam.thinkwise.command.classes.ClassDelete;
+import co.yedam.thinkwise.command.classes.ClassEdit;
+import co.yedam.thinkwise.command.classes.MemberClassList;
 import co.yedam.thinkwise.command.info.Carlendar;
 import co.yedam.thinkwise.command.info.HomeCommand;
 import co.yedam.thinkwise.command.info.KakaoChat;
+import co.yedam.thinkwise.command.info.KakaoLogin;
 import co.yedam.thinkwise.command.info.Location;
+import co.yedam.thinkwise.command.member.FindPw;
+import co.yedam.thinkwise.command.member.FindPwForm;
 import co.yedam.thinkwise.command.member.MemberCheck;
+
+import co.yedam.thinkwise.command.member.MemberDelete;
+
+import co.yedam.thinkwise.command.member.MemberCheck2;
+
 import co.yedam.thinkwise.command.member.MemberInfoEdit;
 import co.yedam.thinkwise.command.member.MemberInput;
 import co.yedam.thinkwise.command.member.MemberInputForm;
 import co.yedam.thinkwise.command.member.MemberLogin;
 import co.yedam.thinkwise.command.member.MemberLoginForm;
 import co.yedam.thinkwise.command.member.MemberPwEdit;
-import co.yedam.thinkwise.command.member.MemberSelectEmailForm;
 import co.yedam.thinkwise.command.member.SelectMemberList;
 import co.yedam.thinkwise.command.member.SelectMyInfo;
 
@@ -56,7 +66,9 @@ public class FrontController extends HttpServlet {
 		map.put("/memberInput.do", new MemberInput());	//회원가입
 		map.put("/memberLoginForm.do", new MemberLoginForm());	//로그인페이지
 		map.put("/memberLogin.do", new MemberLogin());	//로그인
-		map.put("/memberSelectEmailForm.do", new MemberSelectEmailForm());	//아이디찾기
+		map.put("/findPwForm.do", new FindPwForm());	//아이디찾기
+		map.put("/memberCheck2.do", new MemberCheck2());	//이메일 유무확인
+		map.put("/findPw.do", new FindPw());
 
 		map.put("/noticeList.do", new NoticeList()); // 첫페이지 호출
 		
@@ -64,10 +76,16 @@ public class FrontController extends HttpServlet {
 		map.put("/selectMyInfo.do", new SelectMyInfo()); // 내정보 수정
 		map.put("/memberPwEdit.do", new MemberPwEdit()); // 패스워드변경
 		map.put("/memberInfoEdit.do", new MemberInfoEdit()); // 이름, 전화번호, 주소 변경
+		map.put("/memberDelete.do", new MemberDelete()); //회원 탈퇴
+		
+		map.put("/memberClassList.do", new MemberClassList()); // 수업 목록
+		map.put("/classDelete.do", new ClassDelete()); // 수업 삭제
+		map.put("/classEdit.do", new ClassEdit()); // 수업 정보수정
 
 
 		map.put("/carlendar.do", new Carlendar()); //캘린더
 		map.put("/location.do", new Location()); //찾아오는 길
+		map.put("/kakaoLogin.do", new KakaoLogin()); //카카오로그인
 		map.put("/kakaoChat.do", new KakaoChat()); //카카오톡 연동??
 
 		//notice

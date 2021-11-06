@@ -12,7 +12,8 @@
 
   <!-- Tailwind is included -->
   <link rel="stylesheet" href="profile/css/main.css?v=1628755089081">
-
+  <link href="mltemp/css/styles.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"/>
@@ -24,6 +25,10 @@
    #app{
       margin: 70px;
       padding-top: 30px;
+   }
+   #layoutSidenav{
+	  margin-left: -1.5rem;
+	  margin-right: -1.5rem;
    }
 </style>
 </head>
@@ -37,12 +42,21 @@
   </div>
 </section>
 <section class="section main-section">
-  <div class="grid grid-cols-1 gap-6 lg:grid-cols-2 mb-6">
     <div class="card">
       <div class="card-content">
         <form>
         <label class="label" style="font-size: 17px">Edit Profile</label>
           <hr>
+          <div class="field">
+            <label class="label">E-mail</label>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input type="text" autocomplete="on" readonly="readonly" value="${member.email }" class="input" required>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="field">
             <label class="label">Name</label>
             <div class="field-body">
@@ -87,39 +101,6 @@
         </form>
       </div>
     </div>
-    <div class="card">
-      <div class="card-content">
-        <hr>
-        <div class="field">
-          <label class="label">E-mail</label>
-          <div class="control">
-            <input type="text" readonly value="${member.email }" class="input is-static">
-          </div>
-        </div>
-        <hr>
-        <div class="field">
-          <label class="label">Name</label>
-          <div class="control">
-            <input type="text" readonly value="${member.name }" class="input is-static">
-          </div>
-        </div>
-        <hr>
-        <div class="field">
-          <label class="label">Telephone</label>
-          <div class="control">
-            <input type="text" readonly value="${member.tel }" class="input is-static">
-          </div>
-        </div>
-        <hr>
-        <div class="field">
-          <label class="label">Address</label>
-          <div class="control">
-            <input type="text" readonly value="${member.address }" class="input is-static">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="card">
     <div class="card-content">
       <form>
@@ -151,6 +132,9 @@
             <button type="button" onclick="CallEdit('P')" class="button green" style="border: 1px solid silver">
               Submit
             </button>
+            <button type="button" onclick="DeleteAccount()" class="button green" style="border: 1px solid silver; float: right">
+              Delete my Account
+            </button>
           </div>
         </div>
       </form>
@@ -158,62 +142,95 @@
   </div>
 </section>
   
-<form name="frm" method="post">
+<form id="frm" name="frm" action="" method="post">
 	<input type="hidden" id="id" name="id" value="${member.id }">
-	<input type="hidden" id="newName" name="newName" value="">
-	<input type="hidden" id="newTel" name="newTel" value="">
-	<input type="hidden" id="newAddress" name="newAddress" value="">
+	<input type="hidden" id="email" name="email" value="${member.email }">
 </form>
 
-<div id="sample-modal" class="modal">
-  <div class="modal-background --jb-modal-close"></div>
-  <div class="modal-card">
-    <section class="modal-card-body">
-      <p>Lorem ipsum dolor sit amet <b>adipiscing elit</b></p>
-      <p>This is sample modal</p>
-    </section>
-    <footer class="modal-card-foot">
-      <button class="button --jb-modal-close">Cancel</button>
-      <button class="button red --jb-modal-close">Confirm</button>
-    </footer>
-  </div>
 </div>
-
-<div id="sample-modal-2" class="modal">
-  <div class="modal-background --jb-modal-close"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">Sample modal</p>
-    </header>
-    <section class="modal-card-body">
-      <p>Lorem ipsum dolor sit amet <b>adipiscing elit</b></p>
-      <p>This is sample modal</p>
-    </section>
-    <footer class="modal-card-foot">
-      <button class="button --jb-modal-close">Cancel</button>
-      <button class="button blue --jb-modal-close">Confirm</button>
-    </footer>
-  </div>
-</div>
-
-</div>
-
+<c:if test="${not empty MyClasses}">
+<div id="layoutSidenav">
+		<div id="layoutSidenav_content">
+			<main>
+				<div class="container-fluid px-4">
+					<h1 class="mt-4">My Class</h1>
+					<div class="card mb-4">
+						<div class="card-header">
+							<i class="fas fa-table me-1"></i> DataTable
+						</div>
+						<div class="card-body">
+							<table id="datatablesSimple">
+								<thead>
+									<tr>
+										<th>수업코드</th>
+										<th>수업명</th>
+										<th>수업시간</th>
+										<th>시작일</th>
+										<th>종료일</th>
+										<th>강사명</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach items="${MyClasses }" var="Classes">
+										<tr>
+											<td>${Classes.class_cd }</td>
+											<td>${Classes.subject_nm }</td>
+											<td>${Classes.class_time }</td>
+											<td>${Classes.fr_period }</td>
+											<td>${Classes.to_period }</td>
+											<td>${Classes.teacher_nm }</td>
+										</tr>
+									</c:forEach>
+								
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</main>
+			<footer class="py-4 bg-light mt-auto">
+				<div class="container-fluid px-4">
+					<div class="d-flex align-items-center justify-content-between small"></div>
+				</div>
+			</footer>
+		</div>
+	</div>
+	</c:if>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+	<script src="mltemp/js/scripts.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+	<script src="mltemp/js/datatables-simple-demo.js"></script>
 <!-- Scripts below are for demo only -->
 <script type="text/javascript" src="profile/js/main.min.js?v=1628755089081"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
+	function DeleteAccount() {
+		if(window.confirm("정말로 탈퇴하시겠습니까?")){
+			frm.action = "memberDelete.do";
+		} else {
+			return;
+		}
+		frm.submit();
+	}
+	
 	function CallEdit(str){
 		let pw = $('#newPassword').val();
 		let pw1 = $('#newPwConfirm').val();
 		console.log(pw);
 		console.log(pw1);
 		if(str == 'E'){
-			editInfo();
-			return;
+			if(window.confirm("입력하신 정보로 변경하시겠습니까?")){
+				editInfo();
+			} else{
+				return;
+			}
 		} else {
 			if(pw == pw1){
-				pwCheck();
-				return;
+				if(window.confirm("비밀번호를 변경하시겠습니까?")){
+					pwCheck();
+				} else{
+					return;
+				}
 				
 			} else {
 				window.alert("새로운 패스워드가 일치하지않습니다");
@@ -230,22 +247,22 @@
 		//var curPw = $('#password_current').val();
 		//var id = $('#id').val();
 		//var newPw = document.getElementById("newPassword").value;
+		var id = $('#id').val();
 		var name = $('#name').val();
 		var tel = $('#tel').val();
 		var address = $('#address').val();
 		$.ajax({
 			url: "memberInfoEdit.do",
 			type: "POST",
-			async: false,
-			data: {name:name,
+			data: {id:id,
+				   name:name,
 				   tel:tel,
 				   address:address},
-			dataType: "json",
 			success: function(data) {
 				window.alert(data);
 			},
 			error: function(data) {
-				alert(JSON.stringify(data));
+				console.log(data);
             }
 		});
 	}
@@ -258,19 +275,18 @@
 		$.ajax({
 			url: "memberPwEdit.do",
 			type: "POST",
-			async: false,
 			data: {password:curPw,
 				   id:id,
 				   newPw:newPw},
-			dataType: "json",
 			success: function(data) {
+				console.log(data);
 				window.alert(data);
 				$("#password_current").val("");
 				$("#newPassword").val("");
 				$("#newPwConfirm").val("");
 			},
 			error: function(data) {
-				alert(JSON.stringify(data));
+				console.log(data);
 				$("#password_current").val("");
 				$("#newPassword").val("");
 				$("#newPwConfirm").val("");
@@ -284,6 +300,5 @@
 
 <!-- Icons below are for demo only. Feel free to use any icon pack. Docs: https://bulma.io/documentation/elements/icon/ -->
 
-</body>
 </body>
 </html>

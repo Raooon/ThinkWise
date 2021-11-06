@@ -14,8 +14,8 @@ public interface MemberService {
 	MemberVO memberCurPwCheck(MemberVO vo);
 	
 	MemberVO selectParent(MemberVO vo);
+	MemberVO selectPassword(MemberVO vo);
 	int insertMemberParent (MemberVO vo);
 	
-	MemberMyInfoVO selectMyInfo(MemberMyInfoVO vo);
-
+	List<MemberMyInfoVO> selectMyclass(MemberMyInfoVO vo);
 }

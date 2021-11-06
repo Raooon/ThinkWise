@@ -25,17 +25,27 @@
 
 </head>
 <body>
-<section class="hero_section ">
-      <div class="hero-container container">
-        <div class="hero_detail-box">
-        </div>
-        <div class="hero_img-container">
-          <div>
-            <img src="template/images/hero.png" alt="" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="top_container">
+	<section class="hero_section ">
+		<div class="hero-container container">
+			<div class="hero_detail-box">
+			</div>
+			<div class="hero_img-container">
+				<div>
+					<img src="template/images/hero.png" alt="" class="img-fluid">
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+
+
+<div class="common_style">
+	<section class="subject_section">
+		<jsp:include page="../subject/subjectForm.jsp" />
+	</section>
+</div>
+
     <script type="text/javascript" src="template/js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="template/js/bootstrap.js"></script>
 </body>
