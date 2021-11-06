@@ -141,6 +141,9 @@
 											&nbsp; &nbsp; &nbsp;
 											<button type="button" onclick="boardEdit('D')">삭제하기
 											</button>
+											&nbsp; &nbsp; &nbsp;
+											<button type="button" onclick="location.href='board/NewFile.jsp'">test
+											</button>
 										</div>
 									</td>
 								</tr>

@@ -54,7 +54,9 @@ img.imgKakao{
 		
 		<div>
 			<tiles:insertAttribute name="body" />
+			<!-- 
 			<button class="kakao"><img class="imgKakao" src="template/images/kakao.png"/></button>
+			 -->
 		</div>
 	</div>
 	<div>
@@ -67,6 +69,7 @@ img.imgKakao{
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 <script>
+
 $(document).on('click', 'button.kakao', function(event) { 
 	// SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
     Kakao.init('c87cae6cde08866fda69ce70f14b0780');
