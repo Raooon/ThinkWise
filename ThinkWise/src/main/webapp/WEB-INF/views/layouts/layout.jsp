@@ -38,36 +38,15 @@
 
 <div class="top_container">
 	<tiles:insertAttribute name="header" />
-</div>	
-
+	
 	<div>
 		<tiles:insertAttribute name="body" />
 	</div>
-	
+</div>
 <div>
 	<tiles:insertAttribute name="footer" />
 </div>
-
-
-
-
-
-
-
-
-
-<!--  
-	<div class="top_container">
-		<tiles:insertAttribute name="header" />
-		
-		<div>
-			<tiles:insertAttribute name="body" />
-		</div>
-	</div>
-	<div>
-		<tiles:insertAttribute name="footer" />
-	</div>
--->	
+	
 <script type="text/javascript" src="template/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="template/js/bootstrap.js"></script>
 

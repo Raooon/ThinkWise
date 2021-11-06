@@ -25,19 +25,17 @@
 
 </head>
 <body>
-<div class="top_container">
-	<section class="hero_section ">
-		<div class="hero-container container">
-			<div class="hero_detail-box">
-			</div>
-			<div class="hero_img-container">
-				<div>
-					<img src="template/images/hero.png" alt="" class="img-fluid">
-				</div>
+<section class="hero_section ">
+	<div class="hero-container container">
+		<div class="hero_detail-box">
+		</div>
+		<div class="hero_img-container">
+			<div>
+				<img src="template/images/hero.png" alt="" class="img-fluid">
 			</div>
 		</div>
-	</section>
-</div>
+	</div>
+<section>
 
 
 <div class="common_style">
