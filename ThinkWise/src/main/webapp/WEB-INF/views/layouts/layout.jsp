@@ -31,21 +31,6 @@
 
 <link rel="stylesheet" href="template/css/css-circular-prog-bar.css">
 
-<style>
-button.kakao{
-	border-color: transparent;
-	background-color: transparent;
-	z-index: 1000;
-	position:fixed;
-	right: 3%;
-	bottom: 5%;
-	overflow:hidden;
-}
-img.imgKakao{
-	width: 71px;
-	height: 60px;
-}
-</style>
 </head>
 
 <body>
@@ -54,12 +39,11 @@ img.imgKakao{
 <div class="top_container">
 	<tiles:insertAttribute name="header" />
 </div>	
+
 	<div>
 		<tiles:insertAttribute name="body" />
-		<button class="kakao"><img class="imgKakao" src="template/images/kakao.png"/></button>
-		<!--  <a href="https://developers.kakao.com/logout">로그아웃</a>   로그아웃은 카카오세션에 저장된 값을 없애줘야 함-->
 	</div>
-
+	
 <div>
 	<tiles:insertAttribute name="footer" />
 </div>
