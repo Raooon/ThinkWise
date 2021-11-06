@@ -13,7 +13,7 @@
 		select * from member where id = #{id} and password = #{password}
 	</select>
 	
-	<select id="selectMyInfo" resultType="co.yedam.thinkwise.member.service.MemberMyInfoVO">
+	<select id="selectMyclass" resultType="co.yedam.thinkwise.member.service.MemberMyInfoVO">
 		select * from vw_member_info where email = #{email}
 	</select>
 	
