@@ -49,36 +49,49 @@ img.imgKakao{
 </head>
 
 <body>
+
+
+<div class="top_container">
+	<tiles:insertAttribute name="header" />
+</div>	
+	<div>
+		<tiles:insertAttribute name="body" />
+		<button class="kakao"><img class="imgKakao" src="template/images/kakao.png"/></button>
+		<!--  <a href="https://developers.kakao.com/logout">로그아웃</a>   로그아웃은 카카오세션에 저장된 값을 없애줘야 함-->
+	</div>
+
+<div>
+	<tiles:insertAttribute name="footer" />
+</div>
+
+
+
+
+
+
+
+
+
+<!--  
 	<div class="top_container">
 		<tiles:insertAttribute name="header" />
 		
 		<div>
 			<tiles:insertAttribute name="body" />
 			<button class="kakao"><img class="imgKakao" src="template/images/kakao.png"/></button>
+			<!--  <a href="https://developers.kakao.com/logout">로그아웃</a>   로그아웃은 카카오세션에 저장된 값을 없애줘야 함-->
 		</div>
 	</div>
 	<div>
 		<tiles:insertAttribute name="footer" />
 	</div>
-	
+-->	
 <script type="text/javascript" src="template/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="template/js/bootstrap.js"></script>
 
-<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-
 <script>
 $(document).on('click', 'button.kakao', function(event) { 
-	// SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
-    Kakao.init('c87cae6cde08866fda69ce70f14b0780');
-
-    // SDK 초기화 여부를 판단합니다.
-    console.log(Kakao.isInitialized());
-    
-    window.open('kakaoChat.do', 'popup', 'width=300, height=200. right=30');
-    
-    
-    
-    
+    window.open('kakaoLogin.do', 'popup', 'width=500, height=600, right=30');
 })
 </script>
 </body>

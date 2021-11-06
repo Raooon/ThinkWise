@@ -347,6 +347,7 @@ a:focus {
 }
 
 
+
 @keyframes beforeanimate {
   0% {
     top: 43%;
@@ -558,3 +559,52 @@ a:focus {
 
 
 /* end footer section*/
+
+
+
+
+
+
+
+
+
+
+
+/* vehicle section */
+.vehicle_img-box {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.vehicle_section .carousel-control-prev,
+.vehicle_section .carousel-control-next {
+  opacity: 1;
+}
+
+.vehicle_section .carousel-control-prev-icon,
+.vehicle_section .carousel-control-next-icon {
+  width: 50px;
+  height: 50px;
+  background-color: #082465;
+  border-radius: 100%;
+  background-size: 10px;
+  background-position: center;
+}
+
+.vehicle_section .carousel-control-prev-icon {
+  background-image: url(../images/prev.png);
+}
+
+.vehicle_section .carousel-control-next-icon {
+  background-image: url(../images/next.png);
+}
+
+.subject-heading{
+	color: #082465;
+	font-weight: bold;
+	text-align: center;
+	font-family: 'Poppins', sans-serif;
+}
+
+
+/* end vehicle section */
