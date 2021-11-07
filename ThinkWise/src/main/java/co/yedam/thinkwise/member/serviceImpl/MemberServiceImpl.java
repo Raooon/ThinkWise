@@ -13,7 +13,7 @@ import co.yedam.thinkwise.member.service.MemberVO;
 public class MemberServiceImpl implements MemberService {
 	private SqlSession sqlSession = DataSource.getInstance().openSession(true);
 	private MemberMapper map = sqlSession.getMapper(MemberMapper.class);
-	
+
 	@Override
 	public List<MemberVO> selectMemberList() {
 		return map.selectMemberList();
@@ -49,7 +49,7 @@ public class MemberServiceImpl implements MemberService {
 		return map.insertMemberParent(vo);
 	}
 
-  @Override
+	@Override
 	public int updateMemberPw(MemberVO vo) {
 		return map.updateMemberPw(vo);
 	}
@@ -66,11 +66,16 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public List<MemberMyInfoVO> selectMyclass(MemberMyInfoVO vo) {
-		return map.selectMyclass(vo); 
-  }
+		return map.selectMyclass(vo);
+	}
 
-  @Override
+	@Override
 	public MemberVO selectPassword(MemberVO vo) {
 		return map.selectPassword(vo);
+	}
+
+	@Override
+	public int updateMemberPwFind(MemberVO vo) {
+		return map.updateMemberPwFind(vo);
 	}
 }

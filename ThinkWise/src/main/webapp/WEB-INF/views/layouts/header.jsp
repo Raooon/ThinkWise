@@ -188,6 +188,10 @@
                 <li class="nav-item">
                   <a class="nav-link" href="location.do">location</a>
                 </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="memberLogout.do">Logout</a>
+                </li>
 
               </ul>
             </div>

@@ -51,4 +51,8 @@
 	<select id="selectPassword" resultType="co.yedam.thinkwise.member.service.MemberVO">
 		select * from member where (email = #{email} and name = #{name} and tel = #{tel})
 	</select>
+	
+	<update id="updateMemberPwFind" parameterType="co.yedam.thinkwise.member.service.MemberVO">
+		update member set password = #{password} where email = #{email}
+	</update>
 </mapper>

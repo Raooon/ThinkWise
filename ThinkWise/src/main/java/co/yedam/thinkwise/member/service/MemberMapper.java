@@ -22,4 +22,6 @@ public interface MemberMapper {
 	int insertMemberParent (MemberVO vo);
 	
 	List<MemberMyInfoVO> selectMyclass(MemberMyInfoVO vo);
+	
+	int updateMemberPwFind(MemberVO vo);
 }
