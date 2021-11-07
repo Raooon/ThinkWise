@@ -1,1 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="co.yedam.thinkwise.subject.service.SubjectMapper">
+	<select id="subjectList" resultType="co.yedam.thinkwise.subject.service.SubjectVO">
+		SELECT subject_cd as subjectCd, subject_nm as subjectNm, subject_info as subjectInfo FROM subject ORDER BY 1
+	</select>
+	
+	<select id="subjectSelect" resultType="co.yedam.thinkwise.subject.service.SubjectVO">
+		SELECT subject_cd as subjectCd, subject_nm as subjectNm, subject_info as subjectInfo FROM subject WHERE subject_cd=#{subjectCd}
+	</select>
+	
+	<insert id="subjectInsert" parameterType="co.yedam.thinkwise.subject.service.SubjectVO">
+		INSERT INTO subject VALUES(#{subjectCd}, #{subjectNm}, #{subjectInfo})
+	</insert>
+	
+	<delete id="subjectDelete" parameterType="co.yedam.thinkwise.subject.service.SubjectVO">
+		DELETE FROM subject WHERE subject_cd=#{subjectCd}
+	</delete>
+	
+</mapper>

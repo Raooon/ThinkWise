@@ -42,6 +42,9 @@
 	<section class="subject_section">
 		<jsp:include page="../subject/subjectForm.jsp" />
 	</section>
+	<section class="teacher_section">
+		<jsp:include page="../teacher/teacherForm.jsp" />
+	</section>
 </div>
 
     <script type="text/javascript" src="template/js/jquery-3.4.1.min.js"></script>
