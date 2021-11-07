@@ -14,19 +14,26 @@ public class EmailPermision implements Command {
 		
 		HttpSession session = request.getSession();
 		
-		String emailP = request.getParameter("emailPermision");
+		String perNb = request.getParameter("perNb");
 		String rnd = (String) session.getAttribute("rnd");
-
-		String text = null;
 		
-		if(emailP == rnd) {
-			text = "인증되었습니다.";
+		System.out.println(perNb);
+		System.out.println(rnd);
+		
+		String viewPage = null;
+		
+		request.setAttribute("email", session.getAttribute("email"));
+		
+		if(perNb == rnd) {
+			System.out.println("일치");
+			viewPage = "member/memberInput";
 			session.invalidate();
 		} else {
-			text = "인증이 실패하였습니다.";
+			System.out.println("불일치");
+			viewPage = "memberInputForm.do";
 		}
 		
-		return "ajax:" + text;
+		return viewPage;
 	}
 
 }
