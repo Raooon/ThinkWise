@@ -117,8 +117,8 @@
 								</tr>
 								
 								<!-- 댓글 등록 시작 -->
-								<tr>
-									<td colspan="3">
+								<tr id="insetTr">
+									<td colspan="3" height="100px">
 										댓글
 										<textarea rows="1" cols="80" id="commentInsert" name="commentInsert" style="resize: none;" placeholder="댓글을 남겨보세요."></textarea>
 										<button type="button" style="font-size: 10px" onclick="CommentsInsert()">등록</button>	
@@ -127,10 +127,7 @@
 								<!-- 댓글 등록 끝 -->
 								
 								<!-- 신규댓글 -->
-								
-								<tr id = "newCommnet">
 							
-								</tr>
 								
 								<!-- 답글버튼 / 좋아요 버튼 -->
 								<tr>
@@ -215,8 +212,8 @@
 
 <script>
 function CommentsInsert() {
+	
 	let contents = $('#commentInsert').val();
-	console.log(contents);
 	let param= "boardNo=${board.boardNo}&contents="+contents;
 	
 	$.ajax({
@@ -227,6 +224,9 @@ function CommentsInsert() {
 		success: function (result) {
 			console.log('success');
 			console.log(result);
+			
+			CommentsAttach(result);
+			
 			$('#commentInsert').val('');
 			
 		},
@@ -236,11 +236,33 @@ function CommentsInsert() {
 	})
 }
 
-function CommentsAttach(){
+function CommentsAttach(data){
 	
+	console.log($('#insetTr'));
 	
+	var beforeTr = $('<tr />');
+		var idTd = $('<td />').text(data.id);
+		var enrollTd = $('<td />').text(data.enrollDt);
 	
-	$('#newComment').append()
+		$(beforeTr).append(
+				idTd,
+				enrollTd
+		);
+	
+	var afterTr = $('<tr />');
+		var contextTd = $('<td />').html(
+				'<textarea rows="1" cols="80" id="comment'+data.commentNo+'" name="commentList" style="resize: none;" readonly="readonly">'+data.contents+'</textarea>'		
+		);
+	
+		$(afterTr).append(
+				contextTd
+		);
+	
+		$('#insetTr').after(
+				beforeTr,
+				afterTr
+		);
+	
 }
 </script>
 
