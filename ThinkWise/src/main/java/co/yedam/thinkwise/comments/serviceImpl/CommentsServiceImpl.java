@@ -44,4 +44,9 @@ public class CommentsServiceImpl implements CommentsService {
 		return map.commentsLikesUpdate(vo);
 	}
 
+	@Override
+	public int commentsAdd(CommentsVO vo) {
+		return map.commentsAdd(vo);
+	}
+
 }

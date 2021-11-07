@@ -12,6 +12,8 @@ public interface CommentsService {
 	int commentsUpdate(CommentsVO vo);
 	int commentsDelete(CommentsVO vo);
 	
+	int commentsAdd(CommentsVO vo);
+	
 	int commentsLikesUpdate(CommentsVO vo);
 	
 }

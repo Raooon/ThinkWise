@@ -25,6 +25,11 @@
 		</selectKey>
 	</insert>
 	
+	<insert id="commentsAdd" parameterType="co.yedam.thinkwise.comments.service.CommentsVO">
+		INSERT INTO comments
+		VALUES(comment_seq.nextval,#{boardNo},'2',#{commentNo2},sysdate,null,#{contents},0,#{id})
+	</insert>
+	
 	<update id="commentsUpdate" parameterType="co.yedam.thinkwise.comments.service.CommentsVO">
 		UPDATE comments SET enroll_dt=sysdate, contents=#{contents}
 		WHERE comment_no=#{commentNo}
