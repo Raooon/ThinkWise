@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="co.yedam.thinkwise.teacher.service.TeacherMapper">
+	<select id="teacherList" resultType="co.yedam.thinkwise.teacher.service.TeacherVO">
+		SELECT teacher_cd as teacherCd, teacher_nm as teacherNm, career as career, teacher_info as teacherInfo FROM teacher ORDER BY 1
+	</select>
+	
+	<select id="teacherSelect" resultType="co.yedam.thinkwise.teacher.service.TeacherVO">
+		SELECT teacher_cd as teacherCd, teacher_nm as teacherNm, career as career, teacher_info as teacherInfo FROM teacher WHERE teacher_cd=#{teacherCd}
+	</select>
+	
+	<insert id="teacherInsert" parameterType="co.yedam.thinkwise.teacher.service.TeacherVO">
+		INSERT INTO teacher VALUES(#{teacherCd}, #{teacherNm}, #{career}, #{teacherInfo})
+	</insert>
+	
+	<delete id="teacherDelete" parameterType="co.yedam.thinkwise.teacher.service.TeacherVO">
+		DELETE FROM teacher WHERE teacher_cd=#{teacherCd}
+	</delete>
+	
+</mapper>
