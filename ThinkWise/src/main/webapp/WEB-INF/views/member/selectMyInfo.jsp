@@ -42,7 +42,7 @@
   </div>
 </section>
 <section class="section main-section">
-    <div class="card">
+    <div class="card" style="margin-bottom: 20px;">
       <div class="card-content">
         <form>
         <label class="label" style="font-size: 17px">Edit Profile</label>
@@ -152,7 +152,7 @@
 <div id="layoutSidenav">
 		<div id="layoutSidenav_content">
 			<main>
-				<div class="container-fluid px-4">
+				<div class="container-fluid px-4" style="width: 90%;">
 					<h1 class="mt-4">My Class</h1>
 					<div class="card mb-4">
 						<div class="card-header">
@@ -188,11 +188,6 @@
 					</div>
 				</div>
 			</main>
-			<footer class="py-4 bg-light mt-auto">
-				<div class="container-fluid px-4">
-					<div class="d-flex align-items-center justify-content-between small"></div>
-				</div>
-			</footer>
 		</div>
 	</div>
 	</c:if>
@@ -200,10 +195,9 @@
 	<script src="mltemp/js/scripts.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
 	<script src="mltemp/js/datatables-simple-demo.js"></script>
-<!-- Scripts below are for demo only -->
-<script type="text/javascript" src="profile/js/main.min.js?v=1628755089081"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script type="text/javascript">
+	<!-- Scripts below are for demo only -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript">
 	function DeleteAccount() {
 		if(window.confirm("정말로 탈퇴하시겠습니까?")){
 			frm.action = "memberDelete.do";

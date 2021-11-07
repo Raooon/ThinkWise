@@ -18,13 +18,14 @@ public class ClassDelete implements Command {
 		int n = classDao.classDelete(vo);
 		
 		String viewPage = null;
-
 		if(n != 0) {
-			viewPage = "memberClassList.do";
+			viewPage = "선택하신 수업이 삭제되었습니다.";
+			System.out.println("삭제 성공");
 		} else {
-			viewPage = "";
+			viewPage = "알수없는 오류가 발생하였습니다.";
+			System.out.println("삭제 실패");
 		}
 		
-		return viewPage;
+		return "ajax:" + viewPage;
 	}
 }

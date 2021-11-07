@@ -26,6 +26,7 @@ import co.yedam.thinkwise.command.board.NoticeUpdate;
 import co.yedam.thinkwise.command.board.NoticeUpdateForm;
 import co.yedam.thinkwise.command.classes.ClassDelete;
 import co.yedam.thinkwise.command.classes.ClassEdit;
+import co.yedam.thinkwise.command.classes.ClassInsert;
 import co.yedam.thinkwise.command.classes.MemberClassList;
 import co.yedam.thinkwise.command.info.Carlendar;
 import co.yedam.thinkwise.command.info.HomeCommand;
@@ -36,11 +37,8 @@ import co.yedam.thinkwise.command.info.SubjectList;
 import co.yedam.thinkwise.command.member.FindPw;
 import co.yedam.thinkwise.command.member.FindPwForm;
 import co.yedam.thinkwise.command.member.MemberCheck;
-
-import co.yedam.thinkwise.command.member.MemberDelete;
-
 import co.yedam.thinkwise.command.member.MemberCheck2;
-
+import co.yedam.thinkwise.command.member.MemberDelete;
 import co.yedam.thinkwise.command.member.MemberInfoEdit;
 import co.yedam.thinkwise.command.member.MemberInput;
 import co.yedam.thinkwise.command.member.MemberInputForm;
@@ -80,6 +78,7 @@ public class FrontController extends HttpServlet {
 		map.put("/memberDelete.do", new MemberDelete()); //회원 탈퇴
 		
 		map.put("/memberClassList.do", new MemberClassList()); // 수업 목록
+		map.put("/classInsert.do", new ClassInsert()); // 수업 등록
 		map.put("/classDelete.do", new ClassDelete()); // 수업 삭제
 		map.put("/classEdit.do", new ClassEdit()); // 수업 정보수정
 
