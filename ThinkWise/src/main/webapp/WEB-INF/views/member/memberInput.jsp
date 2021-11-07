@@ -183,16 +183,17 @@
 				success : function(result) {
 					console.log(result);
 					alert(result);
+					
 					$('#email1').prop('disabled', true);
 					$('#join').prop('disabled', false);
 				},
-				error : function() {
+				error : function(reject) {
 					console.log(reject);
 				}
 			});
 		};
 		
-		/* function emailPermision(){
+		function emailPermision(){
 			var emailPermision = ${'#emailPermision'}.val();
 			$.ajax({
 				url : 'emailPermision.do',
@@ -208,8 +209,8 @@
 					console.log(result);
 				}
 			});
-		} */
-
+		}
+	
 	</script>
 </body>
 </html>
