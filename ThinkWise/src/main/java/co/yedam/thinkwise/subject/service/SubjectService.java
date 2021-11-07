@@ -8,6 +8,6 @@ public interface SubjectService {
 	SubjectVO subjectSelect(SubjectVO vo);
 	
 	int subjectInsert(SubjectVO vo);
-	int subjectUpdqte(SubjectVO vo);
+	int subjectUpdate(SubjectVO vo);
 	int subjectDelete(SubjectVO vo);
 }
