@@ -3,7 +3,7 @@
 <mapper namespace="co.yedam.thinkwise.comments.service.CommentsMapper">
 
 	<select id="commentsList" resultType="co.yedam.thinkwise.comments.service.CommentsVO" parameterType="co.yedam.thinkwise.comments.service.CommentsVO">
-		SELECT comment_no AS commentNo, board_no AS boardNo, dimension, comment_no2 AS commnetNo2, TO_CHAR(enroll_dt, 'YYYY.MM.DD HH24:MI') AS enrollDt, modify_dt AS modifyDt, contents, likes, id
+		SELECT comment_no AS commentNo, board_no AS boardNo, dimension, comment_no2 AS commentNo2, TO_CHAR(enroll_dt, 'YYYY.MM.DD HH24:MI') AS enrollDt, modify_dt AS modifyDt, contents, likes, id
 		FROM comments
 		WHERE board_no=#{boardNo}
 		ORDER BY 1 DESC
@@ -11,7 +11,7 @@
 
 	<select id="commentsSelect" resultType="co.yedam.thinkwise.comments.service.CommentsVO">
 		
-		SELECT comment_no AS commentNo, board_no AS boardNo, dimension, comment_no2 AS commnetNo2, TO_CHAR(enroll_dt, 'YYYY.MM.DD HH24:MI') AS enrollDt, modify_dt AS modifyDt, contents, likes, id
+		SELECT comment_no AS commentNo, board_no AS boardNo, dimension, comment_no2 AS commentNo2, TO_CHAR(enroll_dt, 'YYYY.MM.DD HH24:MI') AS enrollDt, modify_dt AS modifyDt, contents, likes, id
 		FROM comments
 		WHERE comment_no = #{commentNo}
 		

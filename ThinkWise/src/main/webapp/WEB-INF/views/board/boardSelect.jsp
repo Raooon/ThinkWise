@@ -77,6 +77,7 @@
 					<div class="contact_form-container">
 						<div align="center">
 							<table>
+							
 							<c:if test="${not empty board.image }">
 								<tr>
 									<c:set var="imageName" value="${board.image }" />
@@ -94,6 +95,7 @@
 									
 								</tr>
 							</c:if>
+							
 								<tr>
 									<td colspan="3"><textarea rows="1" cols="100" id="contents"
 											name="contents" style="resize: none;" readonly="readonly">${board.title }</textarea>
@@ -133,7 +135,6 @@
 								<tr>
 									
 								</tr>
-								<!-- 신규댓글 -->
 								
 								<!-- List -->
 								<c:forEach items="${comments }" var="comment">
@@ -147,6 +148,7 @@
 										${comment.enrollDt }
 									</td>
 								</tr>
+									
 								<!-- 댓글 내용 -->
 								<tr height="80px">
 									<td>
@@ -164,6 +166,29 @@
 									</td>
 									<!-- 수정 버튼 -->
 								</tr>
+								<!-- 대댓글 -->
+								<c:forEach items="${comments }" var="subComment">
+										<c:if test="${subComment.dimension eq '2'&& subComment.commentNo2 == comment.commentNo}">
+										
+											<tr>
+												<td>
+													&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+													${comment.id }
+												</td>
+												<td>
+													${comment.enrollDt }
+												</td>
+											</tr>
+											
+											<tr height="80px">
+												<td>
+													&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+													<textarea rows="1" cols="80" id="comment${subComment.commentNo }" name="commentList" style="resize: none;" readonly="readonly">${subComment.contents }</textarea>
+												</td>
+											</tr>
+											
+										</c:if>
+									</c:forEach>
 								
 								</c:if>
 								</c:forEach>
