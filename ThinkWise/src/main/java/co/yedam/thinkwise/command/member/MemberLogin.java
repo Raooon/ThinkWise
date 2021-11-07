@@ -27,6 +27,7 @@ public class MemberLogin implements Command {
 			session.setAttribute("id", vo.getId());
 			session.setAttribute("email", vo.getEmail());
 			session.setAttribute("name", vo.getName());
+			session.setAttribute("division", vo.getDivision());
 			System.out.println("성공");
 			
 			return "home/home";

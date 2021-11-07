@@ -2,20 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.yedam.thinkwise.comments.service.CommentsMapper">
 
-	<select id="commentsList" resultType="co.yedam.thinkwise.comments.service.CommentsVO">
-		SELECT comment_no AS commentNo, board_no AS boardNo, dimention, comment_no2 AS commnetNo2, enroll_dt AS enrollDt, modify_dt AS modifyDt, contents, likes, id
+	<select id="commentsList" resultType="co.yedam.thinkwise.comments.service.CommentsVO" parameterType="co.yedam.thinkwise.comments.service.CommentsVO">
+		SELECT comment_no AS commentNo, board_no AS boardNo, dimension, comment_no2 AS commentNo2, TO_CHAR(enroll_dt, 'YYYY.MM.DD HH24:MI') AS enrollDt, modify_dt AS modifyDt, contents, likes, id
 		FROM comments
+		WHERE board_no=#{boardNo}
+		ORDER BY 1 DESC
 	</select>
-	<!-- commentsNo2랑 dimention 확인해보고 작업. -->
-	<!-- 
+
 	<select id="commentsSelect" resultType="co.yedam.thinkwise.comments.service.CommentsVO">
-		SELECT 
-		WHERE comment_no2=#{commnetNo2}
+		
+		SELECT comment_no AS commentNo, board_no AS boardNo, dimension, comment_no2 AS commentNo2, TO_CHAR(enroll_dt, 'YYYY.MM.DD HH24:MI') AS enrollDt, modify_dt AS modifyDt, contents, likes, id
+		FROM comments
+		WHERE comment_no = #{commentNo}
+		
 	</select>
-	 -->
+
 	<insert id="commentsInsert" parameterType="co.yedam.thinkwise.comments.service.CommentsVO">
 		INSERT INTO comments
-		VALUES(comment_seq.nextval,#{boardNo},#{dimention},#{commnetNo2},sysdate,null,0,#{id})
+		VALUES(comment_seq.nextval,#{boardNo},'1',null,sysdate,null,#{contents},0,#{id})
+		<selectKey resultType="int" keyProperty="commentNo" order="AFTER">
+			SELECT MAX(comment_no) FROM comments
+		</selectKey>
+	</insert>
+	
+	<insert id="commentsAdd" parameterType="co.yedam.thinkwise.comments.service.CommentsVO">
+		INSERT INTO comments
+		VALUES(comment_seq.nextval,#{boardNo},'2',#{commentNo2},sysdate,null,#{contents},0,#{id})
 	</insert>
 	
 	<update id="commentsUpdate" parameterType="co.yedam.thinkwise.comments.service.CommentsVO">
