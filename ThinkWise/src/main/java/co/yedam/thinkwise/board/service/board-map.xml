@@ -8,7 +8,7 @@
 	</select>
 	
 	<select id="boardSelect" resultType="co.yedam.thinkwise.board.service.BoardVO">
-		SELECT id, enroll_dt AS enrollDt, modify_dt As modifyDt, title, contents, image, hit, likes
+		SELECT board_no AS boardNo, id, enroll_dt AS enrollDt, modify_dt As modifyDt, title, contents, image, hit, likes
 		FROM board 
 		WHERE board_no=#{boardNo}
 	</select>

@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface CommentsMapper {
 
-	List<CommentsVO> commentsList();
+	List<CommentsVO> commentsList(CommentsVO vo);
 	
 	CommentsVO commentsSelect(CommentsVO vo);
 	

@@ -10,7 +10,6 @@ import co.yedam.thinkwise.board.service.BoardVO;
 import co.yedam.thinkwise.comm.DataSource;
 
 public class BoardServiceImpl implements BoardService {
-
 	
 	private SqlSession sqlSession = DataSource.getInstance().openSession(true);
 	private BoardMapper map = sqlSession.getMapper(BoardMapper.class);

@@ -57,6 +57,7 @@
 		frm.submit();
 
 	}
+	
 </script>
 
 <body class="sub_page">
@@ -114,19 +115,56 @@
 											id="contents" name="contents" style="resize: none;"
 											readonly="readonly">${board.contents }</textarea></td>
 								</tr>
-								<!-- 댓글 보여주기 -->
-								<tr>
-									
-								</tr>
+								
 								<!-- 댓글 등록 시작 -->
 								<tr>
 									<td colspan="3">
 										댓글
-										<textarea rows="1" cols="80" id="comment" name="comment" style="resize: none;"></textarea>
-										<button type="button" style="font-size: 10px">등록</button>	
+										<textarea rows="1" cols="80" id="commentInsert" name="commentInsert" style="resize: none;" placeholder="댓글을 남겨보세요."></textarea>
+										<button type="button" style="font-size: 10px" onclick="CommentsInsert()">등록</button>	
 									</td>
 								</tr>
 								<!-- 댓글 등록 끝 -->
+								
+								<!-- 신규댓글 -->
+								
+								<tr id = "newCommnet">
+							
+								</tr>
+								
+								<!-- 답글버튼 / 좋아요 버튼 -->
+								<tr>
+									
+								</tr>
+								<!-- 신규댓글 -->
+								
+								<!-- List -->
+								<c:forEach items="${comments }" var="comment">
+								<c:if test="${comment.dimension eq '1' }">
+								<!-- 작성자 아이디 / 등록날짜 / 수정버튼 -->
+								<tr>
+									<td>
+										${comment.id }
+									</td>
+									<td>
+										${comment.enrollDt }
+									</td>
+								</tr>
+								<!-- 댓글 내용 -->
+								<tr>
+									<td>
+										<textarea rows="1" cols="80" id="comment${comment.commentNo }" name="commentList" style="resize: none;" readonly="readonly">${comment.contents }</textarea>
+									</td>
+								</tr>
+								
+								<!-- 답글버튼 / 좋아요 버튼 -->
+								<tr>
+									
+								</tr>
+								
+								</c:if>
+								</c:forEach>
+								<!--  -->
 								
 								<!-- 버튼 3종 -->
 								<tr>
@@ -140,9 +178,6 @@
 												뒤로가기</button>
 											&nbsp; &nbsp; &nbsp;
 											<button type="button" onclick="boardEdit('D')">삭제하기
-											</button>
-											&nbsp; &nbsp; &nbsp;
-											<button type="button" onclick="location.href='board/NewFile.jsp'">test
 											</button>
 										</div>
 									</td>
@@ -178,6 +213,36 @@
 	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 
+<script>
+function CommentsInsert() {
+	let contents = $('#commentInsert').val();
+	console.log(contents);
+	let param= "boardNo=${board.boardNo}&contents="+contents;
+	
+	$.ajax({
+		url: 'commentsInsert.do',
+		data: param,
+		type: 'post',
+		dataType: 'json',
+		success: function (result) {
+			console.log('success');
+			console.log(result);
+			$('#commentInsert').val('');
+			
+		},
+		error: function (reject) {
+			console.log(reject)
+		}
+	})
+}
+
+function CommentsAttach(){
+	
+	
+	
+	$('#newComment').append()
+}
+</script>
 
 </body>
 
