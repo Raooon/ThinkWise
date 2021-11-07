@@ -35,7 +35,7 @@
 		<section class="section main-section">
 			<div class="card">
 				<div class="card-content">
-					<form id="frm" action="" method="post" onsubmit='return mailSubmit()'>
+					<form id="frm" action="findPw.do" method="post" >
 					<br><br>
 						<div class="field">
 							<label class="label" > Email &emsp;&emsp;&emsp;
@@ -101,10 +101,9 @@
 					name: name,
 					tel : tel},
 			success : function(){
-				alert("성공");
 			},
-			error : function() {
-				alert("실패");
+			error : function(reject) {
+				alert(reject);
 			}
 		});
 	};

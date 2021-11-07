@@ -18,4 +18,6 @@ public interface MemberService {
 	int insertMemberParent (MemberVO vo);
 	
 	List<MemberMyInfoVO> selectMyclass(MemberMyInfoVO vo);
+	
+	int updateMemberPwFind(MemberVO vo);
 }

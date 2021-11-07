@@ -42,14 +42,24 @@
 						<div class="field" align="center">
 							<label class="label">Email
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
-								<input type="email" id="email" name="email" required="required" placeholder="이메일을 입력해주세요." class="input" style="width:400px"> 
-								&emsp;<input type="button" id="email1" name="email" onclick="checkEmail()" value="중복확인" class="btn btn-outline-secondary">
+								<input type="email" id="email" name="email" required="required" placeholder="이메일을 입력해주세요." class="input" style="width:400px"> &emsp;
+								<input type="button" id="email1" name="email" onclick="checkEmail()" value="중복확인" class="btn btn-outline-secondary">
 							</label>
+						</div>
+						<!-- <div class="field">
+							<label class="label">Email 인증
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+								<input type="email" id="email" name="email" required="required" placeholder="인증번호를 입력해주세요." class="input" style="width:400px"> &emsp;
+								<input type="button" id="emailPermision" name="emailPermision" onclick="emailPermision()" value="인증확인" class="btn btn-outline-secondary">
+							&emsp;&nbsp;&nbsp;
+							</label>
+						</div> -->
+						<div id="emailPermision">
 							<div class="field">
 								<label class="label">비밀번호
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
-										<input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요." required="required" class="input" style="width:400px">
-										&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+									<input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요." required="required" class="input" style="width:400px">
+									&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 								</label>
 							</div>
 							<div class="field">
@@ -84,8 +94,8 @@
 							<div class="field">
 								<label class="label">전화번호
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
-										<input type="text" id="tel" name="tel" class="input" style="width:400px" placeholder="전화번호를 입력해주세요.">
-										&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+									<input type="text" id="tel" name="tel" class="input" style="width:400px" placeholder="전화번호를 입력해주세요.">
+									&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 								</label>
 							</div>
 							<div class="field">
@@ -98,16 +108,16 @@
 							<div class="field">
 								<label class="label">&emsp;&nbsp;구분
 								&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-										<input type="radio" id="division" name="division" value="P" checked>학부모&emsp;&emsp;&emsp;&emsp;
-										<input type="radio" id="division_s" name="division" value="S">학생
-										&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+									<input type="radio" id="division" name="division" value="P" checked>학부모&emsp;&emsp;&emsp;&emsp;
+									<input type="radio" id="division_s" name="division" value="S">학생
+									&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 								</label>
 							</div>
 							<div class="field" id="parentDiv">
 								<label class="label">&nbsp;&nbsp;&nbsp;&nbsp;부모님
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
-										<input type="text" id="parent" name="parent" placeholder="부모님 이메일을 적어주세요." class="input" style="width:400px">
-										&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+									<input type="text" id="parent" name="parent" placeholder="부모님 이메일을 적어주세요." class="input" style="width:400px">
+									&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 								</label>
 							</div>
 						</div>
@@ -162,6 +172,7 @@
 		}
 
 		function checkEmail() {
+			console.log("확인");
 			var email = $('#email').val();
 			$.ajax({
 				url : 'memberCheck.do',
@@ -176,10 +187,28 @@
 					$('#join').prop('disabled', false);
 				},
 				error : function() {
-					console.log(result);
+					console.log(reject);
 				}
 			});
 		};
+		
+		/* function emailPermision(){
+			var emailPermision = ${'#emailPermision'}.val();
+			$.ajax({
+				url : 'emailPermision.do',
+				type : 'post',
+				data : {
+					emailPermision : emailPermision
+				},
+				success : function(result) {
+					console.log(result);
+					alert(result);
+				},
+				error : function() {
+					console.log(result);
+				}
+			});
+		} */
 
 	</script>
 </body>
