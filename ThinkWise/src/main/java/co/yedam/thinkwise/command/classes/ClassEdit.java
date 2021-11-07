@@ -15,18 +15,32 @@ public class ClassEdit implements Command {
 		MemberClassService classDao = new MemberClassServiceImpl();
 		MemberClassVO vo = new MemberClassVO();
 		vo.setClass_cd(request.getParameter("class_cd"));
-		vo.setClass_day(request.getParameter("class_day"));
-		vo.setClass_time(request.getParameter("class_time"));
-		vo.setFr_period(request.getParameter("fr_period"));
-		vo.setTo_period(request.getParameter("to_period"));
-		vo.setTeacher_cd(request.getParameter("teacher_cd"));
+		vo.setClass_day(request.getParameter("modClass_day"));
+		vo.setClass_time(request.getParameter("modClass_time"));
+		vo.setFr_period(request.getParameter("modFr_period"));
+		vo.setTo_period(request.getParameter("modTo_period"));
+		vo.setTeacher_cd(request.getParameter("modTeacher_cd"));
 		
 		System.out.println(request.getParameter("class_cd"));
-		System.out.println(request.getParameter("class_day"));
-		System.out.println(request.getParameter("class_time"));
-		System.out.println(request.getParameter("fr_period"));
-		System.out.println(request.getParameter("to_period"));
-		System.out.println(request.getParameter("teacher_cd"));
+		System.out.println(request.getParameter("modClass_day"));
+		System.out.println(request.getParameter("modClass_time"));
+		System.out.println(request.getParameter("modFr_period"));
+		System.out.println(request.getParameter("modTo_period"));
+		System.out.println(request.getParameter("modTeacher_cd"));
+		
+//		vo.setClass_day(request.getParameter("class_day"));
+//		vo.setClass_time(request.getParameter("class_time"));
+//		vo.setFr_period(request.getParameter("fr_period"));
+//		vo.setTo_period(request.getParameter("to_period"));
+//		vo.setTeacher_cd(request.getParameter("teacher_cd"));
+//		
+//		System.out.println(request.getParameter("class_cd"));
+//		System.out.println(request.getParameter("class_day"));
+//		System.out.println(request.getParameter("class_time"));
+//		System.out.println(request.getParameter("fr_period"));
+//		System.out.println(request.getParameter("to_period"));
+//		System.out.println(request.getParameter("teacher_cd"));
+//		
 		
 		int n = classDao.classUpdate(vo);
 		String viewPage = null;
