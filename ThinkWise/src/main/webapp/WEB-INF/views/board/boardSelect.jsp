@@ -327,7 +327,7 @@ function openInsert (num) {
 	$('#i'+num).hide();
 	$('#e'+num).hide();
 	$('#d'+num).hide();
-	
+	//
 }
 
 function closeInsert (num) {
