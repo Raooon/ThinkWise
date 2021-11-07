@@ -115,7 +115,7 @@
 											id="contents" name="contents" style="resize: none;"
 											readonly="readonly">${board.contents }</textarea></td>
 								</tr>
-								
+								<c:if test="${not empty id }">
 								<!-- 댓글 등록 시작 -->
 								<tr id="insetTr">
 									<td colspan="3" height="100px">
@@ -124,11 +124,11 @@
 										<button type="button" style="font-size: 10px" onclick="CommentsInsert()">등록</button>	
 									</td>
 								</tr>
+								</c:if>
 								<!-- 댓글 등록 끝 -->
 								
-								<!-- 신규댓글 -->
+								<!-- 신규댓글 위치 -->
 							
-								
 								<!-- 답글버튼 / 좋아요 버튼 -->
 								<tr>
 									
@@ -148,15 +148,21 @@
 									</td>
 								</tr>
 								<!-- 댓글 내용 -->
-								<tr>
+								<tr height="80px">
 									<td>
 										<textarea rows="1" cols="80" id="comment${comment.commentNo }" name="commentList" style="resize: none;" readonly="readonly">${comment.contents }</textarea>
 									</td>
-								</tr>
-								
-								<!-- 답글버튼 / 좋아요 버튼 -->
-								<tr>
+									<!-- 자신의 댓글 삭제버튼 -->
+									<td>
 									
+									</td>
+								</tr>
+								<tr>
+									<!-- 좋아요버튼 -->
+									<td>
+									
+									</td>
+									<!-- 수정 버튼 -->
 								</tr>
 								
 								</c:if>
@@ -167,15 +173,29 @@
 								<tr>
 									<td colspan="3">
 										<div class="mt-5" align="center">
-											&nbsp; &nbsp; &nbsp;
-											<button type="button" onclick="boardEdit('U')">수정하기
-											</button>
-											&nbsp; &nbsp; &nbsp;
-											<button type="button" onclick="location.href='boardList.do'">
-												뒤로가기</button>
-											&nbsp; &nbsp; &nbsp;
-											<button type="button" onclick="boardEdit('D')">삭제하기
-											</button>
+										
+											<c:if test="${division eq 'A' }">
+											<div style="display: inline-block;">
+												&nbsp; &nbsp; &nbsp;
+												<button type="button" onclick="boardEdit('U')">수정하기</button>
+												&nbsp; &nbsp; &nbsp;
+											</div>
+											</c:if>
+											
+											<div style="display: inline-block;" align="center">
+												&nbsp; &nbsp; &nbsp;
+												<button type="button" onclick="location.href='boardList.do'">뒤로가기</button>
+												&nbsp; &nbsp; &nbsp;
+											</div>
+											
+											<c:if test="${division eq 'A' }">
+											<div style="display: inline-block;">
+												&nbsp; &nbsp; &nbsp;	
+												<button type="button" onclick="boardEdit('D')">삭제하기</button>
+												&nbsp; &nbsp; &nbsp;
+											</div>
+											</c:if>
+											
 										</div>
 									</td>
 								</tr>
