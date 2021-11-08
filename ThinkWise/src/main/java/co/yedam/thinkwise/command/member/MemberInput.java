@@ -32,7 +32,7 @@ public class MemberInput implements Command {
 				vo1.setGender(request.getParameter("gender"));
 				vo1.setBirth(request.getParameter("birth").replaceAll("-", ""));
 				vo1.setTel(request.getParameter("tel"));
-				vo1.setAddress(request.getParameter("address"));
+				vo1.setAddress(request.getParameter("address_kakao") + " " + request.getParameter("address_detail"));
 				vo1.setDivision(request.getParameter("division"));
 				
 				int n = memberDao.insertMember(vo1);
@@ -53,7 +53,7 @@ public class MemberInput implements Command {
 				vo1.setGender(request.getParameter("gender"));
 				vo1.setBirth(request.getParameter("birth").replaceAll("-", ""));
 				vo1.setTel(request.getParameter("tel"));
-				vo1.setAddress(request.getParameter("address"));
+				vo1.setAddress(request.getParameter("address_kakao") + " " + request.getParameter("address_detail"));
 				vo1.setDivision(request.getParameter("division"));
 				
 				int n = memberDao.insertMember(vo1);
@@ -75,7 +75,7 @@ public class MemberInput implements Command {
 			vo1.setGender(request.getParameter("gender"));
 			vo1.setBirth(request.getParameter("birth").replaceAll("-", ""));
 			vo1.setTel(request.getParameter("tel"));
-			vo1.setAddress(request.getParameter("address"));
+			vo1.setAddress(request.getParameter("address_kakao") + " " + request.getParameter("address_detail"));
 			vo1.setDivision(request.getParameter("division"));
 			vo1.setParent(request.getParameter("parent"));
 			
