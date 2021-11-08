@@ -39,7 +39,7 @@
 			  	Our Teachers
 			</h2>
 			<p class="text-center">
-			  	Ipsum available, but the majority h
+			  	아이들이 생각을 자유롭게 표현할 수 있도록 노력하겠습니다.
 			</p>
 			<div class="teacher_container layout_padding2">
 			  	<div class="card-deck">

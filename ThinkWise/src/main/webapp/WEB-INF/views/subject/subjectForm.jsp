@@ -148,13 +148,13 @@
 							
 							for(var i in data) {
 								var item = $('<div class="carousel-item" />');
-								var imgbox = $('<div class="vehicle_img-box" />');
+								var imgbox = $('<div class="vehicle_img-box" style="display: inline-block;"/>');
 								item.append(imgbox);
-								
-								var img = $('<span class="subject_img" style="display: inline-block;"/>').append($('<img height="175px" alt="">').attr("src", "template/images/" + data[i].subjectNm + ".png"));
+				
+								var img = $('<span class="subject_img" />').append($('<img height="175px" alt="">').attr("src", "template/images/" + data[i].subjectNm + ".png"));
 								imgbox.append(img);
 								
-								var info = $('<span class="subject_info" style="display: inline-block;"/>');
+								var info = $('<span class="subject_info" />');
 								var divtitle = $('<div class="subjecttitle" />').text(data[i].subjectNm);
 								var divcontents = $('<div class="subjectcontens" />').text(data[i].subjectInfo);
 								info.append(divtitle);

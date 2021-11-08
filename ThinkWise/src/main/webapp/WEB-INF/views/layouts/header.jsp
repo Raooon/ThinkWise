@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -148,51 +149,56 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav  ">
-                <li class="nav-item active">
-                  <a class="nav-link" href="home.do"> Home <span class="sr-only">(current)</span></a>
+  
+                <li class="nav-item ">
+                  <a class="nav-link" href="noticeList.do"> Notice </a>
+
                 </li>
-                
-                	<!-- Ul로 묶어야할 곳 -->
-	                <li class="nav-item ">
-	                  <a class="nav-link" href="noticeList.do"> Notice </a>
-	                </li>
-	                <li class="nav-item ">
-	                  <a class="nav-link" href="boardList.do"> Board </a>
-	                </li>
-					<!-- Ul로 묶어야할 곳 -->
+                <li class="nav-item ">
+                  <a class="nav-link" href="boardList.do"> Board </a>
+                </li>
 					
                 <li class="nav-item">
-                  <a class="nav-link" href="emailPermisionForm.do">Contact Us</a>
+                  <a class="nav-link" href="carlendar.do">Schedule</a>
                 </li>
                 
-                <li class="nav-item">
-                  <a class="nav-link" href="memberLoginForm.do">Login</a>
-                </li>
+                <c:if test="${not empty id }">
+	                <li class="nav-item">
+	                  <a class="nav-link" href="selectMyInfo.do">MyProfile</a>
+	                </li>
+                </c:if>
                 
                 <li class="nav-item">
-                  <a class="nav-link" href="carlendar.do">calendar</a>
+                  <a class="nav-link" href="location.do">Location</a>
                 </li>
                 
-                <li class="nav-item">
-                  <a class="nav-link" href="selectMemberList.do">MemberList</a>
-                </li>
+                <c:if test="${division == 'A' }">
+                	<li class="nav-item">
+	                  <a class="nav-link" href="selectMemberList.do">MemberList</a>
+	                </li>
+	                
+	                <li class="nav-item">
+	                  <a class="nav-link" href="memberClassList.do">Class Manage</a>
+	                </li>
+                </c:if>
                 
-                <li class="nav-item">
-                  <a class="nav-link" href="selectMyInfo.do">MyProfile</a>
-                </li>
+                <c:if test="${empty id }">
+	                <li class="nav-item">
+	                  <a class="nav-link" href="memberLoginForm.do">Login</a>
+	                </li>
+	                
+	                <li class="nav-item">
+	                  <a class="nav-link" href="memberInputForm.do">Join</a>
+	                </li>
+                </c:if>
                 
-                <li class="nav-item">
-                  <a class="nav-link" href="memberClassList.do">Class Manage</a>
-                </li>
-                
-                <li class="nav-item">
-                  <a class="nav-link" href="location.do">location</a>
-                </li>
-                
-                <li class="nav-item">
-                  <a class="nav-link" href="memberLogout.do">Logout</a>
-                </li>
+                <c:if test="${not empty id }">
+	                <li class="nav-item">
+	                  <a class="nav-link" href="memberLogout.do">Logout</a>
+	                </li>
+                </c:if>
 
+                
               </ul>
             </div>
             </div>
