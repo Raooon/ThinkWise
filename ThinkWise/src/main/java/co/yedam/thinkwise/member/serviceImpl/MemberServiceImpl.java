@@ -78,4 +78,9 @@ public class MemberServiceImpl implements MemberService {
 	public int updateMemberPwFind(MemberVO vo) {
 		return map.updateMemberPwFind(vo);
 	}
+
+	@Override
+	public List<MemberMyInfoVO> selectChildClass(MemberMyInfoVO vo) {
+		return map.selectChildClass(vo);
+	}
 }

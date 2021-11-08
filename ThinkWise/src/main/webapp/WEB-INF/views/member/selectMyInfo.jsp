@@ -148,7 +148,7 @@
 </form>
 
 </div>
-<c:if test="${not empty MyClasses}">
+<c:if test="${not empty MyClasses[0].class_cd}">
 <div id="layoutSidenav">
 		<div id="layoutSidenav_content">
 			<main>
@@ -162,6 +162,7 @@
 							<table id="datatablesSimple">
 								<thead>
 									<tr>
+										<th>학생명</th>
 										<th>수업코드</th>
 										<th>수업명</th>
 										<th>수업시간</th>
@@ -173,6 +174,7 @@
 								<tbody>
 									<c:forEach items="${MyClasses }" var="Classes">
 										<tr>
+											<td>${Classes.name }</td>
 											<td>${Classes.class_cd }</td>
 											<td>${Classes.subject_nm }</td>
 											<td>${Classes.class_time }</td>
@@ -254,6 +256,10 @@
 				   address:address},
 			success: function(data) {
 				window.alert(data);
+				$("#id").val(id);
+				$("#name").val(name);
+				$("#tel").val(tel);
+				$("#address").val(address);
 			},
 			error: function(data) {
 				console.log(data);

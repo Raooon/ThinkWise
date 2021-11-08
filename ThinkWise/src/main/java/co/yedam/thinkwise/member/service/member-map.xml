@@ -17,6 +17,10 @@
 		select * from vw_member_info where email = #{email}
 	</select>
 	
+	<select id="selectChildClass" resultType="co.yedam.thinkwise.member.service.MemberMyInfoVO">
+		select * from vw_member_info where family = #{family}
+	</select>
+	
 	<insert id="insertMember" parameterType="co.yedam.thinkwise.member.service.MemberVO">
 		insert into member values(member_seq.nextval, #{password}, #{name}, #{gender}, #{birth}, #{tel}, #{email}, #{address}, #{division},'')
 	</insert>

@@ -21,14 +21,16 @@ public class ClassInsert implements Command {
 		vo.setFr_period(request.getParameter("newFr_period"));
 		vo.setTo_period(request.getParameter("newTo_period"));
 		vo.setTeacher_cd(request.getParameter("newTeacher_cd"));
-		
 		int n = classDao.classInsert(vo);
+		String viewPage = null;
 		
 		if(n != 0) {
 			System.out.println("수업등록성공");
+			viewPage= "memberClassList.do";
 		} else {
 			System.out.println("수업등록성공");
+			viewPage= "";
 		}
-		return "memberClassList.do";
+		return viewPage;
 	}
 }

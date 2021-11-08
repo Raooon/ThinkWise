@@ -78,6 +78,12 @@
 					</div>
 				</div>
 			</div>
+			<button type="button" id="showClassRegister" class="button green" style="border: 1px solid silver; float: right; margin: 3px 25px 0 0;">
+          		수업등록
+			</button>
+			<button type="button" id="closeClassRegister" class="button green" style="border: 1px solid silver; float: right; margin: 3px 25px 0 0; display: none;">
+          		수업등록
+			</button>
 		</main>
 	</div>
 </div>
@@ -94,7 +100,7 @@
 	</form>
 	
 	
-<div id="app">
+<div id="app" style="display: none">
 <section class="is-hero-bar">
   <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
     <h1 class="title">
@@ -197,6 +203,19 @@
 	<!-- Scripts below are for demo only -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript">
+		$("#showClassRegister").click(function() {
+			$("#app").show();
+			$("#showClassRegister").hide();
+			$("#closeClassRegister").show();
+			$("#newClass_cd").focus();
+		})
+		
+		$("#closeClassRegister").click(function() {
+			$("#app").hide();
+			$("#showClassRegister").show();
+			$("#closeClassRegister").hide();
+		})
+		
 		function CallEdit(str) {
 			console.log(str);
 			frm.class_cd.value = str;
