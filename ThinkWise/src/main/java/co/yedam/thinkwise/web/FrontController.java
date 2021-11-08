@@ -78,7 +78,7 @@ public class FrontController extends HttpServlet {
 		map.put("/findPw.do", new FindPw());	//비밀번호 찾기
 		map.put("/memberLogout.do", new MemberLogout());	//로그아웃
 		
-		map.put("/emailPermisionForm.do", new EmailPermisionForm());	//이메일 인증 폼
+		map.put("/emailPermissionForm.do", new EmailPermisionForm());	//이메일 인증 폼
 		map.put("/sendEmail.do", new SendEmail());	// 인증번호 전송
 		map.put("/emailPermision.do", new EmailPermision());	//이메일 인증
 
