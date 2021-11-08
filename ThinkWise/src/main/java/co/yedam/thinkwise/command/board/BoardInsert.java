@@ -25,9 +25,9 @@ public class BoardInsert implements Command {
 		BoardService boardDao = new BoardServiceImpl();
 		BoardVO vo = new BoardVO();
 		
-		ServletContext context = request.getSession().getServletContext();
 		
-		//String saveFolder = "c:\\thinkwise";
+		//String saveFolder = "c:\\thinkwise\\upload";
+		ServletContext context = request.getSession().getServletContext();
 		String saveFolder = context.getRealPath("upload");
 		session.setAttribute("dir", saveFolder);
 		System.out.println(saveFolder);
