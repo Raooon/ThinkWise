@@ -40,6 +40,7 @@ import co.yedam.thinkwise.command.info.KakaoChat;
 import co.yedam.thinkwise.command.info.KakaoLogin;
 import co.yedam.thinkwise.command.info.Location;
 import co.yedam.thinkwise.command.info.SubjectList;
+import co.yedam.thinkwise.command.info.TeacherList;
 import co.yedam.thinkwise.command.member.EmailPermision;
 import co.yedam.thinkwise.command.member.EmailPermisionForm;
 import co.yedam.thinkwise.command.member.FindPw;
@@ -103,7 +104,7 @@ public class FrontController extends HttpServlet {
 		map.put("/kakaoLogin.do", new KakaoLogin()); //카카오로그인
 		map.put("/kakaoChat.do", new KakaoChat()); //카카오톡 연동??
 		map.put("/subjectList.do", new SubjectList()); //과목리스트 조회
-
+		map.put("teacherList.do", new TeacherList()); //선생님리스트 조회
 		//notice
 		map.put("/noticeList.do", new NoticeList()); // 공지사항 조회
 		
