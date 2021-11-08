@@ -5,116 +5,193 @@
 <head>
 <meta charset="UTF-8">
 <title>비밀번호 찾기</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!-- Tailwind is included -->
-<link rel="stylesheet" href="profile/css/main.css?v=1628755089081">
+<link
+	href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Fredericka+the+Great"
+	rel="stylesheet">
 
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-<link rel="mask-icon" href="safari-pinned-tab.svg" color="#00b4b6" />
+<link rel="stylesheet" href="yswtemp/css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="yswtemp/css/animate.css">
 
-<meta name="description" content="Admin One - free Tailwind dashboard">
+<link rel="stylesheet" href="yswtemp/css/owl.carousel.min.css">
+<link rel="stylesheet" href="yswtemp/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="yswtemp/css/magnific-popup.css">
 
+<link rel="stylesheet" href="yswtemp/css/aos.css">
+
+<link rel="stylesheet" href="yswtemp/css/ionicons.min.css">
+
+<link rel="stylesheet" href="yswtemp/css/flaticon.css">
+<link rel="stylesheet" href="yswtemp/css/icomoon.css">
+<link rel="stylesheet" href="yswtemp/css/style.css">
 <style>
-#findPW {
-	margin: 70px;
-	padding-top: 30px;
+
+#loginh2 {
+	font-size: 40px;
 }
 
+#frm {
+	border: 1px #363636;
+    border-style: solid;
+    margin: 20px;
+}
+
+#emaildiv {
+
+}
+
+#emailInput {
+
+}
+
+input#email {
+
+}
+
+input#emailbtn {
+
+}
 #namediv {
 	margin-right: 150px;
+}
+
+#nameInput {
+
+}
+
+input#name {
+
 }
 
 #teldiv {
 	margin-right: 165px;
 }
+
+#telInput {
+
+}
+
+input#tel {
+
+}
+
+input#findPwBtn {
+
+}
+
 </style>
 </head>
 <body>
-	<div align="center" id="findPW">
-		<section class="is-hero-bar">
-			<div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-				<h1 class="title">비밀번호 찾기</h1>
-			</div>
-		</section>
-		<section class="section main-section">
-			<div class="card">
-				<div class="card-content">
-					<form id="frm" action="findPw.do" method="post" >
-					<br><br>
-						<div class="field">
-							<label class="label" > Email &emsp;
-							<input type="text" id="email" name="email" placeholder="기억하시는 이메일을 입력해주세요" style="width:400px" class="input" required="required"> &emsp;
-							<input type="button" id="email1" name="email" onclick="checkEmail()" value="이메일 확인" class="btn btn-outline-secondary">
-							</label> 
-						</div>
-						<div class="field" id="namediv">
-								<label class="label">&emsp;이름 &emsp;
-									<input type="text" id="name" name="name" required="required" placeholder="이름을 입력해주세요." class="input" style="width:400px">
-								</label>
-							</div>
-						<div class="field" id="teldiv">
-							<label class="label" > 전화번호 &emsp;
-							<input type="text" id="tel" name="tel" class="input" required="required" style="width:400px" placeholder="전화번호를 입력해주세요.">
-							</label> 
-						</div>
-						<br><br>
-						<div class="field">
-							<div class="control">
-								<input type="submit" class="btn btn-outline-secondary" value="비밀번호 찾기" disabled="true" id="findpw">
-								<br><br>
-								</div>
-							</div>
-						<br>
-					</form>
+	<section class="ftco-section bg-light">
+		<div class="container">
+			<div class="row justify-content-center mb-5 pb-2">
+				<div class="col-md-8 text-center heading-section ftco-animate">
+					<h2 class="mb-4" id="loginh2">
+						<span>비밀번호 </span>찾기
+					</h2>
 				</div>
 			</div>
-		</section>
-	</div>
-	
+		</div>
+		<div class="container">
+			<div class="row justify-content-center mb-5 pb-2">
+				<div class="col-md-8 text-center heading-section ftco-animate" align="center">
+					<form id="frm" action="findPw.do" method="post">
+					<br>
+					<br>
+					<div id="emaildiv">
+						<h2 class="mb-4" id="emailInput"> Email &emsp; 
+						<input type="text" id="email" name="email" placeholder="기억하시는 이메일을 입력해주세요" class="input" required="required"> &emsp; 
+						<input type="button" id="emailbtn" name="email" onclick="checkEmail()" value="이메일 확인" class="btn btn-outline-secondary">
+						</h2>
+					</div>
+					<div id="namediv">
+						<h2 class="mb-4" id="nameInput">&emsp;이름 &emsp; 
+						<input type="text" id="name" name="name" required="required" placeholder="이름을 입력해주세요." class="input">
+						</h2>
+					</div>
+					<div id="teldiv">
+						<h2 class="mb-4" id="telInput"> 전화번호 &emsp; 
+						<input type="text" id="tel" name="tel" class="input" required="required" placeholder="전화번호를 입력해주세요.">
+						</h2>
+					</div>
+					<br>
+					<div class="field">
+						<div class="control">
+							<input id="findPwBtn" type="submit" class="btn btn-outline-secondary" value="비밀번호 찾기" disabled="true" id="findpw"> <br>
+							<br>
+						</div>
+					</div>
+					<br>
+				</form></div>
+			</div>
+		</div>
+	</section>
+
 	<script type="text/javascript">
-	function checkEmail() {
-		var email = $('#email').val();
-		$.ajax({
-			url : 'memberCheck2.do',
-			type : 'post',
-			data : {
-				email : email
-			},
-			success : function(result) {
-				console.log(result);
-				alert(result);
-				if(result == "이메일이 확인 되었습니다.") {
-					$('#email1').prop('disabled', true);
-					$('#findpw').prop('disabled', false);
+		function checkEmail() {
+			var email = $('#email').val();
+			$.ajax({
+				url : 'memberCheck2.do',
+				type : 'post',
+				data : {
+					email : email
+				},
+				success : function(result) {
+					console.log(result);
+					alert(result);
+					if (result == "이메일이 확인 되었습니다.") {
+						$('#email1').prop('disabled', true);
+						$('#findpw').prop('disabled', false);
+					}
+				},
+				error : function() {
+					console.log(result);
 				}
-			},
-			error : function() {
-				console.log(result);
-			}
-		});
-	};
-	
-	function mailSubmit() {
-		var email = $('#email').val();
-		var name = $('#name').val();
-		var tel = $('#tel').val();
-		$.ajax({
-			url : 'findPw.do',
-			type: 'post',
-			data: {email : email,
-					name: name,
-					tel : tel},
-			success : function(){
-			},
-			error : function(reject) {
-				alert(reject);
-			}
-		});
-	};
+			});
+		};
+
+		function mailSubmit() {
+			var email = $('#email').val();
+			var name = $('#name').val();
+			var tel = $('#tel').val();
+			$.ajax({
+				url : 'findPw.do',
+				type : 'post',
+				data : {
+					email : email,
+					name : name,
+					tel : tel
+				},
+				success : function() {
+				},
+				error : function(reject) {
+					alert(reject);
+				}
+			});
+		};
 	</script>
+
+	<script src="yswtemp/js/jquery.min.js"></script>
+	<script src="yswtemp/js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="yswtemp/js/popper.min.js"></script>
+	<script src="yswtemp/js/bootstrap.min.js"></script>
+	<script src="yswtemp/js/jquery.easing.1.3.js"></script>
+	<script src="yswtemp/js/jquery.waypoints.min.js"></script>
+	<script src="yswtemp/js/jquery.stellar.min.js"></script>
+	<script src="yswtemp/js/owl.carousel.min.js"></script>
+	<script src="yswtemp/js/jquery.magnific-popup.min.js"></script>
+	<script src="yswtemp/js/aos.js"></script>
+	<script src="yswtemp/js/jquery.animateNumber.min.js"></script>
+	<script src="yswtemp/js/scrollax.min.js"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="yswtemp/js/google-map.js"></script>
+	<script src="yswtemp/js/main.js"></script>
+
 </body>
 </html>
