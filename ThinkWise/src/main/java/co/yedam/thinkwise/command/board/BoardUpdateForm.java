@@ -10,7 +10,11 @@ public class BoardUpdateForm implements Command {
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
 		
-		return null;
+		request.setAttribute("nid", request.getParameter("nid"));
+		request.setAttribute("contentsu", request.getParameter("contentsu"));
+		request.setAttribute("titleu", request.getParameter("titleu"));
+		
+		return "board/boardUpdateForm";
 	}
 
 }

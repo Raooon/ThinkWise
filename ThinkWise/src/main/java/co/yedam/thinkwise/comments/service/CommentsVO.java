@@ -17,4 +17,6 @@ public class CommentsVO {
 	int likes;
 	int id;
 	
+	String name;
+	
 }
