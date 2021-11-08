@@ -115,7 +115,7 @@ a:focus {
   content: "";
   position: absolute;
   width: 100%;
-  height: 38%;
+  height: 800px;
   background: url(../images/hero-bg.png);
   background-size: 100% 100%;
   background-position: right bottom;
@@ -646,5 +646,8 @@ a:focus {
   border: 1px solid transparent;
   color: #fff;
   transition: all 0.3s ease 0s;
+}
+.teacher_container layout_padding2{
+	align-items: center;
 }
 /* end teacher container */

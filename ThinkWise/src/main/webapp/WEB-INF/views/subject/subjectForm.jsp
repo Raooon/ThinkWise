@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
+<!Doctype html> 
 <html>
-
 <head>
   <!-- Basic -->
   <meta charset="utf-8" />
@@ -35,17 +34,22 @@
   <link rel="stylesheet" href="css/css-circular-prog-bar.css">
 
 <style>
-.vehicle_img-box{
-	border-radius: 15px;
+#imgbox{
+	margin-left: 200px;
 }
-.carousel-item{
-	widht: 600px;
+.subjectimg{
+	display: inline-block !important;
 }
-.subject_img{
-	display: inline-block;
+.subjectinfo{
+	display: inline-block !important;
+	width: 500px;
+	margin-left: 10px;
 }
-.subject_info{
-	display: inline-block;
+.subjecttitle{
+	font-weight: bold;
+}
+.subjecttitle{
+	padding-bottom: 20px;
 }
 </style>
 
@@ -81,7 +85,7 @@
 		            	
 			            <!--<c:forEach items="${subjects }" var="subject">
 			            	<div class="carousel-item">
-								<div class="vehicle_img-box">
+								<div class="vehicle_img-box" id="imgbox" >
 									<div class="subject_img" style="display:inline-block;">
 										<img height="175px" src="template/images/${subject.subjectNm }.jpg" alt="">
 									</div>
@@ -133,64 +137,63 @@
 	      });
 	    }
 	    
-	    </script>
+	</script>
 	    
 	    
-	    <script type="text/javascript">
-			$(document).ready(function() {
-				
-				$.ajax({
-					url : "subjectList.do",
-					type: "post",
-					dataType : "json",
-					success: function(data) {
-						if(data.length > 0) {
+	<script type="text/javascript">
+		$(document).ready(function() {
+			
+			$.ajax({
+				url : "subjectList.do",
+				type: "post",
+				dataType : "json",
+				success: function(data) {
+					if(data.length > 0) {
+						
+						for(var i in data) {
+							var item = $('<div class="carousel-item" id="movingbox" />');
+							var imgbox = $('<span class="img-box" id="imgbox" />');
+							item.append(imgbox);
+			
+							var img = $('<span class="subjectimg" " />').append($('<img height="213px" alt="">').attr("src", "template/images/" + data[i].subjectNm + ".png"));
+							imgbox.append(img);
 							
-							for(var i in data) {
-								var item = $('<div class="carousel-item" />');
-								var imgbox = $('<div class="vehicle_img-box" style="display: inline-block;"/>');
-								item.append(imgbox);
-				
-								var img = $('<span class="subject_img" />').append($('<img height="175px" alt="">').attr("src", "template/images/" + data[i].subjectNm + ".png"));
-								imgbox.append(img);
-								
-								var info = $('<span class="subject_info" />');
-								var divtitle = $('<div class="subjecttitle" />').text(data[i].subjectNm);
-								var divcontents = $('<div class="subjectcontens" />').text(data[i].subjectInfo);
-								info.append(divtitle);
-								info.append(divcontents);
-								imgbox.append(info);	
-								
-								$('.carousel-inner').append(item);
-							}
+							var info = $('<span class="subjectinfo" " />');
+							var divtitle = $('<div class="subjecttitle" />').text(data[i].subjectNm);
+							var divcontents = $('<div class="subjectcontens" />').text(data[i].subjectInfo);
+							info.append(divtitle);
+							info.append(divcontents);
+							imgbox.append(info);	
 							
-							
-							//<div class="carousel-item">
-							//	<div class="vehicle_img-box">
-							//		<div class="subject_img" style="display:inline-block;">
-							//			<img height="175px" src="template/images/${subject.subjectNm }.jpg" alt="">
-							//		</div>
-							//		<div class="subject_info" style="display: inline-block;">
-							//			${subject.subjectInfo }
-							//		</div>
-							//	</div>
-				            //</div>
+							$('.carousel-inner').append(item);
 						}
 						
 						
-					},
-					error: function(res) {
-						console.log("fail")
+						//<div class="carousel-item">
+						//	<div class="vehicle_img-box">
+						//		<div class="subject_img" style="display:inline-block;">
+						//			<img height="175px" src="template/images/${subject.subjectNm }.jpg" alt="">
+						//		</div>
+						//		<div class="subject_info" style="display: inline-block;">
+						//			${subject.subjectInfo }
+						//		</div>
+						//	</div>
+			            //</div>
 					}
-				});
-	    	});
-	    
-	    
-		</script>
+					
+					
+				},
+				error: function(res) {
+					console.log("fail")
+				}
+			});
+	   	});
+	   
+	   
+	</script>
 	
   	<!-- google map js -->
-  	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap">
-  	</script>
+  	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
   	<!-- end google map js -->
 </body>
 

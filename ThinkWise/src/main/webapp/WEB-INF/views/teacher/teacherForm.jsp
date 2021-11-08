@@ -30,6 +30,12 @@
 	<link href="template/css/responsive3.css" rel="stylesheet" />
 	
 	<link rel="stylesheet" href="css/css-circular-prog-bar.css">
+	
+	<style>
+		.Tcontainer{
+			
+		}
+	</style>
 </head>
 <body>
 	<!-- teacher section -->
@@ -39,37 +45,15 @@
 			  	Our Teachers
 			</h2>
 			<p class="text-center">
-			  	아이들이 생각을 자유롭게 표현할 수 있도록 노력하겠습니다.
+			  	아이들이 상상력을 자유롭게 표현할 수 있도록 노력하겠습니다.
 			</p>
-			<div class="teacher_container layout_padding2">
+			<div class="teacher_container layout_padding2" >
 			  	<div class="card-deck">
-			    	<div class="card">
-			      		<img class="card-img-top" src="template/images/teacher-1.jpg" alt="Card image cap">
-			      		<div class="card-body">
-			        		<h5 class="card-title">Den Mark</h5>
-			      		</div>
-			    	</div>
-			    	<div class="card">
-			      		<img class="card-img-top" src="template/images/teacher-2.jpg" alt="Card image cap">
-			      		<div class="card-body">
-			        		<h5 class="card-title">Leena jorj</h5>
-			      		</div>
-			    	</div>
-			   		<div class="card">
-			      		<img class="card-img-top" src="template/images/teacher-3.jpg" alt="Card image cap">
-			      		<div class="card-body">
-			        		<h5 class="card-title">Magi Den</h5>
-			      		</div>
-			    	</div>
-			    	<div class="card">
-			      		<img class="card-img-top" src="template/images/teacher-4.jpg" alt="Card image cap">
-			      		<div class="card-body">
-			        		<h5 class="card-title">jonson mark</h5>
-			      		</div>
-			    	</div>
+			    				    	
 			  	</div>
 			</div>
 			
+			<!-- 
 			<div class="d-flex justify-content-center mt-3">
 			  	<a href="" class="btn-seemore  ">
 				    <span>
@@ -78,8 +62,52 @@
 			    	<img src="images/right-arrow.png" alt="">
 			  	</a>
 			</div>
+			 -->
 		</div>
 	</section>
+	
+	<script>
+	$(document).ready(function() {
+		
+		$.ajax({
+			url : "teacherList.do",
+			type: "post",
+			dataType : "json",
+			success: function(data) {
+				if(data.length > 0) {
+					
+					for(var i in data) {
+						var card = $('<div class="card" />');
+						
+						var img = $('<img class="card-img-top" alt="Card image cap" />').attr("src", "template/images/teacher" + data[i].teacherCd + ".png");
+						card.append(img);
+						
+						var cardbody = $('<div class="card-body" />');
+						var h5 = $('<h5 class="card-title" />').text(data[i].teacherNm);
+						cardbody.append(h5);
+						card.append(cardbody);	
+						
+						$('.card-deck').append(card);
+					}
+					
+					<!--
+					<div class="card">
+			      		<img class="card-img-top" src="template/images/teacher-2.jpg" alt="Card image cap">
+			      		<div class="card-body">
+			        		<h5 class="card-title">Leena jorj</h5>
+			      		</div>
+			    	</div>
+			    	-->
+				}
+				
+				
+			},
+			error: function(res) {
+				console.log("fail")
+			}
+		});
+   	});
+	</script>
 
   <!-- teacher section -->
 </body>
