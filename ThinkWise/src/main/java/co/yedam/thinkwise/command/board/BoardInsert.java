@@ -2,6 +2,7 @@ package co.yedam.thinkwise.command.board;
 
 import java.io.IOException;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -19,14 +20,18 @@ public class BoardInsert implements Command {
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
 		
-		//HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		
 		BoardService boardDao = new BoardServiceImpl();
 		BoardVO vo = new BoardVO();
 		
+		ServletContext context = request.getSession().getServletContext();
 		
-				
-		String saveFolder = "c:\\thinkwise";
+		//String saveFolder = "c:\\thinkwise";
+		String saveFolder = context.getRealPath("upload");
+		session.setAttribute("dir", saveFolder);
+		System.out.println(saveFolder);
+		
 		String image = "";
 		String firstImage = "";
 		String secondImage = "";
@@ -42,8 +47,7 @@ public class BoardInsert implements Command {
 			image = firstImage+"/"+secondImage+"/"+thirdImage;
 			
 			//로그인 기능 구현되면 바꾸기
-			//vo.setId((int) session.getAttribute("id"));
-			vo.setId(1);
+			vo.setId((int) session.getAttribute("id"));
 			vo.setTitle(multipartRequest.getParameter("title"));
 			vo.setContents(multipartRequest.getParameter("contents"));
 			vo.setImage(image);

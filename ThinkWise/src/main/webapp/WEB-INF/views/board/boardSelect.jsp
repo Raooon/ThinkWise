@@ -158,7 +158,9 @@
 								<tr id="tr${comment.commentNo }">
 									<td id="td${comment.commentNo }">
 										<div style="display: inline-block;" id ="div${comment.commentNo }">
+										<c:if test="${not empty id}">
 											<button type="button" style="font-size: 8px" id ="i${comment.commentNo }" onclick="openInsert('${comment.commentNo }')">답글</button>
+										</c:if>
 										<c:if test="${comment.id eq id}">
 											<button type="button" style="font-size: 8px" id ="e${comment.commentNo }" onclick="">수정</button>
 											<button type="button" style="font-size: 8px" id ="d${comment.commentNo }" onclick="">삭제</button>
@@ -309,9 +311,8 @@ function CommentsAttach(data){
 }
 
 function openInsert (num) {
-	console.log(num);
 	
-	var addTr= $('<tr />').attr('id','addTr');
+	var addTr= $('<tr />').attr('id','addTr'+num);
 		var addTd = $('<td />').html('&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <textarea rows="1" cols="80" id="commentAdd" name="commentAdd" style="resize: none;" placeholder="댓글을 남겨보세요."></textarea>');
 			var addButton = $('<button />').css('font-size','8px').attr('onclick','commentAdd('+num+')').text('등록');
 			var cancleButton = $('<button />').css('font-size','8px').attr('onclick','closeInsert('+num+')').text('취소');
@@ -327,14 +328,12 @@ function openInsert (num) {
 	$('#i'+num).hide();
 	$('#e'+num).hide();
 	$('#d'+num).hide();
-	//
+	
 }
 
 function closeInsert (num) {
 	
-	console.log($('#tr'+num));
-	
-	$('#addTr').hide();
+	$('#addTr'+num).hide();
 	
 	$('#tr'+num).show();
 	$('#td'+num).show();
