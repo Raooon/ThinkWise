@@ -112,7 +112,7 @@ public class SendEmail implements Command {
 		String text = null;
 		text = "이메일이 전송되었습니다.";
 		
-		return text;
+		return "ajax:" + text;
 	}
 
 }

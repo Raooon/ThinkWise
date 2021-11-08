@@ -24,13 +24,13 @@ public class EmailPermision implements Command {
 		
 		request.setAttribute("email", session.getAttribute("email"));
 		
-		if(perNb == rnd) {
+		if(perNb.equals(rnd)) {
 			System.out.println("일치");
 			viewPage = "member/memberInput";
 			session.invalidate();
 		} else {
 			System.out.println("불일치");
-			viewPage = "memberInputForm.do";
+			viewPage = "home.do";
 		}
 		
 		return viewPage;

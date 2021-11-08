@@ -23,10 +23,23 @@
 	margin: 70px;
 	padding-top: 30px;
 }
+
+#passworddiv {
+	margin-right: 30px;
+}
+
+#loginBtn{
+	width: 220px;
+}
 </style>
 
 </head>
 <body>
+<script type="text/javascript">
+	if("${message }" != "") {
+		alert("${message}");
+	}
+</script>
 	<div align="center" id="login">
 		<section class="is-hero-bar">
 			<div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
@@ -38,24 +51,24 @@
 				<div class="card-content">
 					<form id="frm" action="memberLogin.do" method="post">
 						<br><br>
-						<div class="field">
-							<label class="label" > Email
-							 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<div class="field" id="emaildiv">
+							<label class="label" > Email &emsp;
+							 
 							<input type="text" id="email" name="email" placeholder="이메일을 입력해주세요" style="width:220px" class="input">
 							</label> 
 						</div>
-						<div class="field">
-							<label class="label"> Password
-							 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<div class="field" id="passworddiv">
+							<label class="label"> Password &emsp;
+							 
 							<input type="password" id="password" name="password" placeholder="패스워드를 입력해주세요" style="width:220px" class="input">
 							</label> 
 						</div>
 						<br><br>
 						<div class="field">
 							<div class="control">
-								<input type="submit" class="btn btn-outline-secondary" value="로그인">
+								<input id="loginBtn" type="submit" class="btn btn-outline-secondary" value="로그인">
 								<br><br> 
-								<input type="button" value="회원가입" onclick="location.href='memberInputForm.do'" class="btn btn-outline-secondary"> 
+								<input type="button" value="회원가입" onclick="location.href='emailPermisionForm.do'" class="btn btn-outline-secondary"> 
 								<input type="button" value="비밀번호찾기" onclick="location.href='findPwForm.do'" class="btn btn-outline-secondary">
 							</div>
 						</div>
