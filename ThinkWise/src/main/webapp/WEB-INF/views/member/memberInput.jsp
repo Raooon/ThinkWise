@@ -104,7 +104,8 @@
 						</div>
 						<div class="field" id="addressdiv">
 							<label class="label">주소&emsp;
-								<input type="text" id="address" name="address" class="input" style="width:400px" placeholder="주소를 입력해주세요.">
+								<input type="text" id="address_kakao" name="address_kakao" class="input" style="width:400px" placeholder="주소를 입력해주세요."><br>&emsp;&emsp;&emsp;
+								<input type="text" id="address_detail" name="address_detail" class="input" style="width:400px" placeholder="상세주소를 입력해주세요.">
 							</label>
 						</div>
 						<div class="field" id="divisiondiv">
@@ -128,14 +129,29 @@
 			</div>
 		</section>
 	</div>
+	<!-- 카카오 주소찾기 api -->
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript">
-
+		window.onload = function(){
+		    document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
+		        //카카오 지도 발생
+		        new daum.Postcode({
+		            oncomplete: function(data) { //선택시 입력값 세팅
+		                document.getElementById("address_kakao").value = data.address; // 주소 넣기
+		                document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
+		            }
+		        }).open();
+		    });
+		}
+	
 		$(document).ready(function() {
 			document.getElementById("parentDiv").style.display="none";
 			$("input:radio[id=division_s]").click(function() {
 				parent();
 			})
 		});
+		
+		
 
 		function parent() {
 			
@@ -168,18 +184,7 @@
 			}
 		}
 
-		//새로고침 막기
-		function noEvent() {
-          if (event.keyCode == 116) {
-              event.keyCode= 2;
-              return false;
-          }
-          else if(event.ctrlKey && (event.keyCode==78 || event.keyCode == 82))
-          {
-              return false;
-          }
-      }
-     	 document.onkeydown = noEvent;
 	</script>
+	
 </body>
 </html>

@@ -25,11 +25,7 @@ public class BoardUpdate implements Command {
 		BoardService boardDao = new BoardServiceImpl();
 		BoardVO vo = new BoardVO();
 		
-		System.out.println("bid:"+request.getParameter("bid"));
-		System.out.println("title:"+request.getParameter("title"));
-		
 		ServletContext context = request.getSession().getServletContext();
-		//String saveFolder = "c:\\thinkwise";
 		String saveFolder = context.getRealPath("upload");
 		session.setAttribute("dir", saveFolder);
 		System.out.println(saveFolder);
@@ -48,10 +44,15 @@ public class BoardUpdate implements Command {
 			
 			image = firstImage+"/"+secondImage+"/"+thirdImage;
 			
-			vo.setBoardNo(Integer.parseInt(request.getParameter("nid")));
+			vo.setBoardNo(Integer.parseInt(multipartRequest.getParameter("bid")));
 			vo.setTitle(multipartRequest.getParameter("title"));
 			vo.setContents(multipartRequest.getParameter("contents"));
 			vo.setImage(image);
+			
+			System.out.println(vo.getBoardNo());
+			System.out.println(vo.getTitle());
+			System.out.println(vo.getContents());
+			System.out.println(vo.getImage());
 			
 		} catch (IOException e) {
 			e.printStackTrace();

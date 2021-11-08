@@ -20,7 +20,9 @@ import co.yedam.thinkwise.command.board.BoardSelect;
 import co.yedam.thinkwise.command.board.BoardUpdate;
 import co.yedam.thinkwise.command.board.BoardUpdateForm;
 import co.yedam.thinkwise.command.board.CommentsAdd;
+import co.yedam.thinkwise.command.board.CommentsDelete;
 import co.yedam.thinkwise.command.board.CommentsInsert;
+import co.yedam.thinkwise.command.board.CommentsUpdate;
 import co.yedam.thinkwise.command.board.NoticeDelete;
 import co.yedam.thinkwise.command.board.NoticeInsert;
 import co.yedam.thinkwise.command.board.NoticeInsertForm;
@@ -126,6 +128,8 @@ public class FrontController extends HttpServlet {
 		//comments
 		map.put("/commentsInsert.do", new CommentsInsert()); //댓글 추가
 		map.put("/commentsAdd.do", new CommentsAdd()); //대댓글 추가
+		map.put("/commentsDelete.do", new CommentsDelete()); // 댓글 삭제
+		map.put("/commentsUpdate.do", new CommentsUpdate()); // 댓글 수정
 		
 	}
 
