@@ -38,56 +38,80 @@
 #frm {
 	border: 1px #363636;
     border-style: solid;
-    margin: 20px;
+    margin-left: -65px;
+    width: 900px;
 }
 
 #emaildiv {
-
+	margin-left: 15px;
 }
 
 #emailInput {
-
+	font-size: 30px;
+	color : #5d50c6;
 }
 
 input#email {
-
+	font-size: 19px;
+	width: 400px;
+	heigh: 40px; 
+	padding-top: 5px;
+	padding-left: 3px;
+	padding-bottom: 5px; 
 }
 
 input#emailbtn {
-
+	width: 150px;
+	heigh: 40px;
+	font-size: 18px;
 }
 #namediv {
-	margin-right: 150px;
+	margin-right: 187px;
 }
 
 #nameInput {
-
+	font-size: 27px;
+	color : #5d50c6;
 }
 
 input#name {
-
+	font-size: 19px;
+	width: 400px;
+	heigh: 40px; 
+	padding-top: 5px;
+	padding-left: 3px;
+	padding-bottom: 5px; 
 }
 
 #teldiv {
-	margin-right: 165px;
+	margin-right: 215px;
 }
 
 #telInput {
-
+	font-size: 27px;
+	color : #5d50c6;
 }
 
 input#tel {
-
+	font-size: 19px;
+	width: 400px;
+	heigh: 40px; 
+	padding-top: 5px;
+	padding-left: 3px;
+	padding-bottom: 5px; 
 }
 
 input#findPwBtn {
-
+	margin-right: 15px;
+	width: 180px;
+	heigh: 40px;
+	font-size: 20px;
 }
 
 </style>
 </head>
 <body>
-	<section class="ftco-section bg-light">
+	<section class="ftco-section bg-light" id="session">
 		<div class="container">
 			<div class="row justify-content-center mb-5 pb-2">
 				<div class="col-md-8 text-center heading-section ftco-animate">
