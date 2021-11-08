@@ -151,10 +151,10 @@
 								var imgbox = $('<div class="vehicle_img-box" />');
 								item.append(imgbox);
 								
-								var img = $('<div class="subject_img" style="display: inline-block;"/>').append($('<img height="175px" alt="">').attr("src", "template/images/" + data[i].subjectNm + ".png"));
+								var img = $('<span class="subject_img" style="display: inline-block;"/>').append($('<img height="175px" alt="">').attr("src", "template/images/" + data[i].subjectNm + ".png"));
 								imgbox.append(img);
 								
-								var info = $('<div class="subject_info" style="display: inline-block;">');
+								var info = $('<span class="subject_info" style="display: inline-block;"/>');
 								var divtitle = $('<div class="subjecttitle" />').text(data[i].subjectNm);
 								var divcontents = $('<div class="subjectcontens" />').text(data[i].subjectInfo);
 								info.append(divtitle);

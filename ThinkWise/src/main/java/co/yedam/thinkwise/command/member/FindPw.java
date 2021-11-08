@@ -130,16 +130,12 @@ public class FindPw implements Command {
 				msg_e.printStackTrace();
 			} 
 			
-			/*
-			 * text = "메일이 전송되었습니다. 비밀번호를 변경해주세요"; return "ajax:" + text;
-			 */
-			
 			request.setAttribute("message", "메일이 발송되었습니다. 로그인 후 비밀번호를 변경해주세요");
-			viewPage = "member/findPwSuccess";
+			viewPage = "member/memberLogin";
 			
 		} else {
 			request.setAttribute("message", "회원정보를 확인할 수 없습니다.");
-			viewPage = "member/findPwFail";
+			viewPage = "home/home";
 		}
 		return viewPage;
 	}

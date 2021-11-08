@@ -24,6 +24,33 @@
 	margin: 70px;
 	padding-top: 30px;
 }
+#pwdiv1 {
+	margin-right: 23px;
+}
+#pwdiv2 {
+	margin-right: 62px;
+}
+#namediv {
+	margin-right: -10px;
+}
+#genderdiv {
+	margin-right: 97px;
+}
+#birthdiv {
+	margin-right: 135px;
+}
+#teldiv {
+	margin-right: 23px;
+}
+#addressdiv {
+	margin-right: -10px;
+}
+#divisiondiv {
+	margin-right: 110px;
+}
+#parentDiv {
+	margin-right: 5px;
+}
 </style>
 
 </head>
@@ -39,81 +66,61 @@
 			<div class="card">
 				<div class="card-content">
 					<form id="frm" action="memberInput.do" method="post">
-						<div class="field" align="center">
-							<label class="label">Email
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
-								<input type="email" id="email" name="email" required="required" value=${email } class="input" style="width:400px" readonly> &emsp;
-								<input type="button" id="email1" name="email" onclick="checkEmail()" value="중복확인" class="btn btn-outline-secondary">
+						<div class="field" align="center" id="emaildiv">
+							<label class="label">Email&emsp;
+								<input type="email" id="email" name="email" required="required" value=${email } class="input" style="width:400px" readonly> 
 							</label>
 						</div>
-						<div class="field">
-							<label class="label">비밀번호
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
+						<div class="field" id="pwdiv1">
+							<label class="label">비밀번호&emsp;
 								<input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요." required="required" class="input" style="width:400px">
-								&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 							</label>
 						</div>
-						<div class="field">
-							<label class="label">비밀번호 확인
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+						<div class="field" id="pwdiv2">
+							<label class="label">비밀번호 확인&emsp;
 								<input type="password" id="password1" required="required" class="input" placeholder="한번 더 입력해주세요." style="width:400px">
-								&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 							</label>
 						</div>
-						<div class="field">
-							<label class="label">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;이름
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<div class="field" id="namediv">
+							<label class="label">이름&emsp;
 								<input type="text" id="name" name="name" required="required" placeholder="이름을 입력해주세요." class="input" style="width:400px">
-								&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 							</label>
 						</div>
-						<div class="field">
-							<label class="label">&emsp;&nbsp;성별
-							&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-									<input type="radio" id="gender" name="gender" value="M" checked >male&emsp;&emsp;&emsp;&emsp;
-									<input type="radio" id="gender" name="gender" value="F">female
-									&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+						<div class="field" id="genderdiv">
+							<label class="label">성별&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+									<input type="radio" id="gender_M" name="gender" value="M" checked >male&emsp;&emsp;&emsp;
+									<input type="radio" id="gender_F" name="gender" value="F">female
 							</label>
 						</div>
-						<div class="field">
-							<label class="label">생년월일
-							&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;
+						<div class="field" id="birthdiv">
+							<label class="label">생년월일&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 								<input type="date" id="birth" name="birth">
-								&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 							</label>
 						</div>
-						<div class="field">
-							<label class="label">전화번호
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
-								<input type="text" id="tel" name="tel" class="input" style="width:400px" placeholder="전화번호를 입력해주세요.">
-								&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+						<div class="field" id="teldiv">
+							<label class="label">전화번호&emsp;
+								<input type="text" id="tel" name="tel" class="input" style="width:400px" required="required" placeholder="전화번호를 입력해주세요.">
 							</label>
 						</div>
-						<div class="field">
-							<label class="label">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;주소
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<div class="field" id="addressdiv">
+							<label class="label">주소&emsp;
 								<input type="text" id="address" name="address" class="input" style="width:400px" placeholder="주소를 입력해주세요.">
-								&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 							</label>
 						</div>
-						<div class="field">
-							<label class="label">&emsp;&nbsp;구분
-							&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-								<input type="radio" id="division" name="division" value="P" checked>학부모&emsp;&emsp;&emsp;&emsp;
+						<div class="field" id="divisiondiv">
+							<label class="label">구분&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+								<input type="radio" id="division_p" name="division" value="P" checked>학부모&emsp;&emsp;&emsp;
 								<input type="radio" id="division_s" name="division" value="S">학생
-								&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 							</label>
 						</div>
 						<div class="field" id="parentDiv">
-							<label class="label">&nbsp;&nbsp;&nbsp;&nbsp;부모님
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
-								<input type="text" id="parent" name="parent" placeholder="부모님 이메일을 적어주세요." class="input" style="width:400px">
-								&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+							<label class="label">부모님&emsp;
+								<input type="text" id="parent" name="parent" placeholder="부모님의 이메일을 적어주세요." class="input" style="width:400px">
 							</label>
 						</div>
 						<br>
 						<div>
-							<input id="join" type="button" disabled="true" value="회원가입" onclick="Check()" class="btn btn-outline-secondary">&emsp; 
+							<input id="join" type="button" value="회원가입" onclick="Check()" class="btn btn-outline-secondary">&emsp; 
 							<input type="reset" value="취소" class="btn btn-outline-secondary">
 						</div>
 					</form>
@@ -161,27 +168,6 @@
 			}
 		}
 
-		function checkEmail() {
-			console.log("확인");
-			var email = $('#email').val();
-			$.ajax({
-				url : 'memberCheck.do',
-				type : 'post',
-				data : {
-					email : email
-				},
-				success : function(result) {
-					console.log(result);
-					alert(result);
-					$('#email1').prop('disabled', true);
-					$('#join').prop('disabled', false);
-				},
-				error : function() {
-					console.log(reject);
-				}
-			});
-		};
-		
 	</script>
 </body>
 </html>

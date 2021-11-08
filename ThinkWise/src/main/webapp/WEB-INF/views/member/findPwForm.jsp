@@ -23,6 +23,14 @@
 	margin: 70px;
 	padding-top: 30px;
 }
+
+#namediv {
+	margin-right: 150px;
+}
+
+#teldiv {
+	margin-right: 165px;
+}
 </style>
 </head>
 <body>
@@ -38,21 +46,19 @@
 					<form id="frm" action="findPw.do" method="post" >
 					<br><br>
 						<div class="field">
-							<label class="label" > Email &emsp;&emsp;&emsp;
-							<input type="text" id="email" name="email" placeholder="기억하시는 이메일을 입력해주세요" style="width:400px" class="input" required="required">
-							&emsp;<input type="button" id="email1" name="email" onclick="checkEmail()" value="이메일 확인" class="btn btn-outline-secondary">
+							<label class="label" > Email &emsp;
+							<input type="text" id="email" name="email" placeholder="기억하시는 이메일을 입력해주세요" style="width:400px" class="input" required="required"> &emsp;
+							<input type="button" id="email1" name="email" onclick="checkEmail()" value="이메일 확인" class="btn btn-outline-secondary">
 							</label> 
 						</div>
-						<div class="field">
-								<label class="label">&emsp;이름 &emsp;&emsp;&emsp;
+						<div class="field" id="namediv">
+								<label class="label">&emsp;이름 &emsp;
 									<input type="text" id="name" name="name" required="required" placeholder="이름을 입력해주세요." class="input" style="width:400px">
-								&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;
 								</label>
 							</div>
-						<div class="field">
-							<label class="label" > 전화번호 &emsp;&emsp;&emsp;
+						<div class="field" id="teldiv">
+							<label class="label" > 전화번호 &emsp;
 							<input type="text" id="tel" name="tel" class="input" required="required" style="width:400px" placeholder="전화번호를 입력해주세요.">
-							&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;
 							</label> 
 						</div>
 						<br><br>
@@ -81,8 +87,10 @@
 			success : function(result) {
 				console.log(result);
 				alert(result);
-				$('#email1').prop('disabled', true);
-				$('#findpw').prop('disabled', false);
+				if(result == "이메일이 확인 되었습니다.") {
+					$('#email1').prop('disabled', true);
+					$('#findpw').prop('disabled', false);
+				}
 			},
 			error : function() {
 				console.log(result);
