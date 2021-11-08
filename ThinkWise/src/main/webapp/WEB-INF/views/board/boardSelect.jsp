@@ -118,7 +118,7 @@
 								<c:forEach items="${comments }" var="comment">
 								<c:if test="${comment.dimension eq '1' }">
 								<!-- 작성자 아이디 / 등록날짜 / 수정버튼 -->
-								<tr>
+								<tr id="outTr${comment.commentNo }">
 									<td>
 										${comment.name }
 									</td>
@@ -140,8 +140,8 @@
 											<button type="button" style="font-size: 8px" id ="i${comment.commentNo }" onclick="openInsert('${comment.commentNo }')">답글</button>
 										</c:if>
 										<c:if test="${comment.id eq id}">
-											<button type="button" style="font-size: 8px" id ="e${comment.commentNo }" onclick="">수정</button>
-											<button type="button" style="font-size: 8px" id ="d${comment.commentNo }" onclick="">삭제</button>
+											<button type="button" style="font-size: 8px" id ="e${comment.commentNo }" onclick="CommentsChange('${comment.commentNo }')">수정</button>
+											<button type="button" style="font-size: 8px" id ="d${comment.commentNo }" onclick="CommentsDelete('${comment.commentNo }')">삭제</button>
 										</c:if>
 										</div>
 									</td>
@@ -150,23 +150,36 @@
 								<c:forEach items="${comments }" var="subComment">
 										<c:if test="${subComment.dimension eq '2'&& subComment.commentNo2 == comment.commentNo}">
 										
-											<tr>
-												<td>
-													&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-													${comment.name }
-												</td>
-												<td>
-													${comment.enrollDt }
-												</td>
-											</tr>
+												<tr class="subCom${comments.commentNo }">
+													<td>
+														&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+														${subComment.name }
+													</td>
+													<td>
+														${subComment.enrollDt }
+													</td>
+												</tr>
 											
-											<tr height="80px">
-												<td>
-													&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-													<textarea rows="1" cols="80" id="comment${subComment.commentNo }" name="commentList" style="resize: none;" readonly="readonly">${subComment.contents }</textarea>
-												</td>
-											</tr>
-											
+												<tr height="80px" class="subCom${comments.commentNo }">
+													<td>
+														&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+														<textarea rows="1" cols="80" id="comment${subComment.commentNo }" name="commentList" style="resize: none;" readonly="readonly">${subComment.contents }</textarea>
+													</td>
+												</tr>
+												
+												<tr class="subCom${comments.commentNo }">
+													<td>
+														<div style="display: inline-block;" id ="Div${subComment.commentNo }">
+														<c:if test="${subComment.id eq id}">
+															&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+															<button type="button" style="font-size: 8px" id ="e${subComment.commentNo }" onclick="CommentsSubChange('${subComment.commentNo }')">수정</button>
+															
+															<button type="button" style="font-size: 8px" id ="d${subComment.commentNo }" onclick="CommentsDelete('${subComment.commentNo }')">삭제</button>
+														</c:if>
+														</div>
+													</td>
+												</tr>
+												
 										</c:if>
 									</c:forEach>
 								
@@ -390,6 +403,106 @@ function commentAdd (num) {
 	})
 	
 }
+
+function CommentsDelete(num) {
+	
+	let param = "commentNo="+num;
+	
+	$.ajax({
+		url: 'commentsDelete.do',
+		data: param,
+		type: 'post',
+		success: function (result) {
+			console.log('success');
+			$('.subCom'+num).hide();
+			
+			$('#tr'+num).hide();
+			$('#outTr'+num).hide();
+			$('#cmt'+num).hide();
+			
+			console.log('success2222');
+		},
+		error: function (reject) {
+			console.log(reject)
+		}
+	})
+	
+}
+
+function CommentsChange (num) {
+	
+	$('#i'+num).toggle();
+	$('#e'+num).toggle();
+	$('#d'+num).toggle();
+	
+	$('#comment'+num).removeAttr('readonly');
+	$('#comment'+num).focus();
+	
+	var updateButton = $('<button />').css('font-size','8px').attr('onclick','CommentsUpdate('+num+')').attr('id','ub'+num).text('수정');
+	var cancleButton = $('<button />').css('font-size','8px').attr('onclick','CommentsChangeClose('+num+')').attr('id','cl'+num).text('취소');
+	
+	$('#cmt'+num).after(
+			updateButton,
+			cancleButton
+			);
+}
+
+function CommentsSubChange (num) {
+	
+	$('#e'+num).toggle();
+	$('#d'+num).toggle();
+	
+	$('#comment'+num).removeAttr('readonly');
+	$('#comment'+num).focus();
+	
+	var updateButton = $('<button />').css('font-size','8px').attr('onclick','CommentsUpdate('+num+')').attr('id','ub'+num).text('수정');
+	var cancleButton = $('<button />').css('font-size','8px').attr('onclick','CommentsChangeClose('+num+')').attr('id','cl'+num).text('취소');
+	
+	$('#subcmt'+num).after(
+			updateButton,
+			cancleButton
+	);
+}
+function CommentsChangeClose (num) {
+	
+	$('#i'+num).toggle();
+	$('#e'+num).toggle();
+	$('#d'+num).toggle();
+	
+	$('#comment'+num).attr('readonly','readonly');
+	
+	$('#ub'+num).hide();
+	$('#cl'+num).hide();
+	
+}
+
+function CommentsUpdate(num) {
+	
+	let contents = $('#comment'+num).val();
+	let param = "commentNo="+num+"&contents="+contents;
+	
+	$.ajax({
+		url: 'commentsUpdate.do',
+		data: param,
+		type: 'post',
+		success: function (result) {
+			console.log('success');
+			
+			$('#ub'+num).hide();
+			$('#cl'+num).hide();
+			
+			$('#i'+num).toggle();
+			$('#e'+num).toggle();
+			$('#d'+num).toggle();
+			
+		},
+		error: function (reject) {
+			console.log(reject)
+		}
+	})
+	
+}
+
 </script>
 
 </body>
