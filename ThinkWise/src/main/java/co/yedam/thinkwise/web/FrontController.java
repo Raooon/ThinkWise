@@ -35,10 +35,9 @@ import co.yedam.thinkwise.command.info.HomeCommand;
 import co.yedam.thinkwise.command.info.KakaoChat;
 import co.yedam.thinkwise.command.info.KakaoLogin;
 import co.yedam.thinkwise.command.info.Location;
-
-import co.yedam.thinkwise.command.member.EmailPermision;
 import co.yedam.thinkwise.command.info.SubjectList;
-
+import co.yedam.thinkwise.command.member.EmailPermision;
+import co.yedam.thinkwise.command.member.EmailPermisionForm;
 import co.yedam.thinkwise.command.member.FindPw;
 import co.yedam.thinkwise.command.member.FindPwForm;
 import co.yedam.thinkwise.command.member.MemberCheck;
@@ -53,6 +52,7 @@ import co.yedam.thinkwise.command.member.MemberLogout;
 import co.yedam.thinkwise.command.member.MemberPwEdit;
 import co.yedam.thinkwise.command.member.SelectMemberList;
 import co.yedam.thinkwise.command.member.SelectMyInfo;
+import co.yedam.thinkwise.command.member.SendEmail;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -75,6 +75,9 @@ public class FrontController extends HttpServlet {
 		map.put("/memberCheck2.do", new MemberCheck2());	//이메일 유무확인
 		map.put("/findPw.do", new FindPw());	//비밀번호 찾기
 		map.put("/memberLogout.do", new MemberLogout());	//로그아웃
+		
+		map.put("/emailPermisionForm.do", new EmailPermisionForm());	//이메일 인증 폼
+		map.put("/sendEmail.do", new SendEmail());	// 인증번호 전송
 		map.put("/emailPermision.do", new EmailPermision());	//이메일 인증
 
 		map.put("/noticeList.do", new NoticeList()); // 첫페이지 호출

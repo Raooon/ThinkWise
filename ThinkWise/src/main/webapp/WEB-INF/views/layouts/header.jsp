@@ -162,7 +162,7 @@
 					<!-- Ul로 묶어야할 곳 -->
 					
                 <li class="nav-item">
-                  <a class="nav-link" href="memberInputForm.do">Contact Us</a>
+                  <a class="nav-link" href="emailPermisionForm.do">Contact Us</a>
                 </li>
                 
                 <li class="nav-item">
