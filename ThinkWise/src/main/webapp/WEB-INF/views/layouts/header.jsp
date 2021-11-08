@@ -149,9 +149,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav  ">
-                
+  
                 <li class="nav-item ">
                   <a class="nav-link" href="noticeList.do"> Notice </a>
+
                 </li>
                 <li class="nav-item ">
                   <a class="nav-link" href="boardList.do"> Board </a>
