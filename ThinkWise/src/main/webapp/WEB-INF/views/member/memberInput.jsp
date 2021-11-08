@@ -173,10 +173,11 @@
 				success : function(result) {
 					console.log(result);
 					alert(result);
+					
 					$('#email1').prop('disabled', true);
 					$('#join').prop('disabled', false);
 				},
-				error : function() {
+				error : function(reject) {
 					console.log(reject);
 				}
 			});
