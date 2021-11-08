@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+
 import co.yedam.thinkwise.comm.Command;
 import co.yedam.thinkwise.comments.service.CommentsService;
 import co.yedam.thinkwise.comments.service.CommentsVO;
@@ -14,7 +16,6 @@ public class CommentsAdd implements Command {
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
 		
-		//VALUES(comment_seq.nextval,#{boardNo},'2',#{commentNo},sysdate,null,#{contents},0,#{id})
 		HttpSession session = request.getSession();
 		CommentsVO commentsVO = new CommentsVO();
 		CommentsService commentsDao = new CommentsServiceImpl();
@@ -27,8 +28,13 @@ public class CommentsAdd implements Command {
 		commentsVO.setId(id);
 		
 		commentsDao.commentsAdd(commentsVO);
+		int cn = commentsVO.getCommentNo();
+		System.out.println(cn);
+		commentsVO.setCommentNo(cn);
+		commentsVO = commentsDao.commentsSelect(commentsVO);
+		Gson gson = new Gson();
 		
-		return "ajax:";
+		return "ajax:"+gson.toJson(commentsVO);
 	}
 
 }

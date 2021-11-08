@@ -3,17 +3,18 @@
 <mapper namespace="co.yedam.thinkwise.comments.service.CommentsMapper">
 
 	<select id="commentsList" resultType="co.yedam.thinkwise.comments.service.CommentsVO" parameterType="co.yedam.thinkwise.comments.service.CommentsVO">
-		SELECT comment_no AS commentNo, board_no AS boardNo, dimension, comment_no2 AS commentNo2, TO_CHAR(enroll_dt, 'YYYY.MM.DD HH24:MI') AS enrollDt, modify_dt AS modifyDt, contents, likes, id
-		FROM comments
-		WHERE board_no=#{boardNo}
-		ORDER BY 1 DESC
+		SELECT c.comment_no AS commentNo, c.board_no AS boardNo, c.dimension, c.comment_no2 AS commentNo2, TO_CHAR(enroll_dt, 'YYYY.MM.DD HH24:MI') AS enrollDt, c.modify_dt AS modifyDt, c.contents, c.likes, c.id , m.name 
+		FROM comments c, member m
+		WHERE c.id = m.id(+)
+		AND c.board_no = #{boardNo}
 	</select>
-
+	
 	<select id="commentsSelect" resultType="co.yedam.thinkwise.comments.service.CommentsVO">
-		
-		SELECT comment_no AS commentNo, board_no AS boardNo, dimension, comment_no2 AS commentNo2, TO_CHAR(enroll_dt, 'YYYY.MM.DD HH24:MI') AS enrollDt, modify_dt AS modifyDt, contents, likes, id
-		FROM comments
-		WHERE comment_no = #{commentNo}
+	
+		SELECT c.comment_no AS commentNo, c.board_no AS boardNo, c.dimension, c.comment_no2 AS commentNo2, TO_CHAR(enroll_dt, 'YYYY.MM.DD HH24:MI') AS enrollDt, c.modify_dt AS modifyDt, c.contents, c.likes, c.id , m.name 
+		FROM comments c, member m
+		WHERE c.id = m.id(+)
+		AND c.comment_no = #{commentNo}
 		
 	</select>
 
@@ -28,6 +29,9 @@
 	<insert id="commentsAdd" parameterType="co.yedam.thinkwise.comments.service.CommentsVO">
 		INSERT INTO comments
 		VALUES(comment_seq.nextval,#{boardNo},'2',#{commentNo2},sysdate,null,#{contents},0,#{id})
+		<selectKey resultType="int" keyProperty="commentNo" order="AFTER">
+			SELECT MAX(comment_no) FROM comments
+		</selectKey>
 	</insert>
 	
 	<update id="commentsUpdate" parameterType="co.yedam.thinkwise.comments.service.CommentsVO">

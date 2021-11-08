@@ -1,7 +1,9 @@
 package co.yedam.thinkwise.command.board;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.yedam.thinkwise.board.service.BoardService;
 import co.yedam.thinkwise.board.service.BoardVO;
@@ -15,15 +17,25 @@ public class BoardSelect implements Command {
 
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
+		//파일경로 넣어주는 부분
+		HttpSession session = request.getSession();
+		ServletContext context = request.getSession().getServletContext();
 		
-		//게시글 부분
+		String saveFolder = context.getRealPath("upload");
+		session.setAttribute("dir", saveFolder);
+		System.out.println(saveFolder);
+		
 		BoardService boardDao = new BoardServiceImpl();
 		BoardVO boardVO = new BoardVO();
+		
+		//게시글 부분
 		int bn = Integer.parseInt(request.getParameter("nid"));
+		System.out.println(bn);
 		boardVO.setBoardNo(bn);
 		boardDao.boardHitUpdate(boardVO);
 		boardVO = boardDao.boardSelect(boardVO);
 		request.setAttribute("board", boardVO);
+		
 		//댓글 부분
 		CommentsService commentsDao = new CommentsServiceImpl();
 		CommentsVO commentsVO = new CommentsVO();

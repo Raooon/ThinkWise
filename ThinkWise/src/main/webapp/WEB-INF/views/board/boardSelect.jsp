@@ -39,27 +39,6 @@
 
 </head>
 
-<script>
-	function boardEdit(p) {
-
-		frm.nid.value = $
-		{
-			board.boardNo
-		}
-		;
-
-		if (p == 'D') {
-			frm.action = "boardDelete.do";
-		} else {
-
-			//frm.action="boardUpdateForm.do";
-		}
-		frm.submit();
-
-	}
-	
-</script>
-
 <body class="sub_page">
 
 	<!-- contact section -->
@@ -89,7 +68,6 @@
 											<img alt="" src="upload/${selectedImage }" width="240px" height="180px">
 										</div>
 									</td>
-									
 											</c:if>
 									</c:forEach>
 									
@@ -142,7 +120,7 @@
 								<!-- 작성자 아이디 / 등록날짜 / 수정버튼 -->
 								<tr>
 									<td>
-										${comment.id }
+										${comment.name }
 									</td>
 									<td>
 										${comment.enrollDt }
@@ -175,7 +153,7 @@
 											<tr>
 												<td>
 													&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-													${comment.id }
+													${comment.name }
 												</td>
 												<td>
 													${comment.enrollDt }
@@ -230,13 +208,15 @@
 							</table>
 						</div>
 						<div>
+						
 							<form id="frm" method="post" action="">
-								<input type="hidden" id="nid" name="nid">
-								<!-- 
-              		<input type="hidden" id="tu" name="tu">
-              		<input type="hidden" id="cu" name="cu">
-              		 -->
+							
+								<input type="hidden" id="nid" name="nid" value="${board.boardNo }">
+		              			<input type="hidden" id="titleu" name="titleu" value="${board.title }">
+		              			<input type="hidden" id="contentsu" name="contentsu" value="${board.contents }">
+              		 
 							</form>
+							
 						</div>
 					</div>
 
@@ -258,6 +238,22 @@
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 
 <script>
+
+function boardEdit(p) {
+
+	if (p == 'D') {
+		
+		frm.action = "boardDelete.do";
+		
+	} else {
+		
+		frm.action = "boardUpdateForm.do";
+	}
+	
+	frm.submit();
+	
+}
+
 function CommentsInsert() {
 	
 	let contents = $('#commentInsert').val();
@@ -286,7 +282,7 @@ function CommentsInsert() {
 function CommentsAttach(data){
 	
 	var beforeTr = $('<tr />');
-		var idTd = $('<td />').text(data.id);
+		var idTd = $('<td />').text(data.name);
 		var enrollTd = $('<td />').text(data.enrollDt);
 	
 		$(beforeTr).append(
@@ -310,6 +306,32 @@ function CommentsAttach(data){
 	
 }
 
+function replyAttach(data){
+	
+	var beforeTr = $('<tr />');
+		var idTd = $('<td />').html('&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'+data.name);
+		var enrollTd = $('<td />').text(data.enrollDt);
+	
+		$(beforeTr).append(
+				idTd,
+				enrollTd
+		);
+	
+	var afterTr = $('<tr />');
+		var contextTd = $('<td />').html(
+				'&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<textarea rows="1" cols="80" id="comment'+data.commentNo+'" name="commentList" style="resize: none;" readonly="readonly">'+data.contents+'</textarea>'		
+		);
+	
+		$(afterTr).append(
+				contextTd
+		);
+	
+		$('#cmt'+data.commentNo2).after(
+				beforeTr,
+				afterTr
+		);
+	
+}
 function openInsert (num) {
 	
 	var addTr= $('<tr />').attr('id','addTr'+num);
@@ -348,7 +370,6 @@ function closeInsert (num) {
 function commentAdd (num) {
 	
 	let contents = $('#commentAdd').val();
-	
 	let param= "boardNo=${board.boardNo}&contents="+contents+"&commentNo="+num;
 	
 	$.ajax({
@@ -358,9 +379,8 @@ function commentAdd (num) {
 		dataType: 'json',
 		success: function (result) {
 			console.log('success');
-			console.log(result);
-			
-			
+			replyAttach(result);
+			closeInsert(num);
 			$('#commentAdd').val('');
 			
 		},

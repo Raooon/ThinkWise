@@ -56,19 +56,14 @@
 				</div>
 			</div>
 			<div align="right">
-				<!-- Read More -->
-				<!-- 리스트로 넘기는 곳 -->
-				<div class="hero_btn-continer">
-					<a href="" class="call_to-btn btn_white-border"> Read More </a>
-				</div>
-				<!-- Read More -->
-
 				<!-- 글 쓰기 버튼 -->
 				<!-- 권한에 따라 안보이게 -->
-				<div class="hero_btn-continer">
-					<a href="boardInsertForm.do" class="call_to-btn btn_white-border">
-						보고서 등록 </a>
-				</div>
+				<c:if test="${division eq 'A' }">
+					<div class="hero_btn-continer">
+						<a href="boardInsertForm.do" class="call_to-btn btn_white-border">
+							보고서 등록 </a>
+					</div>
+				</c:if>
 				<!-- 글 쓰기 버튼 -->
 			</div>
 			<div class="row">
