@@ -150,7 +150,7 @@
 								<c:forEach items="${comments }" var="subComment">
 										<c:if test="${subComment.dimension eq '2'&& subComment.commentNo2 == comment.commentNo}">
 										
-												<tr class="subCom${comments.commentNo }">
+												<tr class="subCom${comment.commentNo }">
 													<td>
 														&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
 														${subComment.name }
