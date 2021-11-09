@@ -15,6 +15,7 @@
 	        	var calendarEl = document.getElementById('calendar');
 	        	var calendar = new FullCalendar.Calendar(calendarEl, {
 	          		initialView: 'dayGridMonth',
+	          		contentHeight: 'auto',
 	    	  		googleCalendarApiKey: 'AIzaSyB86wV-rIE_JCqvDsms6lctKuVPiieIusA',
 	    	  		events: {
 	    	    		googleCalendarId: 'ji2jt73rrfe38ct7e1jioi4r88@group.calendar.google.com',
@@ -33,6 +34,7 @@
 	        	var calendarEl = document.getElementById('calendar');
 	        	var calendar = new FullCalendar.Calendar(calendarEl, {
 	          		initialView: 'dayGridMonth',
+	          		contentHeight: 'auto',
 	    	  		googleCalendarApiKey: 'AIzaSyB86wV-rIE_JCqvDsms6lctKuVPiieIusA',
 	    	  		events: {
 	    	    		googleCalendarId: 'ji2jt73rrfe38ct7e1jioi4r88@group.calendar.google.com',
@@ -52,12 +54,15 @@
     
     <style>
     	#calendar{
-    		margin: 70px;
-    		padding-top: 30px;
-    		padding-left:10%;
-    		padding-right:10%;
+    		margin-top: 70px;
+    		padding-top: 50px;
+    		margin-left:15%;
+    		margin-right:15%;
+    		padding-left:30px;
+    		padding-right:30px;
+    		padding-bottom:50px;
+    		background-color: white;
     	}
-    	
     	a.fc-daygrid-event{
     		font-family: 'Poppins', sans-serif;
     		color: #221a9de3;
