@@ -57,7 +57,10 @@ import co.yedam.thinkwise.command.member.MemberPwEdit;
 import co.yedam.thinkwise.command.member.SelectMemberList;
 import co.yedam.thinkwise.command.member.SelectMyInfo;
 import co.yedam.thinkwise.command.member.SendEmail;
+import co.yedam.thinkwise.command.student.StudentDelete;
+import co.yedam.thinkwise.command.student.StudentInsert;
 import co.yedam.thinkwise.command.student.StudentManageForm;
+import co.yedam.thinkwise.command.student.StudentUpdate;
 import co.yedam.thinkwise.command.subject.SubjectInsert;
 import co.yedam.thinkwise.command.subject.SubjectList;
 import co.yedam.thinkwise.command.subject.SubjectManageForm;
@@ -102,6 +105,9 @@ public class FrontController extends HttpServlet {
 		map.put("/classDelete.do", new ClassDelete()); // 수업 삭제
 		map.put("/classEdit.do", new ClassEdit()); // 수업 정보수정
 
+		map.put("/studentDelete.do", new StudentDelete()); //학생수업 삭제
+		map.put("/studentInsert.do", new StudentInsert()); //학생수업 등록
+		map.put("/studentUpdate.do", new StudentUpdate()); //학생수업 수정
 		map.put("/studentManageForm.do", new StudentManageForm()); //학생수업관리 폼 호출
 		map.put("/subjectManageForm.do", new SubjectManageForm()); //과목관리 폼 호출
 		map.put("/subjectInsert.do", new SubjectInsert()); //과목등록
