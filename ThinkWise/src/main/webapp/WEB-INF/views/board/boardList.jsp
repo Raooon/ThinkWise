@@ -52,7 +52,6 @@
 					<h2 class="mb-4">
 						<span>월별</span>보고
 					</h2>
-					<p>월별 보고 상세 설명 들어가는 곳</p>
 				</div>
 			</div>
 			<div align="right">
