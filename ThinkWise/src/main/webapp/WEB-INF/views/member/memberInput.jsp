@@ -32,42 +32,193 @@
 <link rel="stylesheet" href="yswtemp/css/style.css">
 
 <style>
-#input {
-	margin: 70px;
-	padding-top: 30px;
+
+#ftco-section {
+	background-color: white;
 }
+
+#loginh2 {
+	font-size: 45px;
+}
+
+#frm {
+	border: transparent;
+    border-style: solid;
+    margin-left: -65px;
+    width: 900px;
+    height: 800px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 1px 1px darkgrey;
+}
+
+#emaildiv {
+	margin-top: 30px;
+}
+
+#emailInput {
+	font-size: 30px;
+	color : #5d50c6;
+}
+
+#h2Title {
+	font-size: 27px;
+	color : #5d50c6;
+}
+
+input#email {
+	font-size: 19px;
+	width: 400px;
+	heigh: 40px; 
+	padding-top: 5px;
+	padding-left: 3px;
+	padding-bottom: 5px; 
+}
+
 #pwdiv1 {
-	margin-right: 23px;
+	margin-right: 32px;
 }
+
+
+input#password {
+	font-size: 19px;
+	width: 400px;
+	heigh: 40px; 
+	padding-top: 5px;
+	padding-left: 3px;
+	padding-bottom: 5px; 
+}
+
 #pwdiv2 {
-	margin-right: 62px;
+	margin-right: 93px;
 }
+
+input#password1 {
+	font-size: 19px;
+	width: 400px;
+	heigh: 40px; 
+	padding-top: 5px;
+	padding-left: 3px;
+	padding-bottom: 5px; 
+}
+
 #namediv {
-	margin-right: -10px;
+	margin-right: -20px;
 }
+
+input#name {
+	font-size: 19px;
+	width: 400px;
+	heigh: 40px; 
+	padding-top: 5px;
+	padding-left: 3px;
+	padding-bottom: 5px; 
+}
+
 #genderdiv {
-	margin-right: 97px;
+	margin-right: 48px;
 }
+
+input#gender_M {
+	width: 50px;
+}
+
+input#gender_F {
+	width: 50px;
+}
+
 #birthdiv {
-	margin-right: 135px;
+	margin-right: 30px;
 }
+
+input#birth {
+	font-size: 19px;
+	width: 400px;
+	heigh: 40px; 
+	padding-top: 5px;
+	padding-left: 3px;
+	padding-bottom: 5px; 
+}
+
 #teldiv {
 	margin-right: 23px;
 }
+
+input#tel {
+	font-size: 19px;
+	width: 400px;
+	heigh: 40px; 
+	padding-top: 5px;
+	padding-left: 3px;
+	padding-bottom: 5px; 
+}
+
 #addressdiv {
 	margin-right: -10px;
 }
+
+input#address {
+	font-size: 19px;
+	width: 400px;
+	heigh: 40px; 
+	padding-top: 5px;
+	padding-left: 3px;
+	padding-bottom: 5px; 
+}
+
 #divisiondiv {
 	margin-right: 110px;
 }
+
+input#division_p {
+	font-size: 19px;
+	width: 400px;
+	heigh: 40px; 
+	padding-top: 5px;
+	padding-left: 3px;
+	padding-bottom: 5px; 
+}
+
+input#division_s {
+	font-size: 19px;
+	width: 400px;
+	heigh: 40px; 
+	padding-top: 5px;
+	padding-left: 3px;
+	padding-bottom: 5px; 
+}
+
 #parentDiv {
 	margin-right: 5px;
+}
+
+input#parent {
+	font-size: 19px;
+	width: 400px;
+	heigh: 40px; 
+	padding-top: 5px;
+	padding-left: 3px;
+	padding-bottom: 5px; 
+}
+
+#join {
+	width: 130px;
+	heigh: 40px;
+	font-size: 18px;
+	background-color: white;
+}
+
+#reset {
+	width: 130px;
+	heigh: 40px;
+	font-size: 18px;
+	background-color: white;
 }
 </style>
 
 </head>
 <body>
-	<section class="ftco-section bg-light">
+	<section class="ftco-section" id="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center mb-5 pb-2">
 				<div class="col-md-8 text-center heading-section ftco-animate">
@@ -82,68 +233,69 @@
 				<div class="col-md-8 text-center heading-section ftco-animate" align="center">
 					<form id="frm" action="memberInput.do" method="post">
 						<div id="emaildiv">
-							<h2 class="mb-4" id="">Email&emsp;
+							<h2 class="mb-4" id="emailInput">Email&emsp;
 								<input type="email" id="email" name="email" required="required" value=${email } class="input" style="width:400px" readonly> 
 							</h2>
 						</div>
 						<div id="pwdiv1">
-							<h2 class="mb-4" id="">비밀번호&emsp;
+							<h2 class="mb-4" id="h2Title">비밀번호&emsp;
 								<input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요." required="required" class="input" style="width:400px">
 							</h2>
 						</div>
 						<div id="pwdiv2">
-							<h2 class="mb-4" id="">비밀번호 확인&emsp;
+							<h2 class="mb-4" id="h2Title">비밀번호 확인&emsp;
 								<input type="password" id="password1" required="required" class="input" placeholder="한번 더 입력해주세요." style="width:400px">
 							</h2>
 						</div>
 						<div id="namediv">
-							<h2 class="mb-4" id="">이름&emsp;
+							<h2 class="mb-4" id="h2Title">이름&emsp;
 								<input type="text" id="name" name="name" required="required" placeholder="이름을 입력해주세요." class="input" style="width:400px">
 							</h2>
 						</div>
 						<div id="genderdiv">
-							<h2 class="mb-4" id="">성별&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-									<input type="radio" id="gender_M" name="gender" value="M" checked >male&emsp;&emsp;&emsp;
-									<input type="radio" id="gender_F" name="gender" value="F">female
+							<h2 class="mb-4" id="h2Title">성별&emsp;&emsp;
+									<input type="radio" id="gender_M" name="gender" value="M" checked >male&emsp;
+									<input type="radio" id="gender_F" name="gender" value="F">female&emsp;
 							</h2>
 						</div>
 						<div id="birthdiv">
-							<h2 class="mb-4" id="">생년월일&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+							<h2 class="mb-4" id="h2Title">생년월일&emsp;
 								<input type="date" id="birth" name="birth">
 							</h2>
 						</div>
 						<div id="teldiv">
-							<h2 class="mb-4" id="">전화번호&emsp;
+							<h2 class="mb-4" id="h2Title">전화번호&emsp;
 								<input type="text" id="tel" name="tel" class="input" style="width:400px" required="required" placeholder="전화번호를 입력해주세요.">
 							</h2>
 						</div>
 						<div id="addressdiv">
-							<h2 class="mb-4" id="">주소&emsp;
-								<input type="text" id="address_kakao" name="address_kakao" class="input" style="width:400px" placeholder="주소를 입력해주세요."><br>&emsp;&emsp;&emsp;
+							<h2 class="mb-4" id="h2Title">주소&emsp;
+								<input type="text" id="address_kakao" name="address_kakao" class="input" style="width:400px" placeholder="주소를 입력해주세요."><br>&emsp;
 								<input type="text" id="address_detail" name="address_detail" class="input" style="width:400px" placeholder="상세주소를 입력해주세요.">
 							</h2>
 						</div>
 						<div id="divisiondiv">
-							<h2 class="mb-4" id="">구분&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+							<h2 class="mb-4" id="h2Title">구분&emsp;
 								<input type="radio" id="division_p" name="division" value="P" checked>학부모&emsp;&emsp;&emsp;
 								<input type="radio" id="division_s" name="division" value="S">학생
 							</h2>
 						</div>
-						<div id="parentDiv">
-							<h2 class="mb-4" id="">부모님&emsp;
+						<div id="parentdiv">
+							<h2 class="mb-4" id="h2Title">부모님&emsp;
 								<input type="text" id="parent" name="parent" placeholder="부모님의 이메일을 적어주세요." class="input" style="width:400px">
 							</h2>
 						</div>
 						<br>
 						<div>
 							<input id="join" type="button" value="회원가입" onclick="Check()" class="btn btn-outline-secondary">&emsp; 
-							<input type="reset" value="취소" class="btn btn-outline-secondary">
+							<input id="reset" type="reset" value="취소" class="btn btn-outline-secondary">
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
 	</section>
+	
 	<!-- 카카오 주소찾기 api -->
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript">
@@ -160,7 +312,7 @@
 		}
 	
 		$(document).ready(function() {
-			document.getElementById("parentDiv").style.display="none";
+			document.getElementById("parentdiv").style.display="none";
 			$("input:radio[id=division_s]").click(function() {
 				parent();
 			})
@@ -170,7 +322,7 @@
 
 		function parent() {
 			
-				document.getElementById("parentDiv").style.display="block";	
+				document.getElementById("parentdiv").style.display="block";	
 			
 		}
 

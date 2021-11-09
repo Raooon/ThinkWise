@@ -32,11 +32,19 @@
 
 
 <style>
+
+#ftco-section {
+	background-color: white;
+}
+
 #frm {
-	border: 1px #363636;
+	border: transparent;
     border-style: solid;
     width: 700px;
     margin: 20px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 1px 1px darkgrey;
 }
 
 #loginh2 {
@@ -84,6 +92,7 @@ input#password {
 	width: 370px;
 	heigh: 40px;
 	font-size: 20px;
+	
 }
 
 #permissionBtn {
@@ -109,7 +118,7 @@ input#password {
 		}
 	</script>
 	
-	<section class="ftco-section bg-light">
+	<section class="ftco-section" id="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center mb-5 pb-2">
 				<div class="col-md-8 text-center heading-section ftco-animate">

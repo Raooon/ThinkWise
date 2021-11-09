@@ -4,12 +4,12 @@
 
 
 .bg-light {
-  background-color: #f8f9fa !important; }
+  background-color: #fff !important; }
   
   a.bg-light:hover, a.bg-light:focus,
 button.bg-light:hover,
 button.bg-light:focus {
-  background-color: #dae0e5 !important; }
+  background-color: white; }
   
   .justify-content-center {
   -webkit-box-pack: center !important;

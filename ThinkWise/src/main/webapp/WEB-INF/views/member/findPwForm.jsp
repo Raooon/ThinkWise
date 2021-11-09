@@ -31,15 +31,22 @@
 <link rel="stylesheet" href="yswtemp/css/style.css">
 <style>
 
+#ftco-section {
+	background-color: white;
+}
+
 #loginh2 {
 	font-size: 40px;
 }
 
 #frm {
-	border: 1px #363636;
+	border: transparent;
     border-style: solid;
     margin-left: -65px;
     width: 900px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 1px 1px darkgrey;
 }
 
 #emaildiv {
@@ -111,7 +118,7 @@ input#findPwBtn {
 </style>
 </head>
 <body>
-	<section class="ftco-section bg-light" id="session">
+	<section class="ftco-section" id="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center mb-5 pb-2">
 				<div class="col-md-8 text-center heading-section ftco-animate">
@@ -146,7 +153,7 @@ input#findPwBtn {
 					<br>
 					<div class="field">
 						<div class="control">
-							<input id="findPwBtn" type="submit" class="btn btn-outline-secondary" value="비밀번호 찾기" disabled="true" id="findpw"> <br>
+							<input id="findPwBtn" type="submit" class="btn btn-secondary" value="비밀번호 찾기" disabled="true" id="findpw"> <br>
 							<br>
 						</div>
 					</div>
@@ -170,7 +177,7 @@ input#findPwBtn {
 					alert(result);
 					if (result == "이메일이 확인 되었습니다.") {
 						$('#email1').prop('disabled', true);
-						$('#findpw').prop('disabled', false);
+						$('#findPwBtn').prop('disabled', false);
 					}
 				},
 				error : function() {
