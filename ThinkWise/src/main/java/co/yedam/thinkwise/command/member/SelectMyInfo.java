@@ -23,7 +23,13 @@ public class SelectMyInfo implements Command {
 		vo2.setEmail((String)session.getAttribute("email"));
 		vo1 = memberDao.selectMember(vo1);
 		request.setAttribute("member", vo1);
-//		System.out.println(vo1.getDivision());
+		String fullAddress = vo1.getAddress();
+		String[] divideAddress = fullAddress.split("@");
+		request.setAttribute("preAddress", divideAddress[0]);
+		request.setAttribute("afterAddress", divideAddress[1]);
+		System.out.println(divideAddress[0]);
+		System.out.println(divideAddress[1]);
+		
 		
 		if(vo1.getDivision().equals("P")) {
 			MemberMyInfoVO vo3 = new MemberMyInfoVO();
