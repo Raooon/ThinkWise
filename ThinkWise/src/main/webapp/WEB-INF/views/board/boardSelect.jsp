@@ -59,7 +59,7 @@
 					<div
 						class="d-flex justify-content-center d-md-block text-center heading-section">
 						<h2 class="mb-4">
-							<span>월별</span>보고
+							<span>월별</span> 보고
 						</h2>
 					</div>
 

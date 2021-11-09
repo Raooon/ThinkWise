@@ -50,7 +50,7 @@
 			<div class="row justify-content-center mb-5 pb-2">
 				<div class="col-md-8 text-center heading-section ftco-animate">
 					<h2 class="mb-4">
-						<span>월별</span>보고
+						<span>월별 </span>보고
 					</h2>
 				</div>
 			</div>
