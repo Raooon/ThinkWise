@@ -314,42 +314,92 @@ input[type=text] {
 
 		function CommentsAttach(data) {
 
-			var beforeTr = $('<tr />');
+			var beforeTr = $('<tr />').attr('id','outTr'+data.commentNo);
 			var idTd = $('<td />').text(data.name);
 			var enrollTd = $('<td />').text(data.enrollDt);
 
 			$(beforeTr).append(idTd, enrollTd);
 
-			var afterTr = $('<tr />');
+			var afterTr = $('<tr />').attr('id','cmt'+data.commentNo);
 			var contextTd = $('<td />')
 					.html(
 							'<textarea rows="1" cols="80" id="comment'+data.commentNo+'" name="commentList" style="resize: none;" readonly="readonly">'
 									+ data.contents + '</textarea>');
 
+			var btnTr = $('<tr />').attr('id','tr'+data.commentNo);
+				var btnDiv = $('<div />').attr('id','div'+data.commentNo);
+			
+				
+				var addButton = $('<input />').addClass('btn btn-outline-secondary')
+								.attr('onclick', 'commentAdd(' + data.commentNo + ')')
+								.attr('id','i' + data.commentNo)
+								.attr('type','button')
+								.val('등록');
+				
+				var cancleButton = $('<input />').addClass('btn btn-outline-secondary')
+								.attr('onclick', 'closeInsert(' + data.commentNo + ')')
+								.attr('id','c' + data.commentNo)
+								.attr('type','button')
+								.val('취소');
+				
+				var updateButton = $('<input />').addClass('btn btn-outline-secondary')
+								.attr('onclick', 'CommentsChange(' + data.commentNo + ')')
+								.attr('id','e' + data.commentNo)
+								.attr('type','button')
+								.val('수정');
+				
+				$(btnTr).append(
+					$(btnDiv).append(
+							addButton,
+							updateButton,
+							cancleButton
+					)
+				);
+				
+				
+			
 			$(afterTr).append(contextTd);
 
-			$('#insertTr').after(beforeTr, afterTr);
+			$('#insertTr').after(beforeTr, afterTr,btnTr);
 
 		}
 
 		function replyAttach(data) {
 
 			var beforeTr = $('<tr />');
-			var idTd = $('<td />').html(
-					'&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;' + data.name);
-			var enrollTd = $('<td />').text(data.enrollDt);
+				var idTd = $('<td />').html('&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;' + data.name);
+				var enrollTd = $('<td />').text(data.enrollDt);
 
 			$(beforeTr).append(idTd, enrollTd);
 
 			var afterTr = $('<tr />');
-			var contextTd = $('<td />')
-					.html(
-							'&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<textarea rows="1" cols="80" id="comment'+data.commentNo+'" name="commentList" style="resize: none;" readonly="readonly">'
+				var contextTd = $('<td />')
+								.html('&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<textarea rows="1" cols="80" id="comment'+data.commentNo+'" name="commentList" style="resize: none; width: 90%" readonly="readonly">'
 									+ data.contents + '</textarea>');
 
+			var btnTr = $('<tr />').addClass('subCom'+data.commentNo);
+				var blankSpan = $('<span />').html('&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;');
+				var deleteButton = $('<input />').addClass('btn btn-outline-secondary')
+								.attr('onclick', 'commentsDelete(' + data.commentNo + ')')
+								.attr('id','d' + data.commentNo)
+								.attr('type','button')
+								.val('삭제');
+	
+				var updateButton = $('<input />').addClass('btn btn-outline-secondary')
+								.attr('onclick', 'CommentsChange(' + data.commentNo + ')')
+								.attr('id','e' + data.commentNo)
+								.attr('type','button')
+								.val('수정');
+				
+				$(btnTr).append(
+						blankSpan,
+						deleteButton,
+						updateButton
+						);
+				
 			$(afterTr).append(contextTd);
 
-			$('#cmt' + data.commentNo2).after(beforeTr, afterTr);
+			$('#tr' + data.commentNo2).after(beforeTr, afterTr,btnTr);
 
 		}
 		function openInsert(num) {
@@ -358,10 +408,16 @@ input[type=text] {
 			var addTd = $('<td />')
 					.html(
 							'&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <textarea rows="1" cols="80" id="commentAdd" name="commentAdd" style="resize: none;" placeholder="댓글을 남겨보세요."></textarea>');
-			var addButton = $('<button />').css('font-size', '8px').attr(
-					'onclick', 'commentAdd(' + num + ')').text('등록');
-			var cancleButton = $('<button />').css('font-size', '8px').attr(
-					'onclick', 'closeInsert(' + num + ')').text('취소');
+			
+			var addButton = $('<input />').addClass('btn btn-outline-secondary')
+							.attr('onclick', 'commentAdd(' + num + ')')
+							.attr('type','button')
+							.val('등록');
+			
+			var cancleButton = $('<input />').addClass('btn btn-outline-secondary')
+							.attr('onclick', 'closeInsert(' + num + ')')
+							.attr('type','button')
+							.val('취소');
 
 			$('#cmt' + num).after(
 					$(addTr).append(addTd, addButton, cancleButton));
