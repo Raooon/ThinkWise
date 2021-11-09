@@ -10,7 +10,7 @@
 1. C 드라이브에 thinkwise 폴더 생성 -> 그 안에 upload 폴더 생성.
 2. servers 의 톰캣 - server.xml파일에 아래를 추가.								
 <Host~~~~>								
-				<Context docBase="c:/thinkwise/upload/" path="/ThinkWise/upload" reloadable="true" />	
+				<Context docBase="c:/thinkwise/upload/" path="/ThinkWise/upload/" reloadable="true" />	
 </Host>	
 
 @ Notice, Board 공통
