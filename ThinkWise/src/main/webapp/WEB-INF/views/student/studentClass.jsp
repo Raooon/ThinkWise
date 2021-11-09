@@ -191,7 +191,7 @@
 		function CallEdit(str) {
 			console.log(str);
 			frm.modId.value = str;
-			frm.modClassCd.value = $("#calssCd" + str).val();
+			frm.modClassCd.value = $("#classCd" + str).val();
 			frm.modPayYn.value = $("#payYn" + str).val();
 			
 			console.log(frm.modId.value);
@@ -206,8 +206,29 @@
 			frm.submit();
 		}
 		
-		function SubjectInsert() {
-			if(window.confirm("입력하신 과목을 등록하시겠습니까?")){
+		function CallDelete(str) {
+			console.log(str);
+			if(window.confirm("선택하신 수업을 삭제하시겠습니까?")){
+				$.ajax({
+					url: "studentDelete.do",
+					type: "POST",
+					data: {id:str},
+					success: function(data) {
+						window.alert(data);
+						$("#" + str).remove();
+					},
+					error: function(data) {
+						window.alert(data);
+						console.log(data);
+		            }
+				});
+			} else {
+				return;
+			}
+		}
+		
+		function StudentInsert() {
+			if(window.confirm("입력하신 수업을 등록하시겠습니까?")){
 				frmm.action = "studentInsert.do";
 			} else {
 				return;
