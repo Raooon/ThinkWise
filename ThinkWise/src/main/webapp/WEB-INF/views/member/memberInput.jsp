@@ -6,18 +6,30 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!-- Tailwind is included -->
-<link rel="stylesheet" href="profile/css/main.css?v=1628755089081">
+<link
+	href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Fredericka+the+Great"
+	rel="stylesheet">
 
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-<link rel="mask-icon" href="safari-pinned-tab.svg" color="#00b4b6" />
+<link rel="stylesheet" href="yswtemp/css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="yswtemp/css/animate.css">
 
-<meta name="description" content="Admin One - free Tailwind dashboard">
+<link rel="stylesheet" href="yswtemp/css/owl.carousel.min.css">
+<link rel="stylesheet" href="yswtemp/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="yswtemp/css/magnific-popup.css">
+
+<link rel="stylesheet" href="yswtemp/css/aos.css">
+
+<link rel="stylesheet" href="yswtemp/css/ionicons.min.css">
+
+<link rel="stylesheet" href="yswtemp/css/flaticon.css">
+<link rel="stylesheet" href="yswtemp/css/icomoon.css">
+<link rel="stylesheet" href="yswtemp/css/style.css">
 
 <style>
 #input {
@@ -55,69 +67,72 @@
 
 </head>
 <body>
-	<div align="center" id="input">
-		<section class="is-hero-bar">
-			<div
-				class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-				<h1 class="title">회원가입</h1>
+	<section class="ftco-section bg-light">
+		<div class="container">
+			<div class="row justify-content-center mb-5 pb-2">
+				<div class="col-md-8 text-center heading-section ftco-animate">
+					<h2 class="mb-4" id="loginh2">
+						<span>회원 </span>가입
+					</h2>
+				</div>
 			</div>
-		</section>
-		<section class="section main-section">
-			<div class="card">
-				<div class="card-content">
+		</div>
+		<div class="container">
+			<div class="row justify-content-center mb-5 pb-2">
+				<div class="col-md-8 text-center heading-section ftco-animate" align="center">
 					<form id="frm" action="memberInput.do" method="post">
-						<div class="field" align="center" id="emaildiv">
-							<label class="label">Email&emsp;
+						<div id="emaildiv">
+							<h2 class="mb-4" id="">Email&emsp;
 								<input type="email" id="email" name="email" required="required" value=${email } class="input" style="width:400px" readonly> 
-							</label>
+							</h2>
 						</div>
-						<div class="field" id="pwdiv1">
-							<label class="label">비밀번호&emsp;
+						<div id="pwdiv1">
+							<h2 class="mb-4" id="">비밀번호&emsp;
 								<input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요." required="required" class="input" style="width:400px">
-							</label>
+							</h2>
 						</div>
-						<div class="field" id="pwdiv2">
-							<label class="label">비밀번호 확인&emsp;
+						<div id="pwdiv2">
+							<h2 class="mb-4" id="">비밀번호 확인&emsp;
 								<input type="password" id="password1" required="required" class="input" placeholder="한번 더 입력해주세요." style="width:400px">
-							</label>
+							</h2>
 						</div>
-						<div class="field" id="namediv">
-							<label class="label">이름&emsp;
+						<div id="namediv">
+							<h2 class="mb-4" id="">이름&emsp;
 								<input type="text" id="name" name="name" required="required" placeholder="이름을 입력해주세요." class="input" style="width:400px">
-							</label>
+							</h2>
 						</div>
-						<div class="field" id="genderdiv">
-							<label class="label">성별&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+						<div id="genderdiv">
+							<h2 class="mb-4" id="">성별&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 									<input type="radio" id="gender_M" name="gender" value="M" checked >male&emsp;&emsp;&emsp;
 									<input type="radio" id="gender_F" name="gender" value="F">female
-							</label>
+							</h2>
 						</div>
-						<div class="field" id="birthdiv">
-							<label class="label">생년월일&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+						<div id="birthdiv">
+							<h2 class="mb-4" id="">생년월일&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 								<input type="date" id="birth" name="birth">
-							</label>
+							</h2>
 						</div>
-						<div class="field" id="teldiv">
-							<label class="label">전화번호&emsp;
+						<div id="teldiv">
+							<h2 class="mb-4" id="">전화번호&emsp;
 								<input type="text" id="tel" name="tel" class="input" style="width:400px" required="required" placeholder="전화번호를 입력해주세요.">
-							</label>
+							</h2>
 						</div>
-						<div class="field" id="addressdiv">
-							<label class="label">주소&emsp;
+						<div id="addressdiv">
+							<h2 class="mb-4" id="">주소&emsp;
 								<input type="text" id="address_kakao" name="address_kakao" class="input" style="width:400px" placeholder="주소를 입력해주세요."><br>&emsp;&emsp;&emsp;
 								<input type="text" id="address_detail" name="address_detail" class="input" style="width:400px" placeholder="상세주소를 입력해주세요.">
-							</label>
+							</h2>
 						</div>
-						<div class="field" id="divisiondiv">
-							<label class="label">구분&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+						<div id="divisiondiv">
+							<h2 class="mb-4" id="">구분&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 								<input type="radio" id="division_p" name="division" value="P" checked>학부모&emsp;&emsp;&emsp;
 								<input type="radio" id="division_s" name="division" value="S">학생
-							</label>
+							</h2>
 						</div>
-						<div class="field" id="parentDiv">
-							<label class="label">부모님&emsp;
+						<div id="parentDiv">
+							<h2 class="mb-4" id="">부모님&emsp;
 								<input type="text" id="parent" name="parent" placeholder="부모님의 이메일을 적어주세요." class="input" style="width:400px">
-							</label>
+							</h2>
 						</div>
 						<br>
 						<div>
@@ -127,8 +142,8 @@
 					</form>
 				</div>
 			</div>
-		</section>
-	</div>
+		</div>
+	</section>
 	<!-- 카카오 주소찾기 api -->
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript">
@@ -186,5 +201,21 @@
 
 	</script>
 	
+	<script src="yswtemp/js/jquery.min.js"></script>
+	<script src="yswtemp/js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="yswtemp/js/popper.min.js"></script>
+	<script src="yswtemp/js/bootstrap.min.js"></script>
+	<script src="yswtemp/js/jquery.easing.1.3.js"></script>
+	<script src="yswtemp/js/jquery.waypoints.min.js"></script>
+	<script src="yswtemp/js/jquery.stellar.min.js"></script>
+	<script src="yswtemp/js/owl.carousel.min.js"></script>
+	<script src="yswtemp/js/jquery.magnific-popup.min.js"></script>
+	<script src="yswtemp/js/aos.js"></script>
+	<script src="yswtemp/js/jquery.animateNumber.min.js"></script>
+	<script src="yswtemp/js/scrollax.min.js"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="yswtemp/js/google-map.js"></script>
+	<script src="yswtemp/js/main.js"></script>
 </body>
 </html>
