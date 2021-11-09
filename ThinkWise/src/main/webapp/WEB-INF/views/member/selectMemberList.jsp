@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,11 +22,11 @@
 </style>
 </head>
 <body>
-	<div id="layoutSidenav">
+	<div id="layoutSidenav" style="margin-left: 15%; margin-right: 15%;">
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">Student List</h1>
+					<h1 class="mt-4" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; color: #082465; font-size: 44px; font-weight: 600;">Member List</h1>
 					<div class="card mb-4">
 						<div class="card-header">
 							<i class="fas fa-table me-1"></i> DataTable
@@ -55,7 +56,7 @@
 											<td>${member.name }</td>
 											<td>${member.birth }</td>
 											<td>${member.tel }</td>
-											<td>${member.address }</td>
+											<td>${fn:replace(member.address, "@", " ") }</td>
 											<td>${member.gender }</td>
 											<td>${member.division }</td>
 											<td>${member.parent }</td>
