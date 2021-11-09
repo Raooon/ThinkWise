@@ -37,9 +37,8 @@
 
 <script>
 	function noticeEdit(p) {
-		
-		frm.nid.value = ${notice.noticeNo };
-		
+		frm.nid.value = ${notice.noticeNo};
+
 		if (p == 'D') {
 			frm.action = "noticeDelete.do";
 		} else {
@@ -127,6 +126,7 @@ input[type=text] {
 						<tr>
 							<!-- 버튼 3종 -->
 							<td colspan="2">
+
 								<div class="mt-5" align="center">
 									
 									<input type="button" onclick="location.href='noticeList.do'" value="뒤로가기" class="btn btn-outline-secondary">

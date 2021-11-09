@@ -50,6 +50,7 @@
     background-color: #f8f9fa;
     border-radius: 12px;
     box-shadow: 1px 1px darkgrey;
+    margin-top: -30px;
 }
 
 #emaildiv {
@@ -151,45 +152,50 @@ input#tel {
 	padding-top: 5px;
 	padding-left: 3px;
 	padding-bottom: 5px; 
+	margin-right: 7px;
 }
 
 #addressdiv {
-	margin-right: -10px;
+	margin-right: -26px;
 }
 
-input#address {
+input#address_kakao {
 	font-size: 19px;
 	width: 400px;
 	heigh: 40px; 
 	padding-top: 5px;
 	padding-left: 3px;
 	padding-bottom: 5px; 
+	margin-right: 3px;
+}
+
+input#address_detail {
+	font-size: 19px;
+	width: 400px;
+	heigh: 40px; 
+	padding-top: 5px;
+	padding-left: 3px;
+	padding-bottom: 5px; 
+	margin-top: 7px;
+	margin-left: 50px;
 }
 
 #divisiondiv {
-	margin-right: 110px;
+	margin-right: 100px;
 }
 
 input#division_p {
-	font-size: 19px;
-	width: 400px;
-	heigh: 40px; 
-	padding-top: 5px;
-	padding-left: 3px;
-	padding-bottom: 5px; 
+	width: 50px;
+	margin-left: 20px;
+;
 }
 
 input#division_s {
-	font-size: 19px;
-	width: 400px;
-	heigh: 40px; 
-	padding-top: 5px;
-	padding-left: 3px;
-	padding-bottom: 5px; 
+	width: 50px;
 }
 
-#parentDiv {
-	margin-right: 5px;
+#parentdiv {
+	margin-right: 4px;
 }
 
 input#parent {
@@ -205,19 +211,18 @@ input#parent {
 	width: 130px;
 	heigh: 40px;
 	font-size: 18px;
-	background-color: white;
 }
 
 #reset {
 	width: 130px;
 	heigh: 40px;
 	font-size: 18px;
-	background-color: white;
 }
 </style>
 
 </head>
 <body>
+	<br>
 	<section class="ftco-section" id="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center mb-5 pb-2">
@@ -276,7 +281,7 @@ input#parent {
 						</div>
 						<div id="divisiondiv">
 							<h2 class="mb-4" id="h2Title">구분&emsp;
-								<input type="radio" id="division_p" name="division" value="P" checked>학부모&emsp;&emsp;&emsp;
+								<input type="radio" id="division_p" name="division" value="P" checked>학부모&emsp;
 								<input type="radio" id="division_s" name="division" value="S">학생
 							</h2>
 						</div>

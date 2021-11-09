@@ -112,6 +112,7 @@ input#password {
 
 </head>
 <body>
+<br><br>
 	<script type="text/javascript">
 		if ("${message }" != "") {
 			alert("${message}");
@@ -157,7 +158,7 @@ input#password {
 			</div>
 		</div>
 	</section>
-
+	<br><br><br>
 	<script src="yswtemp/js/jquery.min.js"></script>
 	<script src="yswtemp/js/jquery-migrate-3.0.1.min.js"></script>
 	<script src="yswtemp/js/popper.min.js"></script>

@@ -228,7 +228,7 @@
 							  	<a class="nav-link" href="memberLoginForm.do">Login</a>
 							</li>
 							<li class="nav-item">
-							  	<a class="nav-link" href="memberInputForm.do">Join</a>
+							  	<a class="nav-link" href="emailPermissionForm.do">Join</a>
 							</li>
 						</c:if>
 						
