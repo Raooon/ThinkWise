@@ -31,10 +31,10 @@
 	
 	<link rel="stylesheet" href="css/css-circular-prog-bar.css">
 	
+	<script src="../jquery/jquery-3.6.0.js"></script>
+	
 	<style>
-		.Tcontainer{
-			
-		}
+	
 	</style>
 </head>
 <body>
@@ -49,7 +49,7 @@
 			</p>
 			<div class="teacher_container layout_padding2" >
 			  	<div class="card-deck">
-			    				    	
+			    		
 			  	</div>
 			</div>
 			
@@ -66,19 +66,17 @@
 		</div>
 	</section>
 	
-	<script>
+	<script type="text/javascript">
 	$(document).ready(function() {
-		
 		$.ajax({
 			url : "teacherList.do",
 			type: "post",
 			dataType : "json",
 			success: function(data) {
+				console.log(data[0].teacherCd);
 				if(data.length > 0) {
-					
 					for(var i in data) {
 						var card = $('<div class="card" />');
-						
 						var img = $('<img class="card-img-top" alt="Card image cap" />').attr("src", "template/images/teacher" + data[i].teacherCd + ".png");
 						card.append(img);
 						
@@ -89,18 +87,7 @@
 						
 						$('.card-deck').append(card);
 					}
-					
-					<!--
-					<div class="card">
-			      		<img class="card-img-top" src="template/images/teacher-2.jpg" alt="Card image cap">
-			      		<div class="card-body">
-			        		<h5 class="card-title">Leena jorj</h5>
-			      		</div>
-			    	</div>
-			    	-->
 				}
-				
-				
 			},
 			error: function(res) {
 				console.log("fail")

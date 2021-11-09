@@ -3,16 +3,24 @@
 
 <mapper namespace="co.yedam.thinkwise.teacher.service.TeacherMapper">
 	<select id="teacherList" resultType="co.yedam.thinkwise.teacher.service.TeacherVO">
-		SELECT teacher_cd as teacherCd, teacher_nm as teacherNm, career as career, teacher_info as teacherInfo FROM teacher ORDER BY 1
+		SELECT teacher_cd as teacherCd, teacher_nm as teacherNm, career as career, teacher_info as teacherInfo, use_yn as useYn FROM teacher WHERE use_yn='Y' ORDER BY 1
+	</select>
+	
+	<select id="teacherListAll" resultType="co.yedam.thinkwise.teacher.service.TeacherVO">
+		SELECT teacher_cd as teacherCd, teacher_nm as teacherNm, career as career, teacher_info as teacherInfo, use_yn as useYn FROM teacher ORDER BY 1
 	</select>
 	
 	<select id="teacherSelect" resultType="co.yedam.thinkwise.teacher.service.TeacherVO">
-		SELECT teacher_cd as teacherCd, teacher_nm as teacherNm, career as career, teacher_info as teacherInfo FROM teacher WHERE teacher_cd=#{teacherCd}
+		SELECT teacher_cd as teacherCd, teacher_nm as teacherNm, career as career, teacher_info as teacherInfo, use_yn as useYn FROM teacher WHERE teacher_cd=#{teacherCd}
 	</select>
 	
 	<insert id="teacherInsert" parameterType="co.yedam.thinkwise.teacher.service.TeacherVO">
-		INSERT INTO teacher VALUES(#{teacherCd}, #{teacherNm}, #{career}, #{teacherInfo})
+		INSERT INTO teacher VALUES(#{teacherCd}, #{teacherNm}, #{career}, #{teacherInfo}, #{useYn})
 	</insert>
+	
+	<update id="teacherUpdate" parameterType="co.yedam.thinkwise.teacher.service.TeacherVO">
+		UPDATE teacher set teacher_nm=#{teacherNm}, career=#{career}, teacher_info=#{teacherInfo}, use_yn=#{useYn} WHERE teacher_cd=#{teacherCd}
+	</update>
 	
 	<delete id="teacherDelete" parameterType="co.yedam.thinkwise.teacher.service.TeacherVO">
 		DELETE FROM teacher WHERE teacher_cd=#{teacherCd}

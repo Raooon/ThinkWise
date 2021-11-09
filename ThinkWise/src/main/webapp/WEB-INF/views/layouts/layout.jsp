@@ -31,14 +31,31 @@
 
 <link rel="stylesheet" href="template/css/css-circular-prog-bar.css">
 
+<style>
+
+</style>
+
 </head>
 
 <body>
 
 
-<div class="top_container">
+<div class="top_container" style="position:relative">
 	<tiles:insertAttribute name="header" />
+	<!-- 
+	<div id="divdropdown">
+		<ul id="uldropdown">
+			<li class="nav-item">
+	 			<a class="nav-link" href="selectMemberList.do">MemberList</a>
+			</li>
 	
+			<li class="nav-item">
+	 			<a class="nav-link" href="memberClassList.do">Class Manage</a>
+			</li>
+		</ul>
+	</div>
+	 -->
+	 
 	<div>
 		<tiles:insertAttribute name="body" />
 	</div>
@@ -47,7 +64,9 @@
 <div>
 	<tiles:insertAttribute name="footer" />
 </div>
-	
+
+
+
 <script type="text/javascript" src="template/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="template/js/bootstrap.js"></script>
 
@@ -56,6 +75,20 @@
 $(document).on('click', 'button.kakao', function(event) { 
     window.open('kakaoLogin.do', 'popup', 'width=500, height=600, right=30');
 })
+/*
+function adminDropDown() {
+	if($('#divdropdown').attr("style") == "display:none;") {
+		console.log($('#btnadmin').offset().top);
+		console.log($('#btnadmin').offset().left);
+		console.log($('#divdropdown').offset().top);
+		console.log($('#divdropdown').offset().left);
+		$('#divdropdown').attr("style", "display:block; position:absolute; top:"+$('#btnadmin').offset().top + 70"; left:"+$('#btnadmin').offset().left+";")
+		
+	}else {
+		$('#divdropdown').attr("style", "display:none;")
+	}
+}
+*/
 </script>
 </body>
 </html>

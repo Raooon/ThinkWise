@@ -56,16 +56,6 @@
 </head>
 
 <body>
-	<script>
-		//console.log("aaa");
-		//if ("${subjects }" == "") {
-		//	console.log("bbb");
-		//	location.href="subjectList.do";
-		//	console.log("ccc");
-		//}
-		//console.log("ddd");
-	</script>
-	
 	<!-- vehicle section -->
 	<section class="vehicle_section layout_padding">
 		<div class="container">
@@ -155,10 +145,10 @@
 							var imgbox = $('<span class="img-box" id="imgbox" />');
 							item.append(imgbox);
 			
-							var img = $('<span class="subjectimg" " />').append($('<img height="213px" alt="">').attr("src", "template/images/" + data[i].subjectNm + ".png"));
+							var img = $('<span class="subjectimg" />').append($('<img height="213px" alt="">').attr("src", "template/images/" + data[i].subjectNm + ".png"));
 							imgbox.append(img);
 							
-							var info = $('<span class="subjectinfo" " />');
+							var info = $('<span class="subjectinfo" />');
 							var divtitle = $('<div class="subjecttitle" />').text(data[i].subjectNm);
 							var divcontents = $('<div class="subjectcontens" />').text(data[i].subjectInfo);
 							info.append(divtitle);
@@ -191,9 +181,9 @@
 	   
 	   
 	</script>
-	
+	 
   	<!-- google map js -->
-  	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
+  	<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script> -->
   	<!-- end google map js -->
 </body>
 

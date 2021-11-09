@@ -1,4 +1,4 @@
-package co.yedam.thinkwise.command.info;
+package co.yedam.thinkwise.command.subject;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

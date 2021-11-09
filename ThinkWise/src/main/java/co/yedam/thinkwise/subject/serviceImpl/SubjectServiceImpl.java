@@ -18,6 +18,11 @@ public class SubjectServiceImpl implements SubjectService {
 	public List<SubjectVO> subjectList() {
 		return map.subjectList();
 	}
+	
+	@Override
+	public List<SubjectVO> subjectListAll() {
+		return map.subjectListAll();
+	}
 
 	@Override
 	public SubjectVO subjectSelect(SubjectVO vo) {

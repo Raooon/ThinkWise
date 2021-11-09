@@ -6,6 +6,7 @@ import co.yedam.thinkwise.subject.service.SubjectVO;
 
 public interface TeacherService {
 	List<TeacherVO> teacherList();
+	List<TeacherVO> teacherListAll();
 	
 	TeacherVO teacherSelect(TeacherVO vo);
 	

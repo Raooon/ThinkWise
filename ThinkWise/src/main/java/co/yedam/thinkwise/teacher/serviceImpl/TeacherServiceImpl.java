@@ -17,6 +17,11 @@ public class TeacherServiceImpl implements TeacherService {
 	public List<TeacherVO> teacherList() {
 		return map.teacherList();
 	}
+	
+	@Override
+	public List<TeacherVO> teacherListAll() {
+		return map.teacherListAll();
+	}
 
 	@Override
 	public TeacherVO teacherSelect(TeacherVO vo) {

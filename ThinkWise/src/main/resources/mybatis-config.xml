@@ -25,6 +25,7 @@
         	<mapper resource="co/yedam/thinkwise/classes/service/memberClass-map.xml"/>
         	<mapper resource="co/yedam/thinkwise/subject/service/subject-map.xml"/>
         	<mapper resource="co/yedam/thinkwise/teacher/service/teacher-map.xml"/>
+        	<mapper resource="co/yedam/thinkwise/student/service/student-map.xml"/>
 
     	</mappers>
     	
