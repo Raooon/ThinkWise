@@ -16,11 +16,8 @@ public class NoticeUpdateForm implements Command {
 		NoticeVO vo = new NoticeVO();
 		
 		vo.setNoticeNo(Integer.parseInt(request.getParameter("nid")));
-		//vo.setTitle(request.getParameter("tu"));
-		//vo.setContents(request.getParameter("cu"));
-		
-		//System.out.println(vo.getContents());
-		//System.out.println(vo.getTitle());
+		vo.setTitle(request.getParameter("utitle"));
+		vo.setContents(request.getParameter("ucontent"));
 		
 		session.setAttribute("notice", vo);
 		

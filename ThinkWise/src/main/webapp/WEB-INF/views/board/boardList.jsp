@@ -40,7 +40,26 @@
 
 	}
 </script>
-
+<style type="text/css">
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+}
+input[type=text]:focus {
+  border: 3px solid #555;
+}
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+</style>
 </head>
 <body>
 
@@ -59,8 +78,8 @@
 				<!-- 권한에 따라 안보이게 -->
 				<c:if test="${division eq 'A' }">
 					<div class="hero_btn-continer">
-						<a href="boardInsertForm.do" class="call_to-btn btn_white-border">
-							보고서 등록 </a>
+						<input type="button" onclick="location.href='boardInsertForm.do'" value="보고서 등록" class="btn btn-outline-secondary">
+					<br><br>
 					</div>
 				</c:if>
 				<!-- 글 쓰기 버튼 -->
@@ -158,8 +177,5 @@
 	<script src="yswtemp/js/google-map.js"></script>
 	<script src="yswtemp/js/main.js"></script>
 	
-</script>
-</script>
-
 </body>
 </html>

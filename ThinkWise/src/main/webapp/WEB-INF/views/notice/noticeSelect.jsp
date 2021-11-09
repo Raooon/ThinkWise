@@ -37,12 +37,14 @@
 
 <script>
 	function noticeEdit(p) {
-
+		
 		frm.nid.value = ${notice.noticeNo };
 		
 		if (p == 'D') {
 			frm.action = "noticeDelete.do";
 		} else {
+			utitle.value = title.value;
+			ucontent.value = contents.value;
 			frm.action = "noticeUpdateForm.do";
 		}
 		
@@ -50,6 +52,26 @@
 
 	}
 </script>
+<style type="text/css">
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+}
+input[type=text]:focus {
+  border: 3px solid #555;
+}
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+</style>
 </head>
 
 
@@ -73,8 +95,8 @@
 					<table>
 						<tr>
 							<td colspan="2">
-								<textarea rows="1" cols="70" id="contents" name="contents" style="resize: none;"
-									readonly="readonly">${notice.title }</textarea>
+								<input id="title" name="title" style="resize: none;"
+									readonly="readonly" value="${notice.title }" type="text">
 							</td>
 						</tr>
 
@@ -107,13 +129,11 @@
 							<td colspan="2">
 								<div class="mt-5" align="center">
 									
-									<c:if test="${division eq 'A' }">
-									<input type="button" onclick="noticeEdit('U')" value="수정하기" class="btn btn-outline-secondary">
-									</c:if>
-									
 									<input type="button" onclick="location.href='noticeList.do'" value="뒤로가기" class="btn btn-outline-secondary">
-									
 									<c:if test="${division eq 'A' }">
+									&nbsp;&nbsp;&nbsp;
+									<input type="button" onclick="noticeEdit('U')" value="수정하기" class="btn btn-outline-secondary">
+									&nbsp;&nbsp;&nbsp;
 									<input type="button" onclick="noticeEdit('D')" value="삭제하기" class="btn btn-outline-secondary">
 									</c:if>
 									
@@ -126,6 +146,8 @@
 					<div>
 						<form id="frm" method="post" action="">
 							<input type="hidden" id="nid" name="nid">
+							<input type="hidden" id="utitle" name="utitle">
+							<input type="hidden" id="ucontent" name="ucontent">
 						</form>
 					</div>
 

@@ -96,9 +96,7 @@
                 </div>
                 
                 <div class="mt-5" align="center">
-                  <button type="submit">
-                    수정
-                  </button>
+                  <input type="submit" class="btn btn-outline-secondary"value="수정하기">
                 </div>
                 
             </div>

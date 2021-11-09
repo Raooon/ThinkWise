@@ -58,7 +58,8 @@
 				<!-- 권한에 따라 안보이게 -->
 				<c:if test="${division eq 'A' }">
 					<div class="hero_btn-continer">
-						<a href="noticeInsertForm.do" class="call_to-btn btn_white-border"> 공지사항 등록 </a>
+						<input type="button" onclick="location.href='noticeInsertForm.do'" value="공지사항 등록" class="btn btn-outline-secondary">
+					<br><br>					
 					</div>
 				</c:if>
 				<!-- 글 쓰기 버튼 -->
