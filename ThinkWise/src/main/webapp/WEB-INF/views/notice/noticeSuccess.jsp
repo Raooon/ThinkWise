@@ -7,10 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<br />
+	<br />
 	<div align="center">
 	<br />
 	<br />
-	<br />
+		<img src='images/success.jpg' width="1000px" height="750px">
 		<h1>${message }</h1>
 	</div>
 </body>

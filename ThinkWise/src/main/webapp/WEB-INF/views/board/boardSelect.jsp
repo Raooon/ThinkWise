@@ -115,8 +115,12 @@ input[type=text] {
 
 								<tr>
 
-									<td>등록일 ${board.enrollDt }</td>
-
+									<td>등록일 ${board.enrollDt }
+										<c:if test="${not empty board.modifyDt}">
+											&nbsp;&nbsp;&nbsp;
+											수정일 ${board.modifyDt }
+										</c:if>
+									</td>
 									<td>
 										<div align="right">조회수 ${board.hit }</div>
 									</td>

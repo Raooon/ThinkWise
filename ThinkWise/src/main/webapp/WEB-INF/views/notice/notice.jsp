@@ -75,7 +75,7 @@
 							<!-- 이미지 들어가는 곳 -->
 							<!-- 공지사항은 고정이미지 -->
 							<a onclick="noticeSelect('${notice.noticeNo }')" class="block-20 d-flex align-items-end"
-								style="background-image: url('yswtemp/images/image_1.jpg');">
+								style="background-image: url('images/${notice.noticeNo }.jpg');">
 
 								<!-- 날짜 들어가는 곳 -->
 								<div class="meta-date text-center p-2">
@@ -100,8 +100,10 @@
 								<div class="d-flex align-items-center mt-4">
 
 									<p class="ml-auto mb-0">
-										<a href="#" class="mr-2">Admin</a> <a href="#" class="meta-chat"><span
-												class="icon-chat"></span> ${notice.hit }</a>
+										<a href="#" class="mr-2">Admin</a> 
+										<a href="#" class="meta-chat">
+											<span class="icon-eye"></span> ${notice.hit }
+										</a>
 									</p>
 								</div>
 							</div>
