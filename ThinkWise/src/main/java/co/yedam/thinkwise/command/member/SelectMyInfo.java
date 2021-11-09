@@ -27,8 +27,8 @@ public class SelectMyInfo implements Command {
 		String[] divideAddress = fullAddress.split("@");
 		request.setAttribute("preAddress", divideAddress[0]);
 		request.setAttribute("afterAddress", divideAddress[1]);
-		System.out.println(divideAddress[0]);
-		System.out.println(divideAddress[1]);
+//		System.out.println(divideAddress[0]);
+//		System.out.println(divideAddress[1]);
 		
 		
 		if(vo1.getDivision().equals("P")) {

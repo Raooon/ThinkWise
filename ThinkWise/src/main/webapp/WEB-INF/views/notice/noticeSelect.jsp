@@ -35,25 +35,44 @@
 	<link rel="stylesheet" href="yswtemp/css/icomoon.css">
 	<link rel="stylesheet" href="yswtemp/css/style.css">
 
-</head>
-
 <script>
 	function noticeEdit(p) {
-
 		frm.nid.value = ${notice.noticeNo};
 
 		if (p == 'D') {
 			frm.action = "noticeDelete.do";
 		} else {
-
-			//frm.tu.value=${notice.title }
-			//frm.cu.value=${notice.contents };
+			utitle.value = title.value;
+			ucontent.value = contents.value;
 			frm.action = "noticeUpdateForm.do";
 		}
+		
 		frm.submit();
 
 	}
 </script>
+<style type="text/css">
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+}
+input[type=text]:focus {
+  border: 3px solid #555;
+}
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+</style>
+</head>
+
 
 <body class="sub_page">
 
@@ -66,7 +85,7 @@
 
 				<div class="col-md-8 text-center heading-section">
 					<h2 class="mb-4">
-						<span>공지</span>사항
+						<span>공지</span> 사항
 					</h2>
 				</div>
 
@@ -75,8 +94,8 @@
 					<table>
 						<tr>
 							<td colspan="2">
-								<textarea rows="1" cols="70" id="contents" name="contents" style="resize: none;"
-									readonly="readonly">${notice.title }</textarea>
+								<input id="title" name="title" style="resize: none;"
+									readonly="readonly" value="${notice.title }" type="text">
 							</td>
 						</tr>
 
@@ -107,17 +126,17 @@
 						<tr>
 							<!-- 버튼 3종 -->
 							<td colspan="2">
-								<div class="mt-5">
-									&nbsp; &nbsp; &nbsp;
-									<button type="button" onclick="noticeEdit('U')">
-										수정하기
-									</button>
-									&nbsp; &nbsp; &nbsp;
-									<button type="button" onclick="location.href='noticeList.do'">
-										뒤로가기
-									</button>
-									&nbsp; &nbsp; &nbsp;
+
+								<div class="mt-5" align="center">
+									
+									<input type="button" onclick="location.href='noticeList.do'" value="뒤로가기" class="btn btn-outline-secondary">
+									<c:if test="${division eq 'A' }">
+									&nbsp;&nbsp;&nbsp;
+									<input type="button" onclick="noticeEdit('U')" value="수정하기" class="btn btn-outline-secondary">
+									&nbsp;&nbsp;&nbsp;
 									<input type="button" onclick="noticeEdit('D')" value="삭제하기" class="btn btn-outline-secondary">
+									</c:if>
+									
 								</div>
 							</td>
 						</tr>
@@ -127,10 +146,8 @@
 					<div>
 						<form id="frm" method="post" action="">
 							<input type="hidden" id="nid" name="nid">
-							<!-- 
-								<input type="hidden" id="tu" name="tu">
-								<input type="hidden" id="cu" name="cu">
-								-->
+							<input type="hidden" id="utitle" name="utitle">
+							<input type="hidden" id="ucontent" name="ucontent">
 						</form>
 					</div>
 
@@ -148,6 +165,7 @@
 
 	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
+
 
 
 </body>

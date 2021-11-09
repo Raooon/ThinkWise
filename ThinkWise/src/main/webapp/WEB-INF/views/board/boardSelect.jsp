@@ -41,7 +41,24 @@
 <link rel="stylesheet" href="yswtemp/css/icomoon.css">
 <link rel="stylesheet" href="yswtemp/css/style.css">
 
-<style>
+<style type="text/css">
+textarea {
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+}
+input[type=text]:focus {
+  border: 3px solid #555;
+}
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
 </style>
 </head>
 
@@ -59,7 +76,7 @@
 					<div
 						class="d-flex justify-content-center d-md-block text-center heading-section">
 						<h2 class="mb-4">
-							<span>월별</span>보고
+							<span>월별</span> 보고
 						</h2>
 					</div>
 
@@ -86,9 +103,9 @@
 								</c:if>
 
 								<tr>
-									<td colspan="3"><textarea rows="1" cols="100"
-											id="contents" name="contents" style="resize: none;"
-											readonly="readonly">${board.title }</textarea></td>
+									<td colspan="3">
+									<input id="contents" name="contents" style="resize: none;" readonly="readonly" value="${board.title }" type="text" width="80px">
+									</td>
 								</tr>
 
 								<tr>
@@ -109,11 +126,11 @@
 								<c:if test="${not empty id }">
 									<!-- 댓글 등록 시작 -->
 									<tr id="insertTr">
-										<td colspan="3" height="100px">댓글 <textarea rows="1"
-												cols="80" id="commentInsert" name="commentInsert"
-												style="resize: none;" placeholder="댓글을 남겨보세요."></textarea>
-											<button type="button" style="font-size: 10px"
-												onclick="CommentsInsert()">등록</button>
+										<td colspan="3" height="100px">
+											댓글 &nbsp; 
+											<textarea rows="1" cols="80" id="commentInsert" name="commentInsert" style="resize: none; width: 85%; vertical-align: middle" placeholder="댓글을 남겨보세요."></textarea>
+											&nbsp;
+											<input type="button" onclick="CommentsInsert()" class="btn btn-outline-secondary" style="vertical-align: middle" value="등록">
 										</td>
 									</tr>
 								</c:if>
@@ -147,17 +164,17 @@
 												<div style="display: inline-block;"
 													id="div${comment.commentNo }">
 													<c:if test="${not empty id}">
-														<button type="button" style="font-size: 8px"
+														<input type="button" 
 															id="i${comment.commentNo }"
-															onclick="openInsert('${comment.commentNo }')">답글</button>
+															onclick="openInsert('${comment.commentNo }')" value="답글" class="btn btn-outline-secondary">
 													</c:if>
 													<c:if test="${comment.id eq id}">
-														<button type="button" style="font-size: 8px"
+														<input type="button"
 															id="e${comment.commentNo }"
-															onclick="CommentsChange('${comment.commentNo }')">수정</button>
-														<button type="button" style="font-size: 8px"
+															onclick="CommentsChange('${comment.commentNo }')" value="수정" class="btn btn-outline-secondary">
+														<input type="button"
 															id="d${comment.commentNo }"
-															onclick="CommentsDelete('${comment.commentNo }')">삭제</button>
+															onclick="CommentsDelete('${comment.commentNo }')" value="삭제" class="btn btn-outline-secondary">
 													</c:if>
 												</div>
 											</td>
@@ -179,7 +196,7 @@
 													id="subcmt${subComment.commentNo }">
 													<td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <textarea
 															rows="1" cols="80" id="comment${subComment.commentNo }"
-															name="commentList" style="resize: none;"
+															name="commentList" style="resize: none; width:90%"
 															readonly="readonly">${subComment.contents }</textarea>
 													</td>
 												</tr>
@@ -191,12 +208,12 @@
 															id="Div${subComment.commentNo }">
 															<c:if test="${subComment.id eq id}">
 															&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-															<button type="button" style="font-size: 8px"
+															<input type="button"
 																	id="e${subComment.commentNo }"
-																	onclick="CommentsSubChange('${subComment.commentNo }')">수정</button>
-																<button type="button" style="font-size: 8px"
+																	onclick="CommentsSubChange('${subComment.commentNo }')" value="수정" class="btn btn-outline-secondary">
+															<input type="button"
 																	id="d${subComment.commentNo }"
-																	onclick="CommentsDelete('${subComment.commentNo }')">삭제</button>
+																	onclick="CommentsDelete('${subComment.commentNo }')" value="삭제" class="btn btn-outline-secondary">
 															</c:if>
 														</div>
 													</td>
@@ -213,27 +230,14 @@
 								<tr>
 									<td colspan="3">
 										<div class="mt-5" align="center">
-
+										
+												<input type="button" onclick="location.href='boardList.do'" value="뒤로가기" class="btn btn-outline-secondary">
+											
 											<c:if test="${division eq 'A' }">
-												<div style="display: inline-block;">
-													&nbsp; &nbsp; &nbsp;
-													<button type="button" onclick="boardEdit('U')">수정하기</button>
-													&nbsp; &nbsp; &nbsp;
-												</div>
-											</c:if>
-
-											<div style="display: inline-block;" align="center">
-												&nbsp; &nbsp; &nbsp;
-												<button type="button" onclick="location.href='boardList.do'">뒤로가기</button>
-												&nbsp; &nbsp; &nbsp;
-											</div>
-
-											<c:if test="${division eq 'A' }">
-												<div style="display: inline-block;">
-													&nbsp; &nbsp; &nbsp;
-													<button type="button" onclick="boardEdit('D')">삭제하기</button>
-													&nbsp; &nbsp; &nbsp;
-												</div>
+											&nbsp;&nbsp;&nbsp;
+												<input type="button" onclick="boardEdit('U')" value="수정하기" class="btn btn-outline-secondary">
+											&nbsp;&nbsp;&nbsp;
+												<input type="button" onclick="boardEdit('D')" value="삭제하기" class="btn btn-outline-secondary">
 											</c:if>
 
 										</div>
@@ -442,12 +446,12 @@
 			$('#comment' + num).removeAttr('readonly');
 			$('#comment' + num).focus();
 
-			var updateButton = $('<button />').css('font-size', '8px').attr(
+			var updateButton = $('<input />').addClass('btn btn-outline-secondary').attr(
 					'onclick', 'CommentsUpdate(' + num + ')').attr('id',
-					'ub' + num).text('수정');
-			var cancleButton = $('<button />').css('font-size', '8px').attr(
+					'ub' + num).attr('type','button').val('수정');
+			var cancleButton = $('<input />').addClass('btn btn-outline-secondary').attr(
 					'onclick', 'CommentsChangeClose(' + num + ')').attr('id',
-					'cl' + num).text('취소');
+					'cl' + num).attr('type','button').val('취소');
 
 			$('#cmt' + num).after(updateButton, cancleButton);
 		}
@@ -460,12 +464,12 @@
 			$('#comment' + num).removeAttr('readonly');
 			$('#comment' + num).focus();
 
-			var updateButton = $('<button />').css('font-size', '8px').attr(
+			var updateButton = $('<input />').addClass('btn btn-outline-secondary').attr(
 					'onclick', 'CommentsUpdate(' + num + ')').attr('id',
-					'ub' + num).text('수정');
-			var cancleButton = $('<button />').css('font-size', '8px').attr(
+					'ub' + num).attr('type','button').val('수정');
+			var cancleButton = $('<input />').addClass('btn btn-outline-secondary').attr(
 					'onclick', 'CommentsChangeClose(' + num + ')').attr('id',
-					'cl' + num).text('취소');
+					'cl' + num).attr('type','button').val('취소');
 
 			$('#subcmt' + num).after(updateButton, cancleButton);
 		}

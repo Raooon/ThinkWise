@@ -27,11 +27,14 @@
 </head>
 <body>
 
-<div id="layoutSidenav">
+<div id="layoutSidenav" style="margin-left: 15%; margin-right: 15%;">
 	<div id="layoutSidenav_content">
 		<main>
 			<div class="container-fluid px-4">
-				<h1 class="mt-4">Class List</h1>
+				<!-- <h1 class="mt-4">Class List</h1> -->
+				<h1 class="title" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; color: #082465; font-size: 44px; font-weight: 600;">
+      				Class List
+    			</h1>
 				<div class="card mb-4">
 					<div class="card-header">
 						<i class="fas fa-table me-1"></i> DataTable
@@ -40,15 +43,15 @@
 						<table id="datatablesSimple">
 							<thead>
 								<tr>
-									<th>수업코드</th>
-									<th>수업명</th>
-									<th>수업요일</th>
-									<th>수업시간</th>
-									<th>시작일</th>
-									<th>종료일</th>
-									<th>강사코드</th>
-									<th>수정</th>
-									<th>삭제</th>
+									<th>Class code</th>
+									<th>Class name</th>
+									<th>Class day</th>
+									<th>Class time</th>
+									<th>Start date</th>
+									<th>End date</th>
+									<th>Teacher code</th>
+									<th></th>
+									<th></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -100,10 +103,10 @@
 	</form>
 	
 	
-<div id="app" style="display: none">
+<div id="app" style="display: none; margin-left: 15%; margin-right: 15%;">
 <section class="is-hero-bar">
   <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-    <h1 class="title">
+    <h1 class="title" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; color: #082465; font-size: 44px; font-weight: 600;">
       Class Register
     </h1>
   </div>
