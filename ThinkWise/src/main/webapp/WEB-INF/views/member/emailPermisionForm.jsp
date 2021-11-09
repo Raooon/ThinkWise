@@ -31,57 +31,91 @@
 <link rel="stylesheet" href="yswtemp/css/style.css">
 
 <style>
-#loginh2 {
 
+#ftco-section {
+	background-color: white;
+}
+
+#loginh2 {
+	font-size: 45px;
 }
 
 #frm {
-
+	border: transparent;
+    border-style: solid;
+    margin-left: -65px;
+    width: 900px;
+    height: 300px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 1px 1px darkgrey;
 }
 
 #emailDiv {
-
+	margin-top: 30px;
+	margin-left: 7px;
 }
 
 #emailInput {
-
+	font-size: 30px;
+	color : #5d50c6;
 }
 
 input#email {
-
+	font-size: 19px;
+	width: 400px;
+	heigh: 40px; 
+	padding-top: 5px;
+	padding-left: 3px;
+	padding-bottom: 5px; 
 }
 #emailcheckBtn {
-
+	width: 130px;
+	heigh: 40px;
+	font-size: 18px;
 }
 
 #emailPermisionBtn {
-
+	width: 150px;
+	heigh: 40px;
+	font-size: 18px;
+	margin-left: 370px;
+;
 }
 
 #Permision {
-
+	margin-left: -22px;
+	margin-top: -10px;
 }
 
 #perNbInput {
-	margin-right: -7px;
+	font-size: 30px;
+	color : #5d50c6;
 }
 
 input#perNb {
-
+	font-size: 19px;
+	width: 400px;
+	heigh: 40px; 
+	padding-top: 5px;
+	padding-left: 3px;
+	padding-bottom: 5px; 
 }
 
 #perNbBtn {
-
+	width: 150px;
+	heigh: 40px;
+	font-size: 18px;
 }
 </style>
 </head>
 <body>
-	<section class="ftco-section bg-light">
+	<section class="ftco-section" id="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center mb-5 pb-2">
 				<div class="col-md-8 text-center heading-section ftco-animate">
 					<h2 class="mb-4" id="loginh2">
-						<span>이메일 </span>인증
+						<span>Email </span>인증
 					</h2>
 				</div>
 			</div>
@@ -91,16 +125,16 @@ input#perNb {
 				<div class="col-md-8 text-center heading-section ftco-animate" align="center">
 					<form id="frm" action="emailPermision.do" method="post">
 						<div id="emailDiv">
-							<h2 class="mb-4" id="emailInput"> Email 인증&emsp;&emsp;
+							<h2 class="mb-4" id="emailInput"> Email 인증&emsp;
 							<input type="email"id="email" name="email" required="required" placeholder="이메일을 입력해주세요." class="input" style="width: 400px">&emsp; 
-							<input type="button" id="emailcheckBtn" name="emailcheck" onclick="checkEmail()" value="중복확인" class="btn btn-outline-secondary"><br><br>
-							<input type="button" id="emailPermisionBtn" name="emailPermision" onclick="sendEmail()" value="인증번호 전송" class="btn btn-outline-secondary">
+							<input type="button" id="emailcheckBtn" name="emailcheck" onclick="checkEmail()" value="중복확인" class="btn btn-secondary"><br><br>
+							<input type="button" id="emailPermisionBtn" name="emailPermision" onclick="sendEmail()" value="인증번호 전송" class="btn btn-secondary">
 							</h2>
 						</div><br>
 						<div id="Permision">
-							<h2 class="mb-4" id="perNbInput">인증번호 입력&emsp;&emsp;     
+							<h2 class="mb-4" id="perNbInput">인증번호 입력&emsp;     
 							<input type="text" id="perNb" name="perNb" required="required" placeholder="인증번호를 입력해주세요." class="input" style="width: 400px">&emsp;
-							<input type="submit" id="perNbBtn" name="perNbBTN" value="인증번호 확인" class="btn btn-outline-secondary">
+							<input type="submit" id="perNbBtn" name="perNbBTN" value="인증번호 확인" class="btn btn-secondary">
 							</h2>
 						</div>
 					</form>
@@ -111,7 +145,7 @@ input#perNb {
 	
 	<script>
 	$(document).ready(function() {
-		//document.getElementById("emailPermision").style.display="none";
+		//document.getElementById("emailPermisionBtn").style.display="none";
 		//document.getElementById("Permision").style.display="none";
 	});
 	
@@ -127,7 +161,7 @@ input#perNb {
 			success : function(result) {
 				console.log(result);
 				alert(result);
-				if(result == "사용가능한 이메일 입니다.") {
+				if(result == "이메일이 확인되었습니다.") {
 					document.getElementById("emailPermisionBtn").style.display="block";
 				}
 			},

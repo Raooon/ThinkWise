@@ -32,7 +32,7 @@ public class MemberCheck implements Command {
 
 		String viewPage = null;
 		if (vo == null) {
-			viewPage = "사용가능한 이메일 입니다.";
+			viewPage = "이메일이 확인되었습니다.";
 			System.out.println("사용가능");
 			
 		} else {
