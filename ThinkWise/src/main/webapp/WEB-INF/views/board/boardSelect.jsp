@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 
@@ -19,65 +19,76 @@
 
 <title></title>
 
-<!-- bootstrap core css -->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-<!-- progress barstle -->
-<link rel="stylesheet" href="css/css-circular-prog-bar.css">
-<!-- fonts style -->
 <link
-	href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,600&display=swap"
+	href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900"
 	rel="stylesheet">
-<!-- font wesome stylesheet -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<!-- Custom styles for this template -->
-<link href="css/style.css" rel="stylesheet" />
-<!-- responsive style -->
-<link href="css/responsive.css" rel="stylesheet" />
+<link
+	href="https://fonts.googleapis.com/css?family=Fredericka+the+Great"
+	rel="stylesheet">
 
-<link rel="stylesheet" href="css/css-circular-prog-bar.css">
+<link rel="stylesheet" href="yswtemp/css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="yswtemp/css/animate.css">
 
+<link rel="stylesheet" href="yswtemp/css/owl.carousel.min.css">
+<link rel="stylesheet" href="yswtemp/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="yswtemp/css/magnific-popup.css">
+
+<link rel="stylesheet" href="yswtemp/css/aos.css">
+
+<link rel="stylesheet" href="yswtemp/css/ionicons.min.css">
+
+<link rel="stylesheet" href="yswtemp/css/flaticon.css">
+<link rel="stylesheet" href="yswtemp/css/icomoon.css">
+<link rel="stylesheet" href="yswtemp/css/style.css">
+
+<style>
+</style>
 </head>
 
 <body class="sub_page">
 
 	<!-- contact section -->
-
+	<!-- 
 	<section class="contact_section" style="background: white;">
-
+ -->
+	<section class="ftco-section bg-light">
 		<div class="container">
 
-			<div class="row">
+			<div class="row justify-content-center mb-5 pb-2">
 				<div class="col-md-12">
-					<div class="d-flex justify-content-center d-md-block">
-						<h2>월별 보고</h2>
+					<div
+						class="d-flex justify-content-center d-md-block text-center heading-section">
+						<h2 class="mb-4">
+							<span>월별</span>보고
+						</h2>
 					</div>
 
 					<div class="contact_form-container">
 						<div align="center">
 							<table>
-							
-							<c:if test="${not empty board.image }">
-								<tr>
-									<c:set var="imageName" value="${board.image }" />
-									<c:set var="thumb" value="${fn:split(imageName,'/') }" />
-									<c:forEach items="${thumb }" var="selectedImage">
-											<c:if test="${selectedImage ne 'null' }"> 
-									<td>
-										<div align="center">
-											<img alt="" src="upload/${selectedImage }" width="240px" height="180px">
-										</div>
-									</td>
+
+								<c:if test="${not empty board.image }">
+									<tr>
+										<c:set var="imageName" value="${board.image }" />
+										<c:set var="thumb" value="${fn:split(imageName,'/') }" />
+										<c:forEach items="${thumb }" var="selectedImage">
+											<c:if test="${selectedImage ne 'null' }">
+												<td>
+													<div align="center">
+														<img alt="" src="upload/${selectedImage }" width="240px"
+															height="180px">
+													</div>
+												</td>
 											</c:if>
-									</c:forEach>
-									
-								</tr>
-							</c:if>
-							
+										</c:forEach>
+
+									</tr>
+								</c:if>
+
 								<tr>
-									<td colspan="3"><textarea rows="1" cols="100" id="contents"
-											name="contents" style="resize: none;" readonly="readonly">${board.title }</textarea>
-									</td>
+									<td colspan="3"><textarea rows="1" cols="100"
+											id="contents" name="contents" style="resize: none;"
+											readonly="readonly">${board.title }</textarea></td>
 								</tr>
 
 								<tr>
@@ -96,123 +107,135 @@
 											readonly="readonly">${board.contents }</textarea></td>
 								</tr>
 								<c:if test="${not empty id }">
-								<!-- 댓글 등록 시작 -->
-								<tr id="insertTr">
-									<td colspan="3" height="100px">
-										댓글
-										<textarea rows="1" cols="80" id="commentInsert" name="commentInsert" style="resize: none;" placeholder="댓글을 남겨보세요."></textarea>
-										<button type="button" style="font-size: 10px" onclick="CommentsInsert()">등록</button>	
-									</td>
-								</tr>
+									<!-- 댓글 등록 시작 -->
+									<tr id="insertTr">
+										<td colspan="3" height="100px">댓글 <textarea rows="1"
+												cols="80" id="commentInsert" name="commentInsert"
+												style="resize: none;" placeholder="댓글을 남겨보세요."></textarea>
+											<button type="button" style="font-size: 10px"
+												onclick="CommentsInsert()">등록</button>
+										</td>
+									</tr>
 								</c:if>
 								<!-- 댓글 등록 끝 -->
-								
+
 								<!-- 신규댓글 위치 -->
-							
+
 								<!-- 답글버튼 / 좋아요 버튼 -->
 								<tr>
-									
+
 								</tr>
-								
+
 								<!-- List -->
 								<c:forEach items="${comments }" var="comment">
-								<c:if test="${comment.dimension eq '1' }">
-								<!-- 작성자 아이디 / 등록날짜 / 수정버튼 -->
-								<tr id="outTr${comment.commentNo }">
-									<td>
-										${comment.name }
-									</td>
-									<td>
-										${comment.enrollDt }
-									</td>
-								</tr>
-									
-								<!-- 댓글 내용 -->
-								<tr height="80px" id="cmt${comment.commentNo }">
-									<td>
-										<textarea rows="1" cols="80" id="comment${comment.commentNo }" name="commentList" style="resize: none;" readonly="readonly">${comment.contents }</textarea>
-									</td>
-								</tr>
-								<tr id="tr${comment.commentNo }">
-									<td id="td${comment.commentNo }">
-										<div style="display: inline-block;" id ="div${comment.commentNo }">
-										<c:if test="${not empty id}">
-											<button type="button" style="font-size: 8px" id ="i${comment.commentNo }" onclick="openInsert('${comment.commentNo }')">답글</button>
-										</c:if>
-										<c:if test="${comment.id eq id}">
-											<button type="button" style="font-size: 8px" id ="e${comment.commentNo }" onclick="CommentsChange('${comment.commentNo }')">수정</button>
-											<button type="button" style="font-size: 8px" id ="d${comment.commentNo }" onclick="CommentsDelete('${comment.commentNo }')">삭제</button>
-										</c:if>
-										</div>
-									</td>
-								</tr>
-								<!-- 대댓글 -->
-								<c:forEach items="${comments }" var="subComment">
-										<c:if test="${subComment.dimension eq '2'&& subComment.commentNo2 == comment.commentNo}">
-										
-												<tr class="subCom${comment.commentNo } subCom${subComment.commentNo }">
-													<td>
-														&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-														${subComment.name }
-													</td>
-													<td>
-														${subComment.enrollDt }
+									<c:if test="${comment.dimension eq '1' }">
+										<!-- 작성자 아이디 / 등록날짜 / 수정버튼 -->
+										<tr id="outTr${comment.commentNo }">
+											<td>${comment.name }</td>
+											<td>${comment.enrollDt }</td>
+										</tr>
+
+										<!-- 댓글 내용 -->
+										<tr height="80px" id="cmt${comment.commentNo }">
+											<td><textarea rows="1" cols="80"
+													id="comment${comment.commentNo }" name="commentList"
+													style="resize: none;" readonly="readonly">${comment.contents }</textarea>
+											</td>
+										</tr>
+										<tr id="tr${comment.commentNo }">
+											<td id="td${comment.commentNo }">
+												<div style="display: inline-block;"
+													id="div${comment.commentNo }">
+													<c:if test="${not empty id}">
+														<button type="button" style="font-size: 8px"
+															id="i${comment.commentNo }"
+															onclick="openInsert('${comment.commentNo }')">답글</button>
+													</c:if>
+													<c:if test="${comment.id eq id}">
+														<button type="button" style="font-size: 8px"
+															id="e${comment.commentNo }"
+															onclick="CommentsChange('${comment.commentNo }')">수정</button>
+														<button type="button" style="font-size: 8px"
+															id="d${comment.commentNo }"
+															onclick="CommentsDelete('${comment.commentNo }')">삭제</button>
+													</c:if>
+												</div>
+											</td>
+										</tr>
+										<!-- 대댓글 -->
+										<c:forEach items="${comments }" var="subComment">
+											<c:if
+												test="${subComment.dimension eq '2'&& subComment.commentNo2 == comment.commentNo}">
+
+												<tr
+													class="subCom${comment.commentNo } subCom${subComment.commentNo }">
+													<td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+														${subComment.name }</td>
+													<td>${subComment.enrollDt }</td>
+												</tr>
+
+												<tr height="80px"
+													class="subCom${comment.commentNo } subCom${subComment.commentNo }"
+													id="subcmt${subComment.commentNo }">
+													<td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <textarea
+															rows="1" cols="80" id="comment${subComment.commentNo }"
+															name="commentList" style="resize: none;"
+															readonly="readonly">${subComment.contents }</textarea>
 													</td>
 												</tr>
-											
-												<tr height="80px" class="subCom${comment.commentNo } subCom${subComment.commentNo }" id="subcmt${subComment.commentNo }">
+
+												<tr
+													class="subCom${comment.commentNo } subCom${subComment.commentNo }">
 													<td>
-														&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-														<textarea rows="1" cols="80" id="comment${subComment.commentNo }" name="commentList" style="resize: none;" readonly="readonly">${subComment.contents }</textarea>
-													</td>
-												</tr>
-												
-												<tr class="subCom${comment.commentNo } subCom${subComment.commentNo }">
-													<td>
-														<div style="display: inline-block;" id ="Div${subComment.commentNo }">
-														<c:if test="${subComment.id eq id}">
+														<div style="display: inline-block;"
+															id="Div${subComment.commentNo }">
+															<c:if test="${subComment.id eq id}">
 															&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-															<button type="button" style="font-size: 8px" id ="e${subComment.commentNo }" onclick="CommentsSubChange('${subComment.commentNo }')">수정</button>
-															<button type="button" style="font-size: 8px" id ="d${subComment.commentNo }" onclick="CommentsDelete('${subComment.commentNo }')">삭제</button>
-														</c:if>
+															<button type="button" style="font-size: 8px"
+																	id="e${subComment.commentNo }"
+																	onclick="CommentsSubChange('${subComment.commentNo }')">수정</button>
+																<button type="button" style="font-size: 8px"
+																	id="d${subComment.commentNo }"
+																	onclick="CommentsDelete('${subComment.commentNo }')">삭제</button>
+															</c:if>
 														</div>
 													</td>
 												</tr>
-												
-										</c:if>
-									</c:forEach>
-								
-								</c:if>
+
+											</c:if>
+										</c:forEach>
+
+									</c:if>
 								</c:forEach>
 								<!--  -->
-								
+
 								<!-- 하단 버튼 3종 -->
 								<tr>
 									<td colspan="3">
 										<div class="mt-5" align="center">
-										
+
 											<c:if test="${division eq 'A' }">
-											<div style="display: inline-block;">
-												&nbsp; &nbsp; &nbsp;
-												<button type="button" onclick="boardEdit('U')">수정하기</button>
-												&nbsp; &nbsp; &nbsp;
-											</div>
+												<div style="display: inline-block;">
+													&nbsp; &nbsp; &nbsp;
+													<button type="button" onclick="boardEdit('U')">수정하기</button>
+													&nbsp; &nbsp; &nbsp;
+												</div>
 											</c:if>
-											
+
 											<div style="display: inline-block;" align="center">
 												&nbsp; &nbsp; &nbsp;
 												<button type="button" onclick="location.href='boardList.do'">뒤로가기</button>
 												&nbsp; &nbsp; &nbsp;
 											</div>
-											
+
 											<c:if test="${division eq 'A' }">
-											<div style="display: inline-block;">
-												&nbsp; &nbsp; &nbsp;	
-												<button type="button" onclick="boardEdit('D')">삭제하기</button>
-												&nbsp; &nbsp; &nbsp;
-											</div>
+												<div style="display: inline-block;">
+													&nbsp; &nbsp; &nbsp;
+													<button type="button" onclick="boardEdit('D')">삭제하기</button>
+													&nbsp; &nbsp; &nbsp;
+												</div>
 											</c:if>
-											
+
 										</div>
 									</td>
 								</tr>
@@ -220,19 +243,22 @@
 							</table>
 						</div>
 						<div>
-						
+
 							<form id="frm" method="post" action="">
-							
-								<input type="hidden" id="nid" name="nid" value="${board.boardNo }">
-		              			<input type="hidden" id="titleu" name="titleu" value="${board.title }">
-		              			<input type="hidden" id="contentsu" name="contentsu" value="${board.contents }">
-              		 
+
+								<input type="hidden" id="nid" name="nid"
+									value="${board.boardNo }"> <input type="hidden"
+									id="titleu" name="titleu" value="${board.title }"> <input
+									type="hidden" id="contentsu" name="contentsu"
+									value="${board.contents }">
+
 							</form>
-							
+
 						</div>
 					</div>
 
 				</div>
+
 			</div>
 		</div>
 	</section>
@@ -241,261 +267,248 @@
 	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 
-<script>
+	<script>
+		function boardEdit(p) {
 
-function boardEdit(p) {
+			if (p == 'D') {
 
-	if (p == 'D') {
-		
-		frm.action = "boardDelete.do";
-		
-	} else {
-		
-		frm.action = "boardUpdateForm.do";
-	}
-	
-	frm.submit();
-	
-}
+				frm.action = "boardDelete.do";
 
-function CommentsInsert() {
-	
-	let contents = $('#commentInsert').val();
-	let param= "boardNo=${board.boardNo}&contents="+contents;
-	
-	$.ajax({
-		url: 'commentsInsert.do',
-		data: param,
-		type: 'post',
-		dataType: 'json',
-		success: function (result) {
-			console.log('success');
-			console.log(result);
-			
-			CommentsAttach(result);
-			
-			$('#commentInsert').val('');
-			
-		},
-		error: function (reject) {
-			console.log(reject)
+			} else {
+
+				frm.action = "boardUpdateForm.do";
+			}
+
+			frm.submit();
+
 		}
-	})
-}
 
-function CommentsAttach(data){
-	
-	var beforeTr = $('<tr />');
-		var idTd = $('<td />').text(data.name);
-		var enrollTd = $('<td />').text(data.enrollDt);
-	
-		$(beforeTr).append(
-				idTd,
-				enrollTd
-		);
-	
-	var afterTr = $('<tr />');
-		var contextTd = $('<td />').html(
-				'<textarea rows="1" cols="80" id="comment'+data.commentNo+'" name="commentList" style="resize: none;" readonly="readonly">'+data.contents+'</textarea>'		
-		);
-	
-		$(afterTr).append(
-				contextTd
-		);
-	
-		$('#insertTr').after(
-				beforeTr,
-				afterTr
-		);
-	
-}
+		function CommentsInsert() {
 
-function replyAttach(data){
-	
-	var beforeTr = $('<tr />');
-		var idTd = $('<td />').html('&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'+data.name);
-		var enrollTd = $('<td />').text(data.enrollDt);
-	
-		$(beforeTr).append(
-				idTd,
-				enrollTd
-		);
-	
-	var afterTr = $('<tr />');
-		var contextTd = $('<td />').html(
-				'&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<textarea rows="1" cols="80" id="comment'+data.commentNo+'" name="commentList" style="resize: none;" readonly="readonly">'+data.contents+'</textarea>'		
-		);
-	
-		$(afterTr).append(
-				contextTd
-		);
-	
-		$('#cmt'+data.commentNo2).after(
-				beforeTr,
-				afterTr
-		);
-	
-}
-function openInsert (num) {
-	
-	var addTr= $('<tr />').attr('id','addTr'+num);
-		var addTd = $('<td />').html('&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <textarea rows="1" cols="80" id="commentAdd" name="commentAdd" style="resize: none;" placeholder="댓글을 남겨보세요."></textarea>');
-			var addButton = $('<button />').css('font-size','8px').attr('onclick','commentAdd('+num+')').text('등록');
-			var cancleButton = $('<button />').css('font-size','8px').attr('onclick','closeInsert('+num+')').text('취소');
-	
-	$('#cmt'+num).after(
-			$(addTr).append(
-				addTd,
-				addButton,
-				cancleButton
-			)
-	);
-	
-	$('#i'+num).hide();
-	$('#e'+num).hide();
-	$('#d'+num).hide();
-	
-}
+			let contents = $('#commentInsert').val();
+			let param = "boardNo=${board.boardNo}&contents=" + contents;
 
-function closeInsert (num) {
-	
-	$('#addTr'+num).hide();
-	
-	$('#tr'+num).show();
-	$('#td'+num).show();
-	$('#div'+num).show();
-	
-	$('#i'+num).show();
-	$('#e'+num).show();
-	$('#d'+num).show();
-	
-}
+			$.ajax({
+				url : 'commentsInsert.do',
+				data : param,
+				type : 'post',
+				dataType : 'json',
+				success : function(result) {
+					console.log('success');
+					console.log(result);
 
-function commentAdd (num) {
-	
-	let contents = $('#commentAdd').val();
-	let param= "boardNo=${board.boardNo}&contents="+contents+"&commentNo="+num;
-	
-	$.ajax({
-		url: 'commentsAdd.do',
-		data: param,
-		type: 'post',
-		dataType: 'json',
-		success: function (result) {
-			console.log('success');
-			replyAttach(result);
-			closeInsert(num);
-			$('#commentAdd').val('');
-			
-		},
-		error: function (reject) {
-			console.log(reject)
+					CommentsAttach(result);
+
+					$('#commentInsert').val('');
+
+				},
+				error : function(reject) {
+					console.log(reject)
+				}
+			})
 		}
-	})
-	
-}
 
-function CommentsDelete(num) {
-	
-	let param = "commentNo="+num;
-	
-	$.ajax({
-		url: 'commentsDelete.do',
-		data: param,
-		type: 'post',
-		success: function (result) {
-			console.log('success');
-			
-			$('.subCom'+num).hide();
-			
-			$('#tr'+num).hide();
-			$('#outTr'+num).hide();
-			$('#cmt'+num).hide();
-			
-			console.log('success2222');
-		},
-		error: function (reject) {
-			console.log(reject)
+		function CommentsAttach(data) {
+
+			var beforeTr = $('<tr />');
+			var idTd = $('<td />').text(data.name);
+			var enrollTd = $('<td />').text(data.enrollDt);
+
+			$(beforeTr).append(idTd, enrollTd);
+
+			var afterTr = $('<tr />');
+			var contextTd = $('<td />')
+					.html(
+							'<textarea rows="1" cols="80" id="comment'+data.commentNo+'" name="commentList" style="resize: none;" readonly="readonly">'
+									+ data.contents + '</textarea>');
+
+			$(afterTr).append(contextTd);
+
+			$('#insertTr').after(beforeTr, afterTr);
+
 		}
-	})
-	
-}
 
-function CommentsChange (num) {
-	
-	$('#i'+num).toggle();
-	$('#e'+num).toggle();
-	$('#d'+num).toggle();
-	
-	$('#comment'+num).removeAttr('readonly');
-	$('#comment'+num).focus();
-	
-	var updateButton = $('<button />').css('font-size','8px').attr('onclick','CommentsUpdate('+num+')').attr('id','ub'+num).text('수정');
-	var cancleButton = $('<button />').css('font-size','8px').attr('onclick','CommentsChangeClose('+num+')').attr('id','cl'+num).text('취소');
-	
-	$('#cmt'+num).after(
-			updateButton,
-			cancleButton
-			);
-}
+		function replyAttach(data) {
 
-function CommentsSubChange (num) {
-	
-	$('#e'+num).toggle();
-	$('#d'+num).toggle();
-	
-	$('#comment'+num).removeAttr('readonly');
-	$('#comment'+num).focus();
-	
-	var updateButton = $('<button />').css('font-size','8px').attr('onclick','CommentsUpdate('+num+')').attr('id','ub'+num).text('수정');
-	var cancleButton = $('<button />').css('font-size','8px').attr('onclick','CommentsChangeClose('+num+')').attr('id','cl'+num).text('취소');
-	
-	$('#subcmt'+num).after(
-			updateButton,
-			cancleButton
-	);
-}
-function CommentsChangeClose (num) {
-	
-	$('#i'+num).toggle();
-	$('#e'+num).toggle();
-	$('#d'+num).toggle();
-	
-	$('#comment'+num).attr('readonly','readonly');
-	
-	$('#ub'+num).hide();
-	$('#cl'+num).hide();
-	
-}
+			var beforeTr = $('<tr />');
+			var idTd = $('<td />').html(
+					'&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;' + data.name);
+			var enrollTd = $('<td />').text(data.enrollDt);
 
-function CommentsUpdate(num) {
-	
-	let contents = $('#comment'+num).val();
-	let param = "commentNo="+num+"&contents="+contents;
-	
-	$.ajax({
-		url: 'commentsUpdate.do',
-		data: param,
-		type: 'post',
-		success: function (result) {
-			console.log('success');
-			
-			$('#ub'+num).hide();
-			$('#cl'+num).hide();
-			
-			$('#i'+num).toggle();
-			$('#e'+num).toggle();
-			$('#d'+num).toggle();
-			
-		},
-		error: function (reject) {
-			console.log(reject)
+			$(beforeTr).append(idTd, enrollTd);
+
+			var afterTr = $('<tr />');
+			var contextTd = $('<td />')
+					.html(
+							'&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<textarea rows="1" cols="80" id="comment'+data.commentNo+'" name="commentList" style="resize: none;" readonly="readonly">'
+									+ data.contents + '</textarea>');
+
+			$(afterTr).append(contextTd);
+
+			$('#cmt' + data.commentNo2).after(beforeTr, afterTr);
+
 		}
-	})
-	
-}
+		function openInsert(num) {
 
-</script>
+			var addTr = $('<tr />').attr('id', 'addTr' + num);
+			var addTd = $('<td />')
+					.html(
+							'&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <textarea rows="1" cols="80" id="commentAdd" name="commentAdd" style="resize: none;" placeholder="댓글을 남겨보세요."></textarea>');
+			var addButton = $('<button />').css('font-size', '8px').attr(
+					'onclick', 'commentAdd(' + num + ')').text('등록');
+			var cancleButton = $('<button />').css('font-size', '8px').attr(
+					'onclick', 'closeInsert(' + num + ')').text('취소');
+
+			$('#cmt' + num).after(
+					$(addTr).append(addTd, addButton, cancleButton));
+
+			$('#i' + num).hide();
+			$('#e' + num).hide();
+			$('#d' + num).hide();
+
+		}
+
+		function closeInsert(num) {
+
+			$('#addTr' + num).hide();
+
+			$('#tr' + num).show();
+			$('#td' + num).show();
+			$('#div' + num).show();
+
+			$('#i' + num).show();
+			$('#e' + num).show();
+			$('#d' + num).show();
+
+		}
+
+		function commentAdd(num) {
+
+			let contents = $('#commentAdd').val();
+			let param = "boardNo=${board.boardNo}&contents=" + contents
+					+ "&commentNo=" + num;
+
+			$.ajax({
+				url : 'commentsAdd.do',
+				data : param,
+				type : 'post',
+				dataType : 'json',
+				success : function(result) {
+					console.log('success');
+					replyAttach(result);
+					closeInsert(num);
+					$('#commentAdd').val('');
+
+				},
+				error : function(reject) {
+					console.log(reject)
+				}
+			})
+
+		}
+
+		function CommentsDelete(num) {
+
+			let param = "commentNo=" + num;
+
+			$.ajax({
+				url : 'commentsDelete.do',
+				data : param,
+				type : 'post',
+				success : function(result) {
+					console.log('success');
+
+					$('.subCom' + num).hide();
+
+					$('#tr' + num).hide();
+					$('#outTr' + num).hide();
+					$('#cmt' + num).hide();
+
+					console.log('success2222');
+				},
+				error : function(reject) {
+					console.log(reject)
+				}
+			})
+
+		}
+
+		function CommentsChange(num) {
+
+			$('#i' + num).toggle();
+			$('#e' + num).toggle();
+			$('#d' + num).toggle();
+
+			$('#comment' + num).removeAttr('readonly');
+			$('#comment' + num).focus();
+
+			var updateButton = $('<button />').css('font-size', '8px').attr(
+					'onclick', 'CommentsUpdate(' + num + ')').attr('id',
+					'ub' + num).text('수정');
+			var cancleButton = $('<button />').css('font-size', '8px').attr(
+					'onclick', 'CommentsChangeClose(' + num + ')').attr('id',
+					'cl' + num).text('취소');
+
+			$('#cmt' + num).after(updateButton, cancleButton);
+		}
+
+		function CommentsSubChange(num) {
+
+			$('#e' + num).toggle();
+			$('#d' + num).toggle();
+
+			$('#comment' + num).removeAttr('readonly');
+			$('#comment' + num).focus();
+
+			var updateButton = $('<button />').css('font-size', '8px').attr(
+					'onclick', 'CommentsUpdate(' + num + ')').attr('id',
+					'ub' + num).text('수정');
+			var cancleButton = $('<button />').css('font-size', '8px').attr(
+					'onclick', 'CommentsChangeClose(' + num + ')').attr('id',
+					'cl' + num).text('취소');
+
+			$('#subcmt' + num).after(updateButton, cancleButton);
+		}
+		function CommentsChangeClose(num) {
+
+			$('#i' + num).toggle();
+			$('#e' + num).toggle();
+			$('#d' + num).toggle();
+
+			$('#comment' + num).attr('readonly', 'readonly');
+
+			$('#ub' + num).hide();
+			$('#cl' + num).hide();
+
+		}
+
+		function CommentsUpdate(num) {
+
+			let contents = $('#comment' + num).val();
+			let param = "commentNo=" + num + "&contents=" + contents;
+
+			$.ajax({
+				url : 'commentsUpdate.do',
+				data : param,
+				type : 'post',
+				success : function(result) {
+					console.log('success');
+
+					$('#ub' + num).hide();
+					$('#cl' + num).hide();
+
+					$('#i' + num).toggle();
+					$('#e' + num).toggle();
+					$('#d' + num).toggle();
+
+				},
+				error : function(reject) {
+					console.log(reject)
+				}
+			})
+
+		}
+	</script>
 
 </body>
 
