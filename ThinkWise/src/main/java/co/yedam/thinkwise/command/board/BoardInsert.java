@@ -2,7 +2,6 @@ package co.yedam.thinkwise.command.board;
 
 import java.io.IOException;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -25,10 +24,10 @@ public class BoardInsert implements Command {
 		BoardService boardDao = new BoardServiceImpl();
 		BoardVO vo = new BoardVO();
 		
-		ServletContext context = request.getSession().getServletContext();
 		
-		//String saveFolder = "c:\\thinkwise";
-		String saveFolder = context.getRealPath("upload");
+		String saveFolder = "c:\\thinkwise\\upload";
+		//ServletContext context = request.getSession().getServletContext();
+		//String saveFolder = context.getRealPath("upload");
 		session.setAttribute("dir", saveFolder);
 		System.out.println(saveFolder);
 		

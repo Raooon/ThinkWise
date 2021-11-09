@@ -150,7 +150,7 @@
 								<c:forEach items="${comments }" var="subComment">
 										<c:if test="${subComment.dimension eq '2'&& subComment.commentNo2 == comment.commentNo}">
 										
-												<tr class="subCom${comments.commentNo }">
+												<tr class="subCom${comment.commentNo } subCom${subComment.commentNo }">
 													<td>
 														&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
 														${subComment.name }
@@ -160,20 +160,19 @@
 													</td>
 												</tr>
 											
-												<tr height="80px" class="subCom${comments.commentNo }">
+												<tr height="80px" class="subCom${comment.commentNo } subCom${subComment.commentNo }" id="subcmt${subComment.commentNo }">
 													<td>
 														&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 														<textarea rows="1" cols="80" id="comment${subComment.commentNo }" name="commentList" style="resize: none;" readonly="readonly">${subComment.contents }</textarea>
 													</td>
 												</tr>
 												
-												<tr class="subCom${comments.commentNo }">
+												<tr class="subCom${comment.commentNo } subCom${subComment.commentNo }">
 													<td>
 														<div style="display: inline-block;" id ="Div${subComment.commentNo }">
 														<c:if test="${subComment.id eq id}">
 															&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 															<button type="button" style="font-size: 8px" id ="e${subComment.commentNo }" onclick="CommentsSubChange('${subComment.commentNo }')">수정</button>
-															
 															<button type="button" style="font-size: 8px" id ="d${subComment.commentNo }" onclick="CommentsDelete('${subComment.commentNo }')">삭제</button>
 														</c:if>
 														</div>
@@ -234,14 +233,6 @@
 					</div>
 
 				</div>
-				<!-- 오른쪽 이미지 -->
-				<!-- 
-        <div class="col-md-6">
-          <div class="contact_img-box">
-            <img src="template/images/students.jpg" alt="">
-          </div>
-        </div>
-         -->
 			</div>
 		</div>
 	</section>
@@ -414,6 +405,7 @@ function CommentsDelete(num) {
 		type: 'post',
 		success: function (result) {
 			console.log('success');
+			
 			$('.subCom'+num).hide();
 			
 			$('#tr'+num).hide();

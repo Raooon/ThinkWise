@@ -93,7 +93,6 @@
 										class="block-20 d-flex align-items-end"
 										style="background-image: url('upload/${thumb}');">
 								</c:if>
-
 								<c:if test="${thumb eq 'null'}">
 									<a onclick="boardSelect('${board.boardNo }')"
 										class="block-20 d-flex align-items-end"
