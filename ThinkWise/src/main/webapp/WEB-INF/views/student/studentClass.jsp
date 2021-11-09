@@ -56,7 +56,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items="${studentClasses }" var="data">
+								<c:forEach items="${students }" var="data">
 									<tr id="${data.id }">
 										<td>${data.id }</td>
 										<td>${data.name }</td>

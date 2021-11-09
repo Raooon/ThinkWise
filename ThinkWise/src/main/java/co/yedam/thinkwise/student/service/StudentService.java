@@ -5,7 +5,7 @@ import java.util.List;
 public interface StudentService {
 	List<StudentVO> studentList();
 	
-	StudentVO studentSelect(StudentVO vo);
+	List<StudentVO> classList();
 	
 	int studentInsert(StudentVO vo);
 	int studentUpdate(StudentVO vo);

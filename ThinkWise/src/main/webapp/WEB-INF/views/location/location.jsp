@@ -38,7 +38,7 @@
 			<div class="col-sm-5">
 				<div class="card bg-light">
 					<div class="card-header">지 도</div>
-					<div class="card-bodyA" style="height: 338px; ">
+					<div class="card-bodyA" style="height: 450px; ">
 						<jsp:include page="kakaoMap.jsp" />
 					</div>
 				</div>
@@ -47,7 +47,7 @@
 			<div class="col-sm-4">
 				<div class="card bg-light">
 					<div class="card-header">교통정보 및 연락처</div>
-					<div class="card-body" style="height: 338px">
+					<div class="card-body" style="height: 450px">
 						<ul>
 							<li style="list-style-type:square !important;font-size:12px;line-height:18px;margin:5px 5px 5px 0px"><span style="font-weight:bold">주&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;소</span> : 대구광역시 중구 중앙대로 403 (남일동 135-1, 5층) 태왕 아너스 타워</li>
 					
