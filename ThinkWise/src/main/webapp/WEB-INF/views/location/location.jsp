@@ -13,6 +13,31 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Fredericka+the+Great"
+	rel="stylesheet">
+
+<link rel="stylesheet" href="yswtemp/css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="yswtemp/css/animate.css">
+
+<link rel="stylesheet" href="yswtemp/css/owl.carousel.min.css">
+<link rel="stylesheet" href="yswtemp/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="yswtemp/css/magnific-popup.css">
+
+<link rel="stylesheet" href="yswtemp/css/aos.css">
+
+<link rel="stylesheet" href="yswtemp/css/ionicons.min.css">
+
+<link rel="stylesheet" href="yswtemp/css/flaticon.css">
+<link rel="stylesheet" href="yswtemp/css/icomoon.css">
+<link rel="stylesheet" href="yswtemp/css/style.css">
+
 <style>
 	#mapcontainer{
 		margin: 70px;
@@ -25,6 +50,14 @@
 	div.col-sm-4{
 		padding-left: 0px;
 	}
+	
+	#LoId{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	margin-left: 130px;
+	color: rgb(8, 36, 101);
+	font-size: 44px;
+	margin-top: -50px;
+	}
 </style>
 
 <link rel="stylesheet" href="template/css/style1.css">
@@ -33,6 +66,10 @@
 
 <body>
 	<div class="container-fluid" id="mapcontainer">
+		<div class="container-fluid px-4">
+			<h1 id="LoId">Location</h1>
+		</div>
+		<br><br>
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-5">
@@ -72,7 +109,6 @@
 			<div class="col-sm-2"></div>
 		</div>
 	</div>
-	
 
 </body>
 </html>

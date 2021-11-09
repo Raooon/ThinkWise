@@ -40,9 +40,7 @@
 <script>
 	function noticeEdit(p) {
 
-		frm.nid.value = $ {
-			notice.noticeNo
-		};
+		frm.nid.value = ${notice.noticeNo};
 
 		if (p == 'D') {
 			frm.action = "noticeDelete.do";
@@ -119,9 +117,7 @@
 										뒤로가기
 									</button>
 									&nbsp; &nbsp; &nbsp;
-									<button type="button" onclick="noticeEdit('D')">
-										삭제하기
-									</button>
+									<input type="button" onclick="noticeEdit('D')" value="삭제하기" class="btn btn-outline-secondary">
 								</div>
 							</td>
 						</tr>

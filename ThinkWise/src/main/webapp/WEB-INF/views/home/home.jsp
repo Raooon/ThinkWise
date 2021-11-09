@@ -35,7 +35,7 @@
 			</div>
 		</div>
 	</div>
-<section>
+</section>
 
 
 <div class="common_style">
