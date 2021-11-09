@@ -33,10 +33,10 @@
 </style>
 </head>
 <body>
-<div id="app">
+<div id="app" style="margin-left: 15%; margin-right: 15%;">
 <section class="is-hero-bar">
   <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-    <h1 class="title">
+    <h1 class="title" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; color: #082465; font-size: 44px; font-weight: 600;">
       Profile
     </h1>
   </div>
@@ -160,11 +160,11 @@
 
 </div>
 <c:if test="${not empty MyClasses[0].class_cd}">
-<div id="layoutSidenav">
+<div id="layoutSidenav" style="margin-left: 11%; margin-right: 11%;">
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid px-4" style="width: 90%;">
-					<h1 class="mt-4">My Class</h1>
+					<h1 class="mt-4" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; color: #082465; font-size: 44px;">My Class</h1>
 					<div class="card mb-4">
 						<div class="card-header">
 							<i class="fas fa-table me-1"></i> DataTable
@@ -173,13 +173,13 @@
 							<table id="datatablesSimple">
 								<thead>
 									<tr>
-										<th>학생명</th>
-										<th>수업코드</th>
-										<th>수업명</th>
-										<th>수업시간</th>
-										<th>시작일</th>
-										<th>종료일</th>
-										<th>강사명</th>
+										<th>Student name</th>
+										<th>Class code</th>
+										<th>Class name</th>
+										<th>Class time</th>
+										<th>Start date</th>
+										<th>End date</th>
+										<th>Teacher name</th>
 									</tr>
 								</thead>
 								<tbody>
