@@ -17,9 +17,34 @@ public class MemberInfoEdit implements Command {
 		vo.setId(Integer.parseInt(request.getParameter("id")));
 		vo.setName(request.getParameter("name"));
 		vo.setTel(request.getParameter("tel"));
-		vo.setAddress(request.getParameter("address"));
-		int r = memberDao.updateMemberInfo(vo);
+		String preAddress = request.getParameter("address_kakao");
+		String afterAddress = request.getParameter("address_detail");
 		
+		if(preAddress.equals("") && !afterAddress.equals("")) {
+			System.out.println("1");
+			preAddress = "before";
+			vo.setAddress(preAddress + "@" + afterAddress);
+		}
+		else if(!preAddress.equals("") && afterAddress.equals("")) {
+			System.out.println("2");
+			afterAddress = "after";
+			System.out.println(afterAddress);
+			vo.setAddress(preAddress + "@" + afterAddress);
+		}
+		else if(preAddress.equals("") && afterAddress.equals("")) {
+			System.out.println("3");
+			preAddress = "before";
+			afterAddress = "after";
+			vo.setAddress(preAddress + "@" + afterAddress);
+		}
+		else if(!preAddress.equals("") && !afterAddress.equals("")) {
+			System.out.println("4");
+			System.out.println(afterAddress);
+			vo.setAddress(preAddress + "@" + afterAddress);
+		}
+		
+		int r = memberDao.updateMemberInfo(vo);
+		System.out.println(vo.getAddress());
 		String viewPage = null;
 		
 		if(r != 0) {

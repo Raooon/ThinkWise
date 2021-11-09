@@ -21,6 +21,8 @@ public class MemberInput implements Command {
 		vo.setParent(request.getParameter("parent"));
 		System.out.println(request.getParameter("parent"));
 		MemberVO p = memberDao.selectParent(vo);
+		String preAddress = request.getParameter("address_kakao");
+		String afterAddress = request.getParameter("address_detail");
 		
 		MemberVO vo1 = new MemberVO();
 		if(p == null) {
@@ -32,7 +34,29 @@ public class MemberInput implements Command {
 				vo1.setGender(request.getParameter("gender"));
 				vo1.setBirth(request.getParameter("birth").replaceAll("-", ""));
 				vo1.setTel(request.getParameter("tel"));
-				vo1.setAddress(request.getParameter("address_kakao") + " " + request.getParameter("address_detail"));
+				if(preAddress.equals("") && !afterAddress.equals("")) {
+					System.out.println("1");
+					preAddress = "before";
+					vo1.setAddress(preAddress + "@" + afterAddress);
+				}
+				else if(!preAddress.equals("") && afterAddress.equals("")) {
+					System.out.println("2");
+					afterAddress = "after";
+					System.out.println(afterAddress);
+					vo1.setAddress(preAddress + "@" + afterAddress);
+				}
+				else if(preAddress.equals("") && afterAddress.equals("")) {
+					System.out.println("3");
+					preAddress = "before";
+					afterAddress = "after";
+					vo1.setAddress(preAddress + "@" + afterAddress);
+				}
+				else if(!preAddress.equals("") && !afterAddress.equals("")) {
+					System.out.println("4");
+					System.out.println(afterAddress);
+					vo1.setAddress(preAddress + "@" + afterAddress);
+				}
+				//vo1.setAddress(request.getParameter("address_kakao") + "@" + request.getParameter("address_detail"));
 				vo1.setDivision(request.getParameter("division"));
 				
 				int n = memberDao.insertMember(vo1);
@@ -53,7 +77,29 @@ public class MemberInput implements Command {
 				vo1.setGender(request.getParameter("gender"));
 				vo1.setBirth(request.getParameter("birth").replaceAll("-", ""));
 				vo1.setTel(request.getParameter("tel"));
-				vo1.setAddress(request.getParameter("address_kakao") + " " + request.getParameter("address_detail"));
+				if(preAddress.equals("") && !afterAddress.equals("")) {
+					System.out.println("1");
+					preAddress = "before";
+					vo1.setAddress(preAddress + "@" + afterAddress);
+				}
+				else if(!preAddress.equals("") && afterAddress.equals("")) {
+					System.out.println("2");
+					afterAddress = "after";
+					System.out.println(afterAddress);
+					vo1.setAddress(preAddress + "@" + afterAddress);
+				}
+				else if(preAddress.equals("") && afterAddress.equals("")) {
+					System.out.println("3");
+					preAddress = "before";
+					afterAddress = "after";
+					vo1.setAddress(preAddress + "@" + afterAddress);
+				}
+				else if(!preAddress.equals("") && !afterAddress.equals("")) {
+					System.out.println("4");
+					System.out.println(afterAddress);
+					vo1.setAddress(preAddress + "@" + afterAddress);
+				}
+				//vo1.setAddress(request.getParameter("address_kakao") + "@" + request.getParameter("address_detail"));
 				vo1.setDivision(request.getParameter("division"));
 				
 				int n = memberDao.insertMember(vo1);
@@ -75,7 +121,29 @@ public class MemberInput implements Command {
 			vo1.setGender(request.getParameter("gender"));
 			vo1.setBirth(request.getParameter("birth").replaceAll("-", ""));
 			vo1.setTel(request.getParameter("tel"));
-			vo1.setAddress(request.getParameter("address_kakao") + " " + request.getParameter("address_detail"));
+			if(preAddress.equals("") && !afterAddress.equals("")) {
+				System.out.println("1");
+				preAddress = "before";
+				vo1.setAddress(preAddress + "@" + afterAddress);
+			}
+			else if(!preAddress.equals("") && afterAddress.equals("")) {
+				System.out.println("2");
+				afterAddress = "after";
+				System.out.println(afterAddress);
+				vo1.setAddress(preAddress + "@" + afterAddress);
+			}
+			else if(preAddress.equals("") && afterAddress.equals("")) {
+				System.out.println("3");
+				preAddress = "before";
+				afterAddress = "after";
+				vo1.setAddress(preAddress + "@" + afterAddress);
+			}
+			else if(!preAddress.equals("") && !afterAddress.equals("")) {
+				System.out.println("4");
+				System.out.println(afterAddress);
+				vo1.setAddress(preAddress + "@" + afterAddress);
+			}
+			//vo1.setAddress(request.getParameter("address_kakao") + "@" + request.getParameter("address_detail"));
 			vo1.setDivision(request.getParameter("division"));
 			vo1.setParent(request.getParameter("parent"));
 			

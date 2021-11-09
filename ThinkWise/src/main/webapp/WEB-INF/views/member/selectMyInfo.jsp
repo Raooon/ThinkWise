@@ -84,7 +84,18 @@
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                  <input type="text" autocomplete="on" id="address" name="address" value="${member.address }" class="input" required>
+	                <c:if test="${preAddress ne 'before' }">
+	                  <input type="text" autocomplete="on" id="address_kakao" name="address_kakao" value="${preAddress }" class="input" placeholder="주소를 입력해주세요.">
+	                </c:if>
+	                <c:if test="${preAddress eq 'before' }">
+	                  <input type="text" autocomplete="on" id="address_kakao" name="address_kakao" value="" class="input" placeholder="주소를 입력해주세요.">
+	                </c:if>
+	                <c:if test="${afterAddress ne 'after' }">
+	                  <input type="text" autocomplete="on" id="address_detail" name="address_detail" value="${afterAddress }" class="input" placeholder="상세주소를 입력해주세요.">
+	                </c:if>
+	                <c:if test="${afterAddress eq 'after' }">
+	                  <input type="text" autocomplete="on" id="address_detail" name="address_detail" value="" class="input" placeholder="상세주소를 입력해주세요.">
+	                </c:if>
                 </div>
                 <p class="help">Required. Your address</p>
               </div>
@@ -199,7 +210,20 @@
 	<script src="mltemp/js/datatables-simple-demo.js"></script>
 	<!-- Scripts below are for demo only -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript">
+	window.onload = function(){
+	    document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
+	        //카카오 지도 발생
+	        new daum.Postcode({
+	            oncomplete: function(data) { //선택시 입력값 세팅
+	                document.getElementById("address_kakao").value = data.address; // 주소 넣기
+	                document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
+	            }
+	        }).open();
+	    });
+	}
+	
 	function DeleteAccount() {
 		if(window.confirm("정말로 탈퇴하시겠습니까?")){
 			frm.action = "memberDelete.do";
@@ -246,20 +270,23 @@
 		var id = $('#id').val();
 		var name = $('#name').val();
 		var tel = $('#tel').val();
-		var address = $('#address').val();
+		var address_kakao = $('#address_kakao').val();
+		var address_detail = $('#address_detail').val();
 		$.ajax({
 			url: "memberInfoEdit.do",
 			type: "POST",
 			data: {id:id,
 				   name:name,
 				   tel:tel,
-				   address:address},
+				   address_kakao:address_kakao,
+				   address_detail:address_detail},
 			success: function(data) {
 				window.alert(data);
 				$("#id").val(id);
 				$("#name").val(name);
 				$("#tel").val(tel);
-				$("#address").val(address);
+				$("#address_kakao").val(address_kakao);
+				$("#address_detail").val(address_detail);
 			},
 			error: function(data) {
 				console.log(data);
