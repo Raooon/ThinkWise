@@ -4,6 +4,7 @@ import java.util.List;
 
 public interface SubjectService {
 	List<SubjectVO> subjectList();
+	List<SubjectVO> subjectListAll();
 	
 	SubjectVO subjectSelect(SubjectVO vo);
 	

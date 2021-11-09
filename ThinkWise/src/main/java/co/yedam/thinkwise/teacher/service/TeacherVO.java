@@ -10,4 +10,5 @@ public class TeacherVO {
 	String teacherNm;
 	String career;
 	String teacherInfo;
+	String useYn;
 }

@@ -124,17 +124,39 @@
 		transition: top 0.2s ease-in-out;
 		display: block;
 	}
-	
 	.nav-up { 
 		top: -72px; 
 	}
-
+	
+	#divdropdown{
+		border-radius: 8px;
+		background-color: #082465; /*#5d50c673;*/
+		z-index: 100000000;
+		width: 162px;
+		height: 180px;
+		color: rgb(8, 36, 101);
+		transition:  all 2s;
+	}
+	#uldropdown{
+		margin: 0px;
+		padding: 0px;
+	}
+	#uldropdown>li{
+		list-style-type: none;
+	}
+	#navlinka{
+		padding-left: 10px;
+		padding-right: 10px;
+		text-align: left !important;
+		font-size: 17px;
+		color: #fefefe !important;
+	}
 </style>
 
 </head>
 <body>
 <header class="header_section">
-      <div class="container">
+	<div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="home.do">
             <span>
@@ -146,65 +168,79 @@
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
-              <ul class="navbar-nav  ">
-  
-                <li class="nav-item ">
-                  <a class="nav-link" href="noticeList.do"> Notice </a>
-
-                </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="boardList.do"> Board </a>
-                </li>
-					
-                <li class="nav-item">
-                  <a class="nav-link" href="carlendar.do">Schedule</a>
-                </li>
-                
-                <c:if test="${not empty id }">
-	                <li class="nav-item">
-	                  <a class="nav-link" href="selectMyInfo.do">MyProfile</a>
-	                </li>
-                </c:if>
-                
-                <li class="nav-item">
-                  <a class="nav-link" href="location.do">Location</a>
-                </li>
-                
-                <c:if test="${division == 'A' }">
-                	<li class="nav-item">
-	                  <a class="nav-link" href="selectMemberList.do">MemberList</a>
-	                </li>
-	                
-	                <li class="nav-item">
-	                  <a class="nav-link" href="memberClassList.do">Class Manage</a>
-	                </li>
-                </c:if>
-                
-                <c:if test="${empty id }">
-	                <li class="nav-item">
-	                  <a class="nav-link" href="memberLoginForm.do">Login</a>
-	                </li>
-	                
-	                <li class="nav-item">
-	                  <a class="nav-link" href="emailPermissionForm.do">Join</a>
-	                </li>
-                </c:if>
-                
-                <c:if test="${not empty id }">
-	                <li class="nav-item">
-	                  <a class="nav-link" href="memberLogout.do">Logout</a>
-	                </li>
-                </c:if>
-
-                
-              </ul>
-            </div>
-            </div>
-        </nav>
-      </div>
-    </header>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+					<ul class="navbar-nav  ">
+						<li class="nav-item ">
+							<a class="nav-link" href="noticeList.do"> Notice </a>
+						</li>
+						
+						<li class="nav-item ">
+						    <a class="nav-link" href="boardList.do"> Board </a>
+						</li>
+						
+						<li class="nav-item">
+						    <a class="nav-link" href="carlendar.do">Schedule</a>
+						</li>
+						 
+						<c:if test="${not empty id }">
+							<li class="nav-item">
+						  		<a class="nav-link" href="selectMyInfo.do">My Profile</a>
+							</li>
+						</c:if>
+						
+						<li class="nav-item">
+						  	<a class="nav-link" href="location.do">Location</a>
+						</li>
+						
+						<c:if test="${division == 'A' }">
+							<li class="nav-item" id="btnadmin" onclick=adminDropDown() style="position:relative;">
+							  	<a class="nav-link" href="#">Admin▾</a>
+							  	 
+							  	<div id="divdropdown" style="display:none;">
+								  	<ul id="uldropdown">
+										<li class="nav-item">
+								   			<a class="nav-link" id="navlinka" href="selectMemberList.do">Member List</a>
+								 		</li>
+								 
+								 		<li class="nav-item">
+								   			<a class="nav-link" id="navlinka" href="memberClassList.do">Class Manage</a>
+								 		</li>
+								 		
+								 		<li class="nav-item">
+								   			<a class="nav-link" id="navlinka" href="subjectManageForm.do">Subject Manage</a>
+								 		</li>
+								 		
+								 		<li class="nav-item">
+								   			<a class="nav-link" id="navlinka" href="studentManageForm.do">Student Manage</a>
+								 		</li>
+								  	</ul>
+							  	</div>
+							  	
+							</li>
+						</c:if>
+						
+						<c:if test="${empty id }">
+							<li class="nav-item">
+							  	<a class="nav-link" href="memberLoginForm.do">Login</a>
+							</li>
+							
+							<li class="nav-item">
+							  	<a class="nav-link" href="emailPermissionForm.do">Join</a>
+							</li>
+						</c:if>
+						
+						<c:if test="${not empty id }">
+							<li class="nav-item">
+							  	<a class="nav-link" href="memberLogout.do">Logout</a>
+							</li>
+						</c:if>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+</header>
 
 <script type="text/javascript" src="template/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="template/js/bootstrap.js"></script>
@@ -240,6 +276,7 @@ function hasScrolled() {
 	if (st > lastScrollTop && st > navbarHeight){ 
 		// Scroll Down 
 		$('header').removeClass('nav-down').addClass('nav-up'); 
+		$('#divdropdown').attr("style", "display:none;");
 	} else { 
 		// Scroll Up 
 		if(st + $(window).height() < $(document).height()) { 
@@ -249,6 +286,18 @@ function hasScrolled() {
 	
 	lastScrollTop = st; 
 }
+
+
+function adminDropDown() {
+	if($('#divdropdown').attr("style") == "display:none;") {
+		$('#divdropdown').attr("style", "display:block; position:absolute; top:"+ ($('#btnadmin').offset().top + 70) + "; left:" + ($('#btnadmin').offset().left) + ";");
+		
+	}else {
+		$('#divdropdown').attr("style", "display:none;");
+	}
+}
+
+
 </script>
 
 </body>

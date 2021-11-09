@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="co.yedam.thinkwise.teacher.service.TeacherMapper">
+	<select id="studentList" resultType="co.yedam.thinkwise.student.service.StudentVO">
+		<![CDATA[
+		SELECT m.id, m.name, c.class_cd as classCd,  c.subject_nm ||' '|| c.class_day ||' '|| c.class_time ||' '|| c.fr_period||'-'|| c.to_period as classInfo
+		FROM member m, student s, (SELECT * FROM subject sub, class c WHERE sub.subject_cd=c.subject_cd) c
+		WHERE m.id = s.id
+		AND s.class_cd = c.class_cd(+)
+		AND m.id NOT IN (select parent FROM member WHERE (NVL(parent, '-') <> '-' OR parent <> ''))
+		AND m.division = 'S'
+		]]>
+	</select>
+	
+	<select id="classList" resultType="co.yedam.thinkwise.student.service.StudentVO">
+		<![CDATA[
+		SELECT c.class_cd as classCd, s.subject_nm ||' '|| c.class_day ||' '|| c.class_time ||' '|| c.fr_period||'-'|| c.to_period as classInfo
+		FROM subject s, class c 
+        WHERE s.subject_cd=c.subject_cd
+        AND c.to_period > to_char(sysdate, 'yyyymmdd')
+        ]]>
+	</select>
+	
+	<insert id="studentInsert" parameterType="co.yedam.thinkwise.student.service.StudentVO">
+		INSERT INTO student VALUES(#{id}, #{classCd}, #{payYn})
+	</insert>
+	
+	<update id="studentUpdate" parameterType="co.yedam.thinkwise.student.service.StudentVO">
+		UPDATE student set class_cd=#{classCd}, pay_yn=#{payYn} WHERE id=#{id}
+	</update>
+	
+	<delete id="studentDelete" parameterType="co.yedam.thinkwise.student.service.StudentVO">
+		DELETE FROM student WHERE id=#{id}
+	</delete>
+	
+</mapper>

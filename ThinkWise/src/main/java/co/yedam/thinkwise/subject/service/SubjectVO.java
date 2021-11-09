@@ -9,4 +9,5 @@ public class SubjectVO {
 	String subjectCd;
 	String subjectNm;
 	String subjectInfo;
+	String useYn;
 }

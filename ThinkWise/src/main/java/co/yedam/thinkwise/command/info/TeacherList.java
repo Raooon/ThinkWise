@@ -17,15 +17,13 @@ public class TeacherList implements Command {
 		TeacherService teacherDao = new TeacherServiceImpl();
 		ObjectMapper mapper = new ObjectMapper(); //json 라이브러리
 		String teachers = null;
-		
 		try {
 			teachers = mapper.writeValueAsString(teacherDao.teacherList());
 		}catch(JacksonException e) {
 			e.printStackTrace();
 		}
 		
-		
-		//request.setAttribute("subjects", subjectDao.subjectList());
+		//request.setAttribute("teachers", teacherDao.teacherList());
 		
 		return "ajax:" + teachers;
 	}

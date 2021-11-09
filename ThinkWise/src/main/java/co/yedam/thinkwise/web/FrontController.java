@@ -39,7 +39,6 @@ import co.yedam.thinkwise.command.info.HomeCommand;
 import co.yedam.thinkwise.command.info.KakaoChat;
 import co.yedam.thinkwise.command.info.KakaoLogin;
 import co.yedam.thinkwise.command.info.Location;
-import co.yedam.thinkwise.command.info.SubjectList;
 import co.yedam.thinkwise.command.info.TeacherList;
 import co.yedam.thinkwise.command.member.EmailPermision;
 import co.yedam.thinkwise.command.member.EmailPermisionForm;
@@ -58,6 +57,10 @@ import co.yedam.thinkwise.command.member.MemberPwEdit;
 import co.yedam.thinkwise.command.member.SelectMemberList;
 import co.yedam.thinkwise.command.member.SelectMyInfo;
 import co.yedam.thinkwise.command.member.SendEmail;
+import co.yedam.thinkwise.command.subject.SubjectInsert;
+import co.yedam.thinkwise.command.subject.SubjectList;
+import co.yedam.thinkwise.command.subject.SubjectManageForm;
+import co.yedam.thinkwise.command.subject.SubjectUpdate;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -98,13 +101,17 @@ public class FrontController extends HttpServlet {
 		map.put("/classDelete.do", new ClassDelete()); // 수업 삭제
 		map.put("/classEdit.do", new ClassEdit()); // 수업 정보수정
 
-
+		
+		map.put("/subjectManageForm.do", new SubjectManageForm()); //과목관리 폼 호출
+		map.put("/subjectInsert.do", new SubjectInsert()); //과목등록
+		map.put("/subjectUpdate.do", new SubjectUpdate()); //과목수정
 		map.put("/carlendar.do", new Carlendar()); //캘린더
 		map.put("/location.do", new Location()); //찾아오는 길
 		map.put("/kakaoLogin.do", new KakaoLogin()); //카카오로그인
 		map.put("/kakaoChat.do", new KakaoChat()); //카카오톡 연동??
-		map.put("/subjectList.do", new SubjectList()); //과목리스트 조회
-		map.put("teacherList.do", new TeacherList()); //선생님리스트 조회
+		map.put("/subjectList.do", new SubjectList()); //메인 과목리스트 조회
+		map.put("/teacherList.do", new TeacherList()); //메인 선생님리스트 조회
+		
 		//notice
 		map.put("/noticeList.do", new NoticeList()); // 공지사항 조회
 		
