@@ -34,6 +34,13 @@
 		font-size: 44px;
 		margin-top: -50px;
 	}
+	#LoId1{
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+		margin-left: 0px;
+		color: rgb(8, 36, 101);
+		font-size: 44px;
+		margin-top: -50px;
+	}
 </style>
 </head>
 <body>
@@ -113,7 +120,7 @@
 <div id="app" style="display: none">
 <section class="is-hero-bar">
   <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-    <h1 class="title">
+    <h1 class="title" id="LoId1">
       Student Class Register
     </h1>
   </div>
