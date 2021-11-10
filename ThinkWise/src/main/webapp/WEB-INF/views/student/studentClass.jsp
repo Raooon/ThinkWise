@@ -60,8 +60,8 @@
 									<th>수업코드</th>
 									<th>수업정보</th>
 									<th>지불여부</th>
-									<th>수정</th>
-									<th>삭제</th>
+									<th></th>
+									<th></th>
 								</tr>
 							</thead>
 							<tbody>
