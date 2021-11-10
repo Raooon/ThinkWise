@@ -18,6 +18,8 @@
 	#app{
       	margin: 70px;
       	padding-top: 30px;
+      	margin-left: 15%;
+      	margin-right: 15%;
    	}
    	#layoutSidenav{
       	margin: 70px;
