@@ -140,9 +140,11 @@ input[type=text] {
 								<div class="d-flex align-items-center mt-4">
 
 									<p class="ml-auto mb-0">
-										<a href="#" class="mr-2">Admin</a> <a href="#"
-											class="meta-chat"><span class="icon-chat"></span>
-											${board.hit }</a>
+										<a href="#" class="mr-2">Admin</a> 
+										<a href="#"	class="meta-chat">
+											<span class="icon-eye"></span>
+											${board.hit }
+										</a>
 									</p>
 								</div>
 							</div>

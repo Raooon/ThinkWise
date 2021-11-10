@@ -103,7 +103,8 @@ input[type=text] {
 
 							<td>
 								등록일 ${notice.enrollDt }
-								<c:if test="${not empty modifiedDate}">
+								<c:if test="${not empty notice.modifyDt}">
+									&nbsp;&nbsp;&nbsp;
 									수정일 ${notice.modifyDt }
 								</c:if>
 							</td>

@@ -10,21 +10,11 @@
 1. C 드라이브에 thinkwise 폴더 생성 -> 그 안에 upload 폴더 생성.
 2. servers 의 톰캣 - server.xml파일에 아래를 추가.								
 <Host~~~~>								
-				<Context docBase="c:/thinkwise/upload/" path="/ThinkWise/upload" reloadable="true" />	
+				<Context docBase="c:/thinkwise/upload/" path="/ThinkWise/upload/" reloadable="true" />	
 </Host>	
 
 @ Notice, Board 공통
 
 - 페이징 기능 실현
 
-@ Board 부분
-* boardList.jsp
 
-- 댓글 갯수 가져와서 같이 보여주기. -> 조회수 아이콘으로 바꾸는게 좋을 듯 함.
-
-* boardSelect.jsp
-
-- 사진 갯수에 따른 창 크기
-	-> 사진 갯수가 하나 일때, td가 tr의 전체를 차지하지 못 하는 문제. -> 조건문으로 해결해야할 듯함.
-
-새로운 댓글에 버튼 넣어줘야함.
