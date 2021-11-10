@@ -340,16 +340,16 @@ input[type=text] {
 			
 				
 				var addButton = $('<input />').addClass('btn btn-outline-secondary')
-								.attr('onclick', 'commentAdd(' + data.commentNo + ')')
+								.attr('onclick', 'openInsert(' + data.commentNo + ')')
 								.attr('id','i' + data.commentNo)
 								.attr('type','button')
 								.val('답글');
 				
-				var cancleButton = $('<input />').addClass('btn btn-outline-secondary')
-								.attr('onclick', 'closeInsert(' + data.commentNo + ')')
-								.attr('id','c' + data.commentNo)
+				var deleteButton = $('<input />').addClass('btn btn-outline-secondary')
+								.attr('onclick', 'CommentsDelete(' + data.commentNo + ')')
+								.attr('id','d' + data.commentNo)
 								.attr('type','button')
-								.val('취소');
+								.val('삭제');
 				
 				var updateButton = $('<input />').addClass('btn btn-outline-secondary')
 								.attr('onclick', 'CommentsChange(' + data.commentNo + ')')
@@ -361,7 +361,7 @@ input[type=text] {
 					$(btnDiv).append(
 							addButton,
 							updateButton,
-							cancleButton
+							deleteButton
 					)
 				);
 				
@@ -375,18 +375,18 @@ input[type=text] {
 
 		function replyAttach(data) {
 
-			var beforeTr = $('<tr />').addClass('subCom'+data.commentNo);
+			var beforeTr = $('<tr />').addClass('subCom'+data.commentNo2);
 				var idTd = $('<td />').html('&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;' + data.name);
 				var enrollTd = $('<td />').text(data.enrollDt);
 
 			$(beforeTr).append(idTd, enrollTd);
 
-			var afterTr = $('<tr />').addClass('subCom'+data.commentNo).attr('id','subcmt'+data.commentNo);
+			var afterTr = $('<tr />').addClass('subCom'+data.commentNo2).attr('id','subcmt'+data.commentNo);
 				var contextTd = $('<td />')
 								.html('&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<textarea rows="1" cols="80" id="comment'+data.commentNo+'" name="commentList" style="resize: none; width: 90%" readonly="readonly">'
 									+ data.contents + '</textarea>');
 
-			var btnTr = $('<tr />').addClass('subCom'+data.commentNo);
+			var btnTr = $('<tr />').addClass('subCom'+data.commentNo2);
 			
 				var blankSpan = $('<span />').html('&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;');
 				
@@ -436,6 +436,7 @@ input[type=text] {
 			$('#i' + num).hide();
 			$('#e' + num).hide();
 			$('#d' + num).hide();
+			$('#c' + num).hide();
 
 		}
 
