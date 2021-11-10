@@ -113,7 +113,7 @@
 </script>
 
 <style>
-
+	
 	header{
 		position: fixed;
 		z-index: 10000;
@@ -228,7 +228,7 @@
 							  	<a class="nav-link" href="memberLoginForm.do">Login</a>
 							</li>
 							<li class="nav-item">
-							  	<a class="nav-link" href="emailPermissionForm.do">Join</a>
+							  	<a class="nav-link" href="memberInputForm.do">Join</a>
 							</li>
 						</c:if>
 						
@@ -326,4 +326,4 @@ function adminDropDown(btn) {
 </script>
 
 </body>
-</html>
+</html>tml>

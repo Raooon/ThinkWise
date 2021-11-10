@@ -16,13 +16,22 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 <style>
 	#app{
-      margin: 70px;
-      padding-top: 30px;
-   }
-   #layoutSidenav{
-      margin: 70px;
-      padding-top: 30px;
-   }
+      	margin: 70px;
+      	padding-top: 30px;
+   	}
+   	#layoutSidenav{
+      	margin: 70px;
+      	padding-top: 30px;
+      	margin-left: 15%;
+      	margin-right: 15%;
+   	}
+   	#LoId{
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+		margin-left: 30px;
+		color: rgb(8, 36, 101);
+		font-size: 44px;
+		margin-top: -50px;
+	}
 </style>
 </head>
 <body>
@@ -36,8 +45,8 @@
 <div id="layoutSidenav">
 	<div id="layoutSidenav_content">
 		<main>
+			<h1 class="mt-4" id="LoId">Subject List</h1>
 			<div class="container-fluid px-4">
-				<h1 class="mt-4">Subject List</h1>
 				<div class="card mb-4">
 					<div class="card-header">
 						<i class="fas fa-table me-1"></i> DataTable
