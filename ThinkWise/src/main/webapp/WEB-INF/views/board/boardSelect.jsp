@@ -375,18 +375,18 @@ input[type=text] {
 
 		function replyAttach(data) {
 
-			var beforeTr = $('<tr />').addClass('subCom'+data.commentNo2);
+			var beforeTr = $('<tr />').addClass('subCom'+data.commentNo2).addClass('subCom'+data.commentNo);
 				var idTd = $('<td />').html('&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;' + data.name);
 				var enrollTd = $('<td />').text(data.enrollDt);
 
 			$(beforeTr).append(idTd, enrollTd);
 
-			var afterTr = $('<tr />').addClass('subCom'+data.commentNo2).attr('id','subcmt'+data.commentNo);
+			var afterTr = $('<tr />').addClass('subCom'+data.commentNo2).addClass('subCom'+data.commentNo).attr('id','subcmt'+data.commentNo);
 				var contextTd = $('<td />')
 								.html('&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<textarea rows="1" cols="80" id="comment'+data.commentNo+'" name="commentList" style="resize: none; width: 90%" readonly="readonly">'
 									+ data.contents + '</textarea>');
 
-			var btnTr = $('<tr />').addClass('subCom'+data.commentNo2);
+			var btnTr = $('<tr />').addClass('subCom'+data.commentNo2).addClass('subCom'+data.commentNo);
 			
 				var blankSpan = $('<span />').html('&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;');
 				
