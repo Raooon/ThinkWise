@@ -42,21 +42,27 @@
 	#mapcontainer{
 		margin: 70px;
 		padding-top: 100px;
-		padding-bottom: 100px;
+		padding-bottom: 120px;
+		padding-left:10px;
 		display: inline-block;
 	}
-
+	div.col-sm-1{
+		margin-left: 40px;
+	}
 	div.col-sm-5,
 	div.col-sm-4{
 		padding-left: 0px;
 	}
+	div.col-sm-{
+		margin-right: 10px;
+	}
 	
 	#LoId{
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-	margin-left: 130px;
+	margin-left: 200px;
 	color: rgb(8, 36, 101);
 	font-size: 44px;
-	margin-top: -50px;
+	margin-top: -60px;
 	}
 </style>
 
@@ -69,8 +75,8 @@
 		<div class="container-fluid px-4">
 			<h1 id="LoId">Location</h1>
 		</div>
-		<br><br>
-		<div class="row">
+		<br>
+		<div class="row" style="margin-left:15px; margin-right:20px;">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-5">
 				<div class="card bg-light">
