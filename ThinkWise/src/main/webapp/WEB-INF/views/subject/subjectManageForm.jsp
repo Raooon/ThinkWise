@@ -59,7 +59,7 @@
 									<th class="col-sm-2">과목명</th>
 									<th class="col-sm-7">과목정보</th>
 									<th class="col-sm-1">사용여부</th>
-									<th class="col-sm-1">수정</th>
+									<th class="col-sm-1"></th>
 								</tr>
 							</thead>
 							<tbody>
